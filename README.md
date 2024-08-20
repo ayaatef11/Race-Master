@@ -1,8 +1,1 @@
-# Race_competition
--Applying MVC it is a project for races
--Adding identity
--Adding unit testing
--Adding web scraping 
--uploading photos
--using the repository pattern
--Adding migrations 
+A race management system is designed to handle the creation, registration, and tracking of races, participants, and race results. The system follows the Model-View-Controller pattern, ensuring a clean separation of concerns between the data (Model), user interface (View), and application logic (Controller).
