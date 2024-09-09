@@ -1,11 +1,6 @@
 ﻿@using RunGroopWebApp.ViewModels
 @model WelcomeViewModel
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
 
-}
      <section>
         <div class="container">
           <form class="row justify-content-around">
@@ -20,7 +15,6 @@
                   </div>
                   <!--end of col-->
                    <div class="media flex-wrap mb-0 align-items-center">
-                                @*<img alt="Image" src="@imageU" class="avatar avatar-lg mb-3 mb-md-0" />*@
                                 <div class="media-body">
                                     <form asp-action="EditProfile" enctype="multipart/form-data">
                                         <label asp-for="Image" class="custom-file mb-2" for="file2">

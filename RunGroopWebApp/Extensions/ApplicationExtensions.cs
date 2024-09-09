@@ -1,4 +1,5 @@
-﻿using RunGroopWebApp.Interfaces;
+﻿using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Interfaces.Services;
 using RunGroopWebApp.Repository;
 using RunGroopWebApp.Services;
 

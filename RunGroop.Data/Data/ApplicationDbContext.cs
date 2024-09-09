@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RunGroopWebApp.Models;
+using RunGroop.Data.Models;
+using RunGroop.Data.Models.Data;
+using RunGroop.Data.Models.Identity;
 
 namespace RunGroopWebApp.Data
 {
@@ -11,5 +13,12 @@ namespace RunGroopWebApp.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
-    }
+        public DbSet<Notification>Notifications { get; set; }
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			base.OnModelCreating(builder);
+            //nameof is faster than the string 
+            builder.Entity<Race>(e=>e.ToTable(nameof(Race)));
+		}
+	}
 }

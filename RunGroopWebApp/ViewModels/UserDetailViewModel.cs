@@ -11,7 +11,9 @@ public class UserDetailViewModel
     public string? City { get; set; }
     public string? State { get; set; }
     public string ProfileImageUrl { get; set; }= string.Empty;
-
+    /// <summary>
+    /// 
+    /// </summary>
     public string Location => (City, State) switch
     {
         (string city, string state) => $"{city}, {state}",

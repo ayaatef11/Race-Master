@@ -1,18 +1,11 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using RunGroopWebApp.Data;
+﻿
+using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
-using RunGroopWebApp.Repository;
 using RunGroopWebApp.Scraper.Data;
 using RunGroopWebApp.Scraper.Extensions;
 using RunGroopWebApp.Scraper.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RunGroopWebApp.Scraper.Services
 {

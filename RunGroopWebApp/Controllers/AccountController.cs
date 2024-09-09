@@ -1,37 +1,84 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.Data;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
 using RunGroopWebApp.ViewModels;
+//c#logging
+/*Trace = 0
 
+Debug = 1
+
+Information = 2
+
+Warning =3
+
+Updates
+eRight
+
+Error = 4
+
+Critical = 5
+
+rts
+
+None = 6
+
+Log level for very low severity diagnostic messages.
+
+Log level for low severity diagnostic messages.
+
+Log level for informational diagnostic messages.
+
+Log level for diagnostic messages that indicate a non-
+fatal problem.
+
+Log level for diagnostic messages that indicate a failure
+in the current operation.
+
+Log level for diagnostic messages that indicate a failure
+that will terminate the entire application.
+
+The highest possible log level. Used when configuring
+logging to indicate that no log messages should be
+emitted.*/
+/*UserManager & SignInManager
+
+x
+
+UserManager<IdentityUser>
+CreateAsync
+DeleteAsync
+UpdateAsync
+Etc ...
+
+SignInManager<IdentityUser>
+SignlnAsync
+SignOutAsync
+IsSignedln*/
 namespace RunGroopWebApp.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController(UserManager<AppUser> _userManager,
+            SignInManager<AppUser> _signInManager,
+            ApplicationDbContext _context,
+            ILocationService _locationService) : Controller
     {
-        private readonly UserManager<AppUser> _userManager;
-        private readonly SignInManager<AppUser> _signInManager;
-        private readonly ApplicationDbContext _context;
-        private readonly ILocationService _locationService;
 
-        public AccountController(UserManager<AppUser> userManager, 
-            SignInManager<AppUser> signInManager, 
-            ApplicationDbContext context,
-            ILocationService locationService)
-        {
-            _context = context;
-            _locationService = locationService;
-            _signInManager = signInManager;
-            _userManager = userManager;
-        }
-        
+
         public IActionResult Login()
         {
             var response = new LoginViewModel();
-            return View(response);
-        }
+            if (!ModelState.IsValid)
+            {
+                // Model validation failed, show errors to the user
+                return View(response);
+            }
 
-        [HttpPost]
+            // Proceed with login logic
+            return RedirectToAction("Index", "Home");
+        }
+     
+
+	[HttpPost]
         public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (!ModelState.IsValid) return View(loginViewModel);
@@ -102,7 +149,22 @@ namespace RunGroopWebApp.Controllers
             var locationResult = await _locationService.GetLocationSearch(location);
             return Json(locationResult);
         }
+        public async Task<string> GenerateTwoFactorTokenAsync(AppUser user, string purpose)
+        {
 
+            // Generate the token for two-factor authentication
+            var token = await _userManager.GenerateUserTokenAsync(user, "Default", purpose);
+            return token;
+        }
+
+        public async Task<string> GenerateEmailConfirmationTokenAsync(AppUser user)
+        {
+
+            // Generate the token for email confirmation
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            return token;
+
+        }
 
     }
 }

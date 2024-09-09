@@ -1,14 +1,11 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+﻿
+using AngleSharp.Dom;
+using CloudinaryDotNet.Actions;
+using DocumentFormat.OpenXml.Bibliography;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Extensions;
-using RunGroopWebApp.Models;
 using RunGroopWebApp.Scraper.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RunGroopWebApp.Scraper.Services
 {
@@ -17,8 +14,11 @@ namespace RunGroopWebApp.Scraper.Services
         private IWebDriver _driver;
         public MeetupScraper()
         {
-            _driver = new ChromeDriver();
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            //create reference for our browser
+            _driver = new ChromeDriver();//open a new web browser
         }
+
 
         public void Run()
         {
@@ -30,16 +30,18 @@ namespace RunGroopWebApp.Scraper.Services
             int batchSize = 100;
             int currentBatch = 0;
             bool done = false;
-            while(!done)
+            // while(!done)
             using (var context = new ScraperDBContext())
             {
-               var cities = context.Cities.OrderBy(x => x.Id).Skip(currentBatch++ * batchSize).Take(batchSize).ToList();
-                foreach(var city in cities)
+                IterateOverRunningClubs("city.StateCode.ToLower()", "city.CityName.ToLower()");
+
+                var cities = context.Cities.OrderBy(x => x.Id).Skip(currentBatch++ * batchSize).Take(batchSize).ToList();
+                foreach (var city in cities)
                 {
                     IterateOverRunningClubs(city.StateCode.ToLower(), city.CityName.ToLower());
-                    if(city.Id == 40000)
+                    if (city.Id == 40000)
                     {
-                       done = true;
+                        done = true;
                     }
                 }
             }
@@ -50,9 +52,13 @@ namespace RunGroopWebApp.Scraper.Services
         {
             try
             {
+                //make a web scraper for google search results 
+                //navigate for the page 
                 _driver.Navigate().GoToUrl($"https://www.meetup.com/find/?suggested=true&source=GROUPS&keywords=running%20club&location=us--{state}--{city}");
-                //System.Threading.Thread.Sleep(1000);
-                var pageElements = _driver.FindElements(By.CssSelector("h3[data-testid='group-card-title']"));
+                //find element by a shape of path
+                //get the name of the card
+                var pageElements = _driver.FindElements(By.CssSelector("h3[data-testid='group-card-title']"));//identify the controls of the page 
+                //perform operations 
                 for (int i = 0; i < pageElements.Count; i++)
                 {
                     try
@@ -64,6 +70,8 @@ namespace RunGroopWebApp.Scraper.Services
                         if (element.Text.Contains("run", System.StringComparison.CurrentCultureIgnoreCase))
                         {
                             element.Click();
+                            element.SendKeys("RunGroop");
+                            element.Submit();
                             var club = new Club()
                             {
                                 Title = _driver.FindElement(By.CssSelector("a[class='groupHomeHeader-groupNameLink']")).Text ?? "",
@@ -87,6 +95,7 @@ namespace RunGroopWebApp.Scraper.Services
                         }
 
                     }
+
                     catch (Exception ex)
                     {
                         Console.Error.WriteLine(ex.Message);
@@ -100,5 +109,23 @@ namespace RunGroopWebApp.Scraper.Services
             }
         }
 
+        public static string GetText(IWebDriver driver, string element, string elementtype)
+        {
+
+            if (elementtype == "Id")
+                return driver.FindElement(By.Id(element)).GetAttribute("value");
+            if (elementtype == "Name")
+                return driver.FindElement(By.Name(element)).GetAttribute("value");
+            else return String.Empty;
+        }
+        public static string GetTextFromDDL(IWebDriver driver, string element, string elementtype)
+        {
+
+            if (elementtype == "Id")
+                return new SelectElement(driver.FindElement(By.Id(element))).AllSelectedOptions.SingleOrDefault().Text;
+            if (elementtype == "Name")
+                return new SelectElement(driver.FindElement(By.Name(element))).AllSelectedOptions.SingleOrDefault().Text;
+            else return String.Empty;
+        }
     }
 }

@@ -1,0 +1,49 @@
+﻿<script>
+    function readNotification(id, target) {
+        $.ajax({
+            url: "/Notification/ReadNotification",
+            method: "GETE,
+    data: { notificationId: id },
+            success: function (result) {
+                getNotification();
+                $(target).fade0ut('slow');
+
+                error: function(error) {
+                    console.log(error);
+
+                    getNotification();
+
+                    let connection = new signalR.HubConnection("/signalServer");
+
+                    connection.on('displayNotification', () => {
+                        getNotification();
+
+                    });
+
+                    connection.start();
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#noti_Container").ikrNotificationSetup();
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/Notifications/GetNotifications",
+            traditional: true,
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                var notifications = data;
+                $("#noti_Container").ikrNotificationCount({
+                    NotificationList: notifications,
+                    NotiFromPropName: "FromUserName",
+                    ListTitlePropName: "NotiHeader",
+                    ListBodyPropName: "NotiBody",
+                    ControllerName: "Notifications",
+                    ActionName: "AllNotifications"
+
+                });
+
+            },
+            error: function (xhr, status, error) { }
+            </script>

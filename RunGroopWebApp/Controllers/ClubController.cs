@@ -1,22 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
+using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Helpers;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ClubController : Controller
+    public class ClubController(IClubRepository _clubRepository, IPhotoService _photoService) : Controller
     {
-        private readonly IClubRepository _clubRepository;
-        private readonly IPhotoService _photoService;
-
-        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
-        {
-            _clubRepository = clubRepository;
-            _photoService = photoService;
-        }
 
         [Route("RunningClubs")]
         public async Task<IActionResult> Index(int category = -1, int page = 1, int pageSize = 6)
@@ -61,7 +54,7 @@ namespace RunGroopWebApp.Controllers
             {
                 Clubs = clubs
             };
-            if (clubs.Count() == 0)
+            if (!clubs.Any())
             {
                 clubVM.NoClubWarning = true;
             }
@@ -80,7 +73,7 @@ namespace RunGroopWebApp.Controllers
             {
                 Clubs = clubs
             };
-            if (clubs.Count() == 0)
+            if (!clubs.Any())
             {
                 clubVM.NoClubWarning = true;
             }
@@ -128,7 +121,7 @@ namespace RunGroopWebApp.Controllers
 
         [HttpGet]
         [Route("RunningClubs/{state}/City")]
-        public async Task<IActionResult> RunningClubsByCityDirectory(string state)
+        public async Task<IActionResult> RunningClubsByCityDirectory(string state)//primitive data are binded automatically 
         {
             var cities = await _clubRepository.GetAllCitiesByState(StateConverter.GetStateByName(state).ToString());
             var clubVM = new RunningClubByCity()
@@ -262,5 +255,16 @@ namespace RunGroopWebApp.Controllers
             _clubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
         }
+
+        /*private void btnLoadIntoMap_Click(object sender,
+
+map.DragButton = MouseButtons. Righth
+map.MapProvider = GMapProviders.GoogleMap;
+double lat = Convert.ToDouble(txtLat.Text);
+double longt = Convert.ToDouble(txtLong.Text)
+map.Position = new PointLatLng(lat, longt);
+map.MinZoom = 5; // Minimum Zoom Level
+map.MaxZoom = 100; // Maximum Zoom Level
+map.Zoom = 10; // Current Zoom Level*/
     }
 }

@@ -1,5 +1,4 @@
-﻿@using RunGroopWebApp.Data.Enum
-@using RunGroopWebApp.ViewModels
+﻿
 @model CreateRaceViewModel
 
 
@@ -36,7 +35,16 @@
                     </div> 
 
                     <div class="form-row form-group">
-                      <div class="col">                        
+                      <div class="col">
+                                        <!--asp-items:
+
+                                        This is a tag helper attribute used in Razor views to populate the items of a dropdown list (<select> element) with a collection of SelectListItem objects.
+                                        It works specifically with Razor's form elements like <select>, <input>, etc., to bind data to them dynamically.
+                                        @Html.//GetEnumSelectList<RaceCategory>():
+
+                                        @Html.//GetEnumSelectList<TEnum>() is a helper method in ASP.NET Core MVC that generates a list of SelectListItem objects based on an enumeration (enum).
+                                        <RaceCategory> specifies the enumeration type for which the dropdown list is being created.
+                                        This helper method automatically converts the values of the RaceCategory enum into a format suitable for populating a dropdown list. Each enum value becomes an option in the <select> element.-->
                          <select asp-for="RaceCategory" asp-items="@Html.GetEnumSelectList<RaceCategory>()" class="form-control">
                                     <option>--Select--</option>
                          </select>

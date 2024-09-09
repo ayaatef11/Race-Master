@@ -1,0 +1,13 @@
+F:\full-stack\Race_competition\RunGroop.Infrastructure\bin\Debug\net8.0\RunGroop.Infrastructure.deps.json
+F:\full-stack\Race_competition\RunGroop.Infrastructure\bin\Debug\net8.0\RunGroop.Infrastructure.dll
+F:\full-stack\Race_competition\RunGroop.Infrastructure\bin\Debug\net8.0\RunGroop.Infrastructure.pdb
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.csproj.AssemblyReference.cache
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.AssemblyInfoInputs.cache
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.AssemblyInfo.cs
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.csproj.CoreCompileInputs.cache
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.sourcelink.json
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.dll
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\refint\RunGroop.Infrastructure.dll
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.pdb
+F:\full-stack\Race_competition\RunGroop.Infrastructure\obj\Debug\net8.0\ref\RunGroop.Infrastructure.dll

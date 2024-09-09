@@ -8,10 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="CloudinaryDotNet" Version="1.26.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RunGroop.Data\RunGroop.Data.csproj" />
+    <ProjectReference Include="..\RunGroop.Repository\RunGroop.Repository.csproj" />
   </ItemGroup>
 
 </Project>

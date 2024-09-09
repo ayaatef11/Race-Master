@@ -1,17 +1,7 @@
-﻿using FakeItEasy;
-using FluentAssertions;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Controllers;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
-using RunGroopWebApp.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace RunGroopWebApp.Tests.Controller
 {
@@ -38,16 +28,18 @@ namespace RunGroopWebApp.Tests.Controller
             result.Should().BeOfType<Task<IActionResult>>();
         }
 
-        [Fact]
+        [Fact]//any testable method must be fact 
         public void ClubController_Detail_ReturnsSuccess()
         {
+            //arrange (initialize the variables)-act (call the method )-assert(check if expected equal actual) 
+            //take the edge cases 
             var id = 1;
-            var club = A.Fake<Club>();
-            A.CallTo(() => _clubRepository.GetByIdAsync(id)).Returns(club);
+            var club = A.Fake<Club>();//create a fake instace 
+            A.CallTo(() => _clubRepository.GetByIdAsync(id)).Returns(club);//sets the fake behaviour 
             
             var result = _clubController.DetailClub(id, "RunningClub");
            
-            result.Should().BeOfType<Task<IActionResult>>();
+            result.Should().BeOfType<Task<IActionResult>>();//check the result 
         }
 
 

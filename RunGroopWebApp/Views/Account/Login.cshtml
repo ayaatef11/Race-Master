@@ -1,5 +1,4 @@
-﻿@using RunGroopWebApp.ViewModels
-@model LoginViewModel
+﻿@model LoginViewModel//this is for model binding 
 
 @{
     ViewData["Title"] = "Login";
@@ -17,6 +16,7 @@
         }
         <div class="row">
             <div class="col-md-8 offset-2">
+                <!--forms go to the http post -->
                 <form asp-action="Login">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">

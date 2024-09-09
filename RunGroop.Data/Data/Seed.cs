@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Models;
 
 namespace RunGroopWebApp.Data
 {

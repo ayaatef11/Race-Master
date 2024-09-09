@@ -1,8 +1,12 @@
-﻿@using RunGroopWebApp.ViewModels
+﻿
 @model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.WelcomeMessage</h1>
+</div>
 
 <section class="bg-dark space-lg" data-jarallax data-speed="0.2">
     <img alt="Image" src="/img/photo-road.jpg" class="bg-image position-absolute opacity-20" />
@@ -44,14 +48,14 @@
                                 <span asp-validation-for="Register.ZipCode" class="text-danger"></span>
 
                             </div>
-@*                            <div class="mb-3">
+                              <div class="mb-3">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" value="agree" name="agree-terms" id="check-agree">
                                     <label class="custom-control-label text-small" for="check-agree">
                                         I agree to the <a href="#">Terms &amp; Conditions</a>
                                     </label>
                                 </div>
-                            </div>*@
+                            </div>
                             <button type="submit" class="btn btn-lg btn-success btn-block">Sign up for RunGroop</button>
                         </form>
                     </div>

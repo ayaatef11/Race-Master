@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RunGroopWebApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RunGroop.Data.Models.Data;
+
 
 namespace RunGroopWebApp.Scraper.Data
 {
@@ -18,7 +14,7 @@ namespace RunGroopWebApp.Scraper.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer( "Server=.;Database=ArmaPropertyDb;TrustServerCertificate = True;Encrypt= false;Integrated Security=SSPI"
+            optionsBuilder.UseSqlServer( "Server=.;Database=RunGroopDb;TrustServerCertificate = True;Encrypt= false;Integrated Security=SSPI"
 );
         }
     }

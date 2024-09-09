@@ -1,7 +1,7 @@
 ﻿global using Microsoft.EntityFrameworkCore;
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
 
 namespace RunGroopWebApp.Services
 {

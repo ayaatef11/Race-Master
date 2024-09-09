@@ -1,26 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using RunGroopWebApp.Data;
+﻿
+using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
+using RunGroopWebApp.Extensions;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class RaceController : Controller
+    public class RaceController(IRaceRepository _raceRepository, IPhotoService _photoService, IHttpContextAccessor _httpContextAccessor) : Controller
     {
-        private readonly IRaceRepository _raceRepository;
-        private readonly IPhotoService _photoService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public RaceController(IRaceRepository raceRepository, IPhotoService photoService, IHttpContextAccessor httpContextAccessor)
-        {
-            _raceRepository = raceRepository;
-            _photoService = photoService;
-            _httpContextAccessor = httpContextAccessor;
-        }
-
         public async Task<IActionResult> Index(int category = -1, int page = 1, int pageSize = 6)
         {
             if (page < 1 || pageSize < 1)

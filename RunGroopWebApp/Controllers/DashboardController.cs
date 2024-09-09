@@ -1,23 +1,13 @@
-﻿using CloudinaryDotNet.Actions;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
+﻿
+using RunGroop.Data.Interfaces.Repositories;
+using RunGroop.Data.Interfaces.Services;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
     [Authorize]
-    public class DashboardController : Controller
+    public class DashboardController(IDashboardRepository _dashboardRespository, IPhotoService _photoService) : Controller
     {
-        private readonly IDashboardRepository _dashboardRespository;
-        private readonly IPhotoService _photoService;
-
-        public DashboardController(IDashboardRepository dashboardRespository, IPhotoService photoService)
-        {
-            _dashboardRespository = dashboardRespository;
-            _photoService = photoService;
-        }
 
         public async Task<IActionResult> Index()
         {

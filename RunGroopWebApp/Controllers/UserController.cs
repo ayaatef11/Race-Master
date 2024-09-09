@@ -1,30 +1,47 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
+﻿
 using RunGroopWebApp.ViewModels;
-using RunGroopWebApp.Interfaces;
-using RunGroopWebApp.Models;
+using RunGroop.Data.Models.Identity;
+using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Interfaces.Repositories;
+using Microsoft.AspNetCore.Http;
+/*Key Concepts of Sessions in ASP.NET Core MVC
 
+1. Session State:
+
+· Session state allows you to store user-specific data on the server side, and it's associated
+with a unique session ID sent to the client via a cookie or other mechanisms.
+
+. It's commonly used to keep track of user activities, preferences, and other temporary data
+throughout the user's visit to the website.
+
+2. Session Storage:
+
+. Data stored in a session is generally held in server memory. However, it can also be
+configured to use other storage providers like distributed caches or databases for
+scalability.
+
+3. Session ID:
+
+. The session ID is a unique identifier for each user's session, which is sent to the client in a
+cookie. The server uses this ID to retripe session data for subsequent requests.*/
+/*private readonly Lazy<IOwnerService> _lazyOwnerService;
+
+public ServiceManager(IRepositoryManager repositoryManager)
+
+_lazyOwnerService = new Lazy<IOwnerService>(()=> new OwnerService(repositoryManager));
+
+}
+
+public IOwnerService OwnerService => _lazyOwnerService.Value;*/
 namespace RunGroopWebApp.Controllers
 {
-    public class UserController : Controller
+    public class UserController(IUserRepository _userRepository, UserManager<AppUser> _userManager, IPhotoService _photoService) : Controller
     {
-        private readonly IUserRepository _userRepository;
-        private readonly UserManager<AppUser> _userManager;
-        private readonly IPhotoService _photoService;
-
-        public UserController(IUserRepository userRepository, UserManager<AppUser> userManager, IPhotoService photoService)
-        {
-            _userRepository = userRepository;
-            _userManager = userManager;
-            _photoService = photoService;
-        }
-
-        [HttpGet("users")]
+         [HttpGet("users")]
         public async Task<IActionResult> Index()
         {
             var users = await _userRepository.GetAllUsers();
-            List<UserViewModel> result = new List<UserViewModel>();
+			List<UserViewModel> result = new();
             foreach (var user in users)
             {
                 var userViewModel = new UserViewModel()
@@ -39,7 +56,9 @@ namespace RunGroopWebApp.Controllers
                 };
                 result.Add(userViewModel);
             }
-            return View(result);
+			var userInfo = JsonConvert.DeserializeObject<UserViewModel>(HttpContext.Session.GetString("SessionUser"));
+
+			return View(result);
         }
 
         [HttpGet]
@@ -48,7 +67,7 @@ namespace RunGroopWebApp.Controllers
             var user = await _userRepository.GetUserById(id);
             if (user == null)
             {
-                return RedirectToAction("Index", "Users");
+                return RedirectToAction("Index", "Users");//view all users 
             }
 
             var userDetailViewModel = new UserDetailViewModel()

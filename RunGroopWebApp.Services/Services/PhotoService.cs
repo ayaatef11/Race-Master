@@ -1,9 +1,9 @@
-﻿ using CloudinaryDotNet;
+﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
-using RunGroopWebApp.Helpers;
-using RunGroopWebApp.Interfaces;
+using RunGroop.Data.Helpers.Settings;
+using RunGroop.Data.Interfaces.Services;
 
 namespace RunGroopWebApp.Services
 {
