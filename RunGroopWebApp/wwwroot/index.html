@@ -2,23 +2,55 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>SignalR Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.9/signalr.min.js"></script>
 </head>
 <body>
-<script>
-    const socket = new WebSocket("");//give the url of the localhost
-    var i = 0;
-    //sending data 
-    socket.addEventListener('open', function (event) {
-        socket.send("Connection Open");
-        setInterval(function () {
-            socket.send("data" + i++)
-        }, 2000);
-    });
-    //receiving data
-    socket.addEventListener("message", function (event) {
-        console.log("Data Received ", event.data);
-    });
-</script>
+    <h2>SignalR Chat</h2>
+    <input id="userInput" type="text" placeholder="Name" />
+    <br />
+    <input id="messageInput" type="text" placeholder="Message" />
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messagesList"></ul>
+
+    <script>
+        // Connect to the hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        // Receive messages from the hub
+        connection.on("ReceiveMessage", (user, message) => {
+            const li = document.createElement("li");
+            li.textContent = `${user}: ${message}`;
+            document.getElementById("messagesList").appendChild(li);
+        });
+
+        // Start the connection
+        connection.start().catch(err => console.error(err.toString()));
+
+        // Send messages to the hub
+        function sendMessage() {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+            connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+        }
+        const socket = new WebSocket("");//give the url of the localhost
+        var i = 0;
+        //sending data
+        socket.addEventListener('open', function (event) {
+            socket.send("Connection Open");
+            setInterval(function () {
+                socket.send("data" + i++)
+            }, 2000);
+        });
+        //receiving data
+        socket.addEventListener("message", function (event) {
+            console.log("Data Received ", event.data);
+        });
+    </script>
 </body>
 </html>
+
+  
+    </script>

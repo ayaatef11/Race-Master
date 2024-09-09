@@ -1,4 +1,4 @@
-﻿using RunGroopWebApp.Models;
+﻿using RunGroop.Data.Models.Identity;
 
 namespace RunGroopWebApp.Interfaces
 {

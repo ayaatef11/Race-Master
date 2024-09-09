@@ -1,4 +1,4 @@
-﻿using RunGroopWebApp.Models;
+﻿
 
 namespace RunGroopWebApp.ViewModels;
 

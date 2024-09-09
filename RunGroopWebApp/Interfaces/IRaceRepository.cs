@@ -1,5 +1,5 @@
-﻿using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Models;
+﻿using RunGroop.Data.Models.Data;
+using RunGroopWebApp.Data.Enum;
 
 namespace RunGroopWebApp.Interfaces
 {

@@ -1,1 +1,5 @@
 RunGroopWebApp.sln
+.vs/
+/obj
+/bin
+.csproj

@@ -11,16 +11,15 @@ using RunGroopWebApp.Data;
 using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Services.Services;
 using GraphQL;
-using Serilog;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Options;
-using Microsoft.AspNetCore.Mvc;
 using static RunGroop.Data.Models.ClubQuery;
 using RunGroop.Data.Models.Localization;
 using RunGroop.Data.Helpers.Settings;
-using System.Text;
-using System.Net.WebSockets;
-
+using Serilog;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using Serilog.Events; // Optional, for handling log event levels if needed
+using System;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -54,28 +53,7 @@ the use of the wildcard *
 null , or the wildcard*/
 
 
-/*var config = new ConfigurationBuilder()
-.AddJsonFile("appsettings. json")
-.Build();
 
-Log.Logger = new LoggerConfiguration()
-.ReadFrom.Configuration(config)
-.CreateLogger();
-
-try {
-
-    Log.Information("Application Starting");
-    CreateHostBuilder(args).Build().Run();
-}
-catch (Exception ex)
-{
-
-    Log.Fatal(ex, "The application failed to start!");
-
-finally {
-
-    Log.CloseAndFLush(); 
-}*/
 
 var builder = WebApplication.CreateBuilder(args);
 //add backend services
@@ -84,7 +62,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHostedService<BackGroundWorkerService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationServices();
-builder.Services.AddConfigurationServices(builder.Configuration);
+//builder.Services.AddConfigurationServices(builder.Configuration);
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -217,8 +196,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseGraphQLAltair();///for interactive query statement 
-app.UseEndpoints(endpoints =>
 
+/*app.UseEndpoints(endpoints =>
 endpoints.Map("/ws", async ctx =>
 {
       List<WebSocket> _connections = new();
@@ -245,5 +224,29 @@ var buffer = new byte[1024 * 4];
 
         _connections.Remove(webSocket);
     } }));
-    //app.UseGraphQL<Schema>();
-    app.Run();
+   */
+//app.UseGraphQL<Schema>();
+
+/*var config = new ConfigurationBuilder()
+.AddJsonFile("appsettings. json")
+.Build();
+
+Log.Logger = new LoggerConfiguration()
+.ReadFrom.Configuration(config)
+.CreateLogger();
+
+try {
+
+    Log.Information("Application Starting");
+    CreateHostBuilder(args).Build().Run();
+}
+catch (Exception ex)
+{
+
+    Log.Fatal(ex, "The application failed to start!");
+
+finally {
+
+    Log.CloseAndFLush(); 
+}*/
+app.Run();

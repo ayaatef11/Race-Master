@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RunGroop.Data.Models;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
+using RunGroop.Data.Models.SignalR;
 
 namespace RunGroopWebApp.Data
 {

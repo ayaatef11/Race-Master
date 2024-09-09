@@ -7,7 +7,7 @@ using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.Data;
 using RunGroopWebApp.Helpers;
-using RunGroopWebApp.Models;
+//using RunGroopWebApp.Models;
 using RunGroopWebApp.ViewModels;
 using static Azure.Core.HttpHeader;
 using static System.Runtime.InteropServices.JavaScript.JSType;

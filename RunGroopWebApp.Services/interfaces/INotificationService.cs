@@ -1,5 +1,4 @@
-﻿
-using RunGroop.Data.Models;
+﻿using RunGroop.Data.Models.SignalR;
 
 namespace RunGroopWebApp.Services.interfaces
 {
