@@ -1,10 +1,7 @@
-﻿//using System.Windows.fo
+﻿/*
 using GMap.NET;
 using GMap.NET.MapProviders;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chromium;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
@@ -109,3 +106,4 @@ namespace RunGroopWebApp.Scraper.Services
         }
     }
 }
+*/

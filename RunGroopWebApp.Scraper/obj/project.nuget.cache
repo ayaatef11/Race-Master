@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T43d651LnvI=",
+  "dgSpecHash": "ePaLK8jKusw=",
   "success": true,
-  "projectFilePath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
+  "projectFilePath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aya Atef\\.nuget\\packages\\anglesharp\\1.1.2\\anglesharp.1.1.2.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kF5vgI1xTcY=",
+  "dgSpecHash": "2DN86/Dnwko=",
   "success": true,
-  "projectFilePath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
+  "projectFilePath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aya Atef\\.nuget\\packages\\cloudinarydotnet\\1.26.2\\cloudinarydotnet.1.26.2.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql\\5.3.0\\graphql.5.3.0.nupkg.sha512",

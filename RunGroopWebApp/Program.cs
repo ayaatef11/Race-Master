@@ -18,6 +18,9 @@ using Microsoft.AspNetCore.Mvc;
 using static RunGroop.Data.Models.ClubQuery;
 using RunGroop.Data.Models.Localization;
 using RunGroop.Data.Helpers.Settings;
+using System.Text;
+using System.Net.WebSockets;
+
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -73,6 +76,7 @@ finally {
 
     Log.CloseAndFLush(); 
 }*/
+
 var builder = WebApplication.CreateBuilder(args);
 //add backend services
 //glopalization means the application supports many languages and localization means the application adapts to the change of the language
@@ -203,6 +207,8 @@ var localizationOptions = new RequestLocalizationOptions()
 app.UseRequestLocalization(localizationOptions);
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseWebSockets(new() { KeepAliveInterval=TimeSpan.FromSeconds(30)});
+
 
 app.UseRequestCulture();
     app.MapHub<SignalServer>("SignalServer");
@@ -211,6 +217,33 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.UseGraphQLAltair();///for interactive query statement 
+app.UseEndpoints(endpoints =>
 
-//app.UseGraphQL<Schema>();
-app.Run();
+endpoints.Map("/ws", async ctx =>
+{
+      List<WebSocket> _connections = new();
+
+
+var buffer = new byte[1024 * 4];
+    var webSocket = await ctx.WebSockets.AcceptWebSocketAsync();
+    _connections.Add(webSocket);
+
+    var result = await webSocket.ReceiveAsync(new(buffer), CancellationToken.None);
+    int i = 0;
+    while (!result.CloseStatus.HasValue)
+    {
+
+        var message = Encoding.UTF8.GetBytes($"message index {i++}");
+        foreach (var c in _connections)   await c.SendAsync(new(message, 0, message.Length), result.MessageType, result.EndOfMessage);
+
+        result = await webSocket.ReceiveAsync(new(buffer), CancellationToken.None);
+
+        Console.WriteLine($"Received: {Encoding.UTF8.GetString(buffer[..result.Count])}");
+
+        await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+
+
+        _connections.Remove(webSocket);
+    } }));
+    //app.UseGraphQL<Schema>();
+    app.Run();

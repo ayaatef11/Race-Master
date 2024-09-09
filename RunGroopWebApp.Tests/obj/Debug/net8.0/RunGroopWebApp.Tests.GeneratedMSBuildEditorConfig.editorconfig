@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RunGroopWebApp.Tests
-build_property.ProjectDir = F:\full-stack\Race_competition\RunGroopWebApp.Tests\
+build_property.ProjectDir = F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

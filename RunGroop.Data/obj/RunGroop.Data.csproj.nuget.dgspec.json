@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj": {}
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {}
   },
   "projects": {
-    "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
         "projectName": "RunGroop.Data",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroop.Data\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",

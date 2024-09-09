@@ -5,7 +5,7 @@ namespace RunGroop.Infrastructure
 {
     public  class NotificationHub
     {
-    /*    4public async Task SendNotification(string message)
+      public async Task SendNotification(string message)
     {
         
         await Clients.All.SendAsync("ReceiveNotification", message);
@@ -14,7 +14,7 @@ namespace RunGroop.Infrastructure
     public async Task SendNotificationToUser(string userId, string message)
     {
         await Clients.User(userId).SendAsync("ReceiveNotification", message);
-    }*/
+    }
     }
 }
 

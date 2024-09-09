@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj": {}
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj": {}
   },
   "projects": {
-    "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
         "projectName": "RunGroop.Data",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroop.Data\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -92,14 +92,14 @@
         }
       }
     },
-    "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
         "projectName": "RunGroop.Infrastructure",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -160,14 +160,14 @@
         }
       }
     },
-    "F:\\full-stack\\Race_competition\\RunGroop.Repository\\RunGroop.Repository.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroop.Repository\\RunGroop.Repository.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
         "projectName": "RunGroop.Repository",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Repository\\RunGroop.Repository.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroop.Repository\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -186,8 +186,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj": {
-                "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Data\\RunGroop.Data.csproj"
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj"
               }
             }
           }
@@ -226,14 +226,14 @@
         }
       }
     },
-    "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
         "projectName": "RunGroopWebApp.Scraper",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Scraper\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -252,8 +252,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\full-stack\\Race_competition\\RunGroopWebApp\\RunGroopWebApp.csproj": {
-                "projectPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp\\RunGroopWebApp.csproj"
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj"
               }
             }
           }
@@ -320,14 +320,14 @@
         }
       }
     },
-    "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
         "projectName": "RunGroopWebApp.Services",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -346,8 +346,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\full-stack\\Race_competition\\RunGroop.Repository\\RunGroop.Repository.csproj": {
-                "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Repository\\RunGroop.Repository.csproj"
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj"
               }
             }
           }
@@ -396,14 +396,14 @@
         }
       }
     },
-    "F:\\full-stack\\Race_competition\\RunGroopWebApp\\RunGroopWebApp.csproj": {
+    "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroopWebApp\\RunGroopWebApp.csproj",
+        "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj",
         "projectName": "RunGroopWebApp",
-        "projectPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp\\RunGroopWebApp.csproj",
+        "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp\\obj\\",
+        "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -422,11 +422,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj": {
-                "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj"
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj"
               },
-              "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
-                "projectPath": "F:\\full-stack\\Race_competition\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj"
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj"
               }
             }
           }

@@ -1327,11 +1327,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
+      "projectUniqueName": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
       "projectName": "RunGroop.Infrastructure",
-      "projectPath": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
+      "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-      "outputPath": "F:\\full-stack\\Race_competition\\RunGroop.Infrastructure\\obj\\",
+      "outputPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Aya Atef\\AppData\\Roaming\\NuGet\\NuGet.Config",
