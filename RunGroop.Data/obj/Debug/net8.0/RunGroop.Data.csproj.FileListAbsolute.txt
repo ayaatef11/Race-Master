@@ -28,3 +28,6 @@ F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGro
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\refint\RunGroop.Data.dll
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.pdb
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\ref\RunGroop.Data.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.Data\bin\Debug\net8.0\Data\Resources\ar-EG.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Data\bin\Debug\net8.0\Data\Resources\de-DE.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Data\bin\Debug\net8.0\Data\Resources\en-US.json

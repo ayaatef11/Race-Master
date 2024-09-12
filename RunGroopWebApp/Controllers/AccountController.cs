@@ -55,6 +55,27 @@ SignInManager<IdentityUser>
 SignlnAsync
 SignOutAsync
 IsSignedln*/
+
+/*[HttpPost]
+[ServiceFilter(typeof(ValidationFilterAttribute))]
+public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto 
+userForRegistration)
+{
+var result = await
+_service.AuthenticationService.RegisterUser(userForRegistration);
+if (!result.Succeeded)
+ 
+285
+{
+foreach (var error in result.Errors)
+{
+ModelState.TryAddModelError(error.Code, error.Description);
+}
+return BadRequest(ModelState);
+}
+return StatusCode(201);
+}
+*/
 namespace RunGroopWebApp.Controllers
 {
     public class AccountController(UserManager<AppUser> _userManager,

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nA5LKzUEV0W62XXCh9nItaBxtyi/arfWwvkqaObfKuk=",
+  "Hash": "BcT+etXohOtiTHoYcRm2tqzhB/nk38MOocLeDLWRBAg=",
   "Source": "RunGroopWebApp",
   "BasePath": "_content/RunGroopWebApp",
   "Mode": "Default",
@@ -3853,6 +3853,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\wwwroot\\index2.html",
+      "SourceId": "RunGroopWebApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\wwwroot\\",
+      "BasePath": "_content/RunGroopWebApp",
+      "RelativePath": "index2.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index2.html"
     },
     {
       "Identity": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\wwwroot\\js\\aos.js",

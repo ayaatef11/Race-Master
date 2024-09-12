@@ -14,28 +14,49 @@
     <ul id="messagesList"></ul>
 
     <script>
-        // Connect to the hub
-        const connection = new signalR.HubConnectionBuilder()
-            .withUrl("/chatHub")
+        /*Connection Setup: Establishes a connection to a SignalR hub.
+               Message Reception: Handles incoming messages from the server and updates the UI to display them.
+               Connection Start: Initiates the connection and handles any errors.
+               Message Sending: Sends messages from the client to the server and handles any errors. */
+      // Connect to the hub
+        // Initialize connection to the SignalR hub
+           /* const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub") // Ensure this matches your hub endpoint configuration
             .build();
 
-        // Receive messages from the hub
+        // Event listener to receive messages from the hub
         connection.on("ReceiveMessage", (user, message) => {
+            // Create a new list item element for each incoming message
             const li = document.createElement("li");
             li.textContent = `${user}: ${message}`;
+            // Append the new message to the messages list
             document.getElementById("messagesList").appendChild(li);
         });
 
-        // Start the connection
-        connection.start().catch(err => console.error(err.toString()));
+        // Start the SignalR connection
+        connection.start()
+            .then(() => console.log("Connected to the SignalR hub."))
+            .catch(err => console.error("Error connecting to the SignalR hub:", err.toString()));
 
-        // Send messages to the hub
+        // Function to send a message to the hub
         function sendMessage() {
-            const user = document.getElementById("userInput").value;
-            const message = document.getElementById("messageInput").value;
-            connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
-        }
-        const socket = new WebSocket("");//give the url of the localhost
+            const user = document.getElementById("userInput").value.trim();
+            const message = document.getElementById("messageInput").value.trim();
+
+            // Validate that both user and message fields are not empty
+            if (!user || !message) {
+                alert("Both user name and message fields must be filled out.");
+                return;
+            }
+
+            // Invoke the SendMessage method on the hub
+            connection.invoke("SendMessage", user, message)
+                .catch(err => console.error("Error sending message:", err.toString()));
+
+            // Clear the message input field after sending
+            document.getElementById("messageInput").value = '';
+        }*/
+        const socket = new WebSocket("ws://localhost:5195/ws");//give the url of the localhost
         var i = 0;
         //sending data
         socket.addEventListener('open', function (event) {
@@ -51,6 +72,3 @@
     </script>
 </body>
 </html>
-
-  
-    </script>

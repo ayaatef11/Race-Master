@@ -129,6 +129,7 @@ builder.Services.AddLocalization();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddSingleton<ISchema, ClubSchema>();
 
+
 //builder.Services.AddGraphQL(opt => opt.EnableMetrics = false).AddSystemTextJson();
 builder.Services.AddSignalR();
 builder.Services.AddCors();

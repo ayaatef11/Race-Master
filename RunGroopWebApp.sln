@@ -13,9 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroopWebApp.Services", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.Data", "RunGroop.Data\RunGroop.Data.csproj", "{CD2EC485-1777-4F91-9D1D-F159FC90A960}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroop.Repository", "RunGroop.Repository\RunGroop.Repository.csproj", "{CB297A43-130F-41E0-8F32-9AB64E1408E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.Repository", "RunGroop.Repository\RunGroop.Repository.csproj", "{CB297A43-130F-41E0-8F32-9AB64E1408E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroop.Infrastructure", "RunGroop.Infrastructure\RunGroop.Infrastructure.csproj", "{268B4BB5-EBB0-449E-AF1F-5F6F0B55AC84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.Infrastructure", "RunGroop.Infrastructure\RunGroop.Infrastructure.csproj", "{268B4BB5-EBB0-449E-AF1F-5F6F0B55AC84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{35CC96DD-A354-4893-B7F4-8AEE68310651}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4E3B4BC1-B408-4BF8-AE2D-C484FE2A8D0F} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
+		{28D349D8-816F-4C7F-A2A7-24FB714C2DE9} = {35CC96DD-A354-4893-B7F4-8AEE68310651}
+		{2A9F136F-1A3E-4C73-92A6-703C9E5AB98C} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
+		{CD2EC485-1777-4F91-9D1D-F159FC90A960} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
+		{CB297A43-130F-41E0-8F32-9AB64E1408E4} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
+		{268B4BB5-EBB0-449E-AF1F-5F6F0B55AC84} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7AA8F1C-EF85-48FB-A90F-4CCF1E395757}

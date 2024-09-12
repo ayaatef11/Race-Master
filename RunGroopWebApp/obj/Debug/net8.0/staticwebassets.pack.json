@@ -805,6 +805,10 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\wwwroot\\index2.html",
+      "PackagePath": "staticwebassets\\index2.html"
+    },
+    {
       "Id": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\wwwroot\\js\\aos.js",
       "PackagePath": "staticwebassets\\js\\aos.js"
     },
