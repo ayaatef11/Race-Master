@@ -22,6 +22,9 @@ using Serilog.Events; // Optional, for handling log event levels if needed
 using System;
 using MediatR;
 using RunGroopWebApp.Behaviors;
+using Microsoft.Identity.Client;
+using Microsoft.Extensions.Options;
+using RunGroopWebApp;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -130,8 +133,8 @@ builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLocalization();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 builder.Services.AddSingleton<ISchema, ClubSchema>();
-
-
+//* builder.Services.Configure<ApplicationOptions>(builder.Configuration.GetSection(nameof(ApplicationOptions)));
+builder.Services.ConfigureOptions<ApplicationOptionsSetup>();
 //builder.Services.AddGraphQL(opt => opt.EnableMetrics = false).AddSystemTextJson();
 builder.Services.AddSignalR();
 builder.Services.AddCors();
@@ -176,7 +179,19 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.MapGet("Options", (IOptions<ApplicationOptions>options,
+    IOptionsSnapshot<ApplicationOptions>optionsSnapShot,
+    IOptionsMonitor<ApplicationOptions>optionsMonitor
+    ) =>
+{
+    var response = new
+    {
+       OptionsValue= options.Value.ExampleValue,
+        SnapshotValue = optionsSnapShot.Value.ExampleValue,
+        MonitorValue = optionsMonitor.CurrentValue.ExampleValue
+    };
+    return Results.Ok(response);
+});
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCors(s=>s.AllowAnyHeader().AllowAnyOrigin());
