@@ -4,7 +4,6 @@ namespace RunGroop.Data.Interfaces.Repositories
 {
     public interface IClubRepository
     {
-        Task<IEnumerable<Club>> GetAll();
 
         Task<IEnumerable<Club>> GetSliceAsync(int offset, int size);
 
@@ -26,13 +25,6 @@ namespace RunGroop.Data.Interfaces.Repositories
 
         Task<int> GetCountByCategoryAsync(ClubCategory category);
 
-        bool Add(Club club);
-
-        bool Update(Club club);
-
-        bool Delete(Club club);
-
-        bool Save();
         public Task EventOccured(Club club,string ev);
     }
 }

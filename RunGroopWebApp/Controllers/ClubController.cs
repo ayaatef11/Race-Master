@@ -2,6 +2,7 @@
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
+using RunGroop.Repository.Interfaces;
 using RunGroopWebApp.Commands;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Extensions;
@@ -11,7 +12,7 @@ using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ClubController(ISender _sender,IMediator mediator, IPublisher _publisher, IClubRepository _clubRepository, IPhotoService _photoService) : Controller
+    public class ClubController(ISender _sender,IMediator mediator, IPublisher _publisher, IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
     {
 
         [Route("RunningClubs")]
@@ -27,7 +28,7 @@ namespace RunGroopWebApp.Controllers
         [Route("RunningClubs/{state}")]
         public async Task<IActionResult> ListClubsByState(string state)
         {
-            var clubs = await _clubRepository.GetClubsByState(StateConverter.GetStateByName(state).ToString());
+            var clubs = await _UnitOfWork.ClubRepository.GetClubsByState(StateConverter.GetStateByName(state).ToString());
             var clubVM = new ListClubByStateViewModel()
             {
                 Clubs = clubs
@@ -46,7 +47,7 @@ namespace RunGroopWebApp.Controllers
         [Route("RunningClubs/{city}/{state}")]
         public async Task<IActionResult> ListClubsByCity(string city, string state)
         {
-            var clubs = await _clubRepository.GetClubByCity(city);
+            var clubs = await _UnitOfWork.ClubRepository.GetClubByCity(city);
             var clubVM = new ListClubByCityViewModel()
             {
                 Clubs = clubs
@@ -66,7 +67,7 @@ namespace RunGroopWebApp.Controllers
         [Route("club/{runningClub}/{id}")]
         public async Task<IActionResult> DetailClub(int id, string runningClub)
         {
-            var club = await _clubRepository.GetByIdAsync(id);
+            var club = await _UnitOfWork.ClubRepository.GetByIdAsync(id);
 
             return club == null ? NotFound() : View(club);
         }
@@ -75,7 +76,7 @@ namespace RunGroopWebApp.Controllers
         [Route("RunningClubs/State")]
         public async Task<IActionResult> RunningClubsByStateDirectory()
         {
-            var states = await _clubRepository.GetAllStates();
+            var states = await _UnitOfWork.ClubRepository.GetAllStates();
             var clubVM = new RunningClubByState()
             {
                 States = states
@@ -88,7 +89,7 @@ namespace RunGroopWebApp.Controllers
         [Route("RunningClubs/State/City")]
         public async Task<IActionResult> RunningClubsByStateForCityDirectory()
         {
-            var states = await _clubRepository.GetAllStates();
+            var states = await _UnitOfWork.ClubRepository.GetAllStates();
             var clubVM = new RunningClubByState()
             {
                 States = states
@@ -101,7 +102,7 @@ namespace RunGroopWebApp.Controllers
         [Route("RunningClubs/{state}/City")]
         public async Task<IActionResult> RunningClubsByCityDirectory(string state)//primitive data are binded automatically 
         {
-            var cities = await _clubRepository.GetAllCitiesByState(StateConverter.GetStateByName(state).ToString());
+            var cities = await _UnitOfWork.ClubRepository.GetAllCitiesByState(StateConverter.GetStateByName(state).ToString());
             var clubVM = new RunningClubByCity()
             {
                 Cities = cities
@@ -137,7 +138,7 @@ namespace RunGroopWebApp.Controllers
                         State = clubVM.Address.State,
                     }
                 };
-                _clubRepository.Add(club);
+                _UnitOfWork.ClubRepository.Add(club);
                 return RedirectToAction("Index");
             }
             else
@@ -150,7 +151,7 @@ namespace RunGroopWebApp.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
-            var club = await _clubRepository.GetByIdAsync(id);
+            var club = await _UnitOfWork.ClubRepository.GetByIdAsync(id);
             if (club == null) return View("Error");
             var clubVM = new EditClubViewModel
             {
@@ -173,7 +174,7 @@ namespace RunGroopWebApp.Controllers
                 return View("Edit", clubVM);
             }
 
-            var userClub = await _clubRepository.GetByIdAsyncNoTracking(id);
+            var userClub = await _UnitOfWork.ClubRepository.GetByIdAsyncNoTracking(id);
 
             if (userClub == null)
             {
@@ -203,14 +204,14 @@ namespace RunGroopWebApp.Controllers
                 Address = clubVM.Address,
             };
 
-            _clubRepository.Update(club);
+            _UnitOfWork.ClubRepository.Update(club);
 
             return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> Delete(int id)
         {
-            var clubDetails = await _clubRepository.GetByIdAsync(id);
+            var clubDetails = await _UnitOfWork.ClubRepository.GetByIdAsync(id);
             if (clubDetails == null) return View("Error");
             return View(clubDetails);
         }
@@ -218,7 +219,7 @@ namespace RunGroopWebApp.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteClub(int id)
         {
-            var clubDetails = await _clubRepository.GetByIdAsync(id);
+            var clubDetails = await _UnitOfWork.ClubRepository.GetByIdAsync(id);
 
             if (clubDetails == null)
             {
@@ -230,7 +231,7 @@ namespace RunGroopWebApp.Controllers
                 _ = _photoService.DeletePhotoAsync(clubDetails.Image);
             }
 
-            _clubRepository.Delete(clubDetails);
+            _UnitOfWork.ClubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
         }
 

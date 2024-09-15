@@ -3,11 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
+using RunGroop.Repository.Repository;
 using RunGroopWebApp.Data;
 using RunGroopWebApp.Extensions;
 namespace RunGroopWebApp.Repository
 {
-    public class DashboardRepository(ApplicationDbContext _context, IHttpContextAccessor _httpContextAccessor) : IDashboardRepository
+    public class DashboardRepository(ApplicationDbContext _context, IHttpContextAccessor _httpContextAccessor) : BaseRepository<AppUser>(_context), IDashboardRepository
     {
        
 
@@ -51,18 +52,6 @@ namespace RunGroopWebApp.Repository
         {
             return await _context.Users.Where(u => u.Id == id).AsNoTracking().FirstOrDefaultAsync();
 
-        }
-
-        public bool Update(AppUser user)
-        {
-            _context.Users.Update(user);
-            return Save();
-        }
-
-        public bool Save()
-        {
-            var saved = _context.SaveChanges();
-            return saved > 0 ? true : false;
         }
     }
 }

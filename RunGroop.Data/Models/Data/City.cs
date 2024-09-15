@@ -1,6 +1,6 @@
 ﻿namespace RunGroop.Data.Models.Data
 {
-    public class City
+    public class City:Entity
     {
         public int Id { get; set; }
         public string CityName { get; set; } = string.Empty;

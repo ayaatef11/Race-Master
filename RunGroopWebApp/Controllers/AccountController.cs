@@ -3,6 +3,7 @@ using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.Data;
 using RunGroopWebApp.ViewModels;
+using RunGroop.Data.Interfaces.Services;
 //c#logging
 /*Trace = 0
 

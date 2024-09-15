@@ -12,11 +12,12 @@ using RunGroopWebApp.ViewModels;
 using static Azure.Core.HttpHeader;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Reflection;
+using RunGroop.Repository.Interfaces;
 
 
 namespace RunGroopWebApp.Controllers
 {
-    public class HomeController(ILogger<HomeController> _logger, IClubRepository _clubRepository,
+    public class HomeController(ILogger<HomeController> _logger, IUnitOfWork _UnitOfWork,
             UserManager<AppUser> _userManager, SignInManager<AppUser> _signInManager, ILocationService _locationService, IConfiguration _config, IStringLocalizer<HomeController> _localizer) : Controller
     {
 
@@ -48,7 +49,7 @@ namespace RunGroopWebApp.Controllers
                 }
                 if (homeViewModel.City != null)
                 {
-                    homeViewModel.Clubs = await _clubRepository.GetClubByCity(homeViewModel.City);
+                    homeViewModel.Clubs = await _UnitOfWork.ClubRepository.GetClubByCity(homeViewModel.City);
                 }
                 return View(homeViewModel);
             }

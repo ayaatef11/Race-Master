@@ -2,10 +2,9 @@
 
 namespace RunGroop.Data.Models.Data
 {
-    public class Address
+    public class Address:Entity
     {
-        [Key]
-        public int Id { get; set; }
+       public int Id { get; set; }  
         public string Street { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
         public string State { get; set; } = string.Empty;

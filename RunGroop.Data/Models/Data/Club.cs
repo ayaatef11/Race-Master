@@ -5,10 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RunGroop.Data.Models.Data
 {
-    public class Club
+    public class Club:Entity
     {
-        [Key]
-        public int Id { get; set; }
+       public int Id { get; set; }
         public string? Title { get; set; } = string.Empty;
         public string? Description { get; set; } = string.Empty;
         public string? Image { get; set; } = string.Empty;

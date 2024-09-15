@@ -4,6 +4,7 @@ using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
+using RunGroop.Repository.Interfaces;
 /*Key Concepts of Sessions in ASP.NET Core MVC
 
 1. Session State:
@@ -35,12 +36,12 @@ _lazyOwnerService = new Lazy<IOwnerService>(()=> new OwnerService(repositoryMana
 public IOwnerService OwnerService => _lazyOwnerService.Value;*/
 namespace RunGroopWebApp.Controllers
 {
-    public class UserController(IUserRepository _userRepository, UserManager<AppUser> _userManager, IPhotoService _photoService) : Controller
+    public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, IPhotoService _photoService) : Controller
     {
          [HttpGet("users")]
         public async Task<IActionResult> Index()
         {
-            var users = await _userRepository.GetAllUsers();
+            var users = await _UnitOfWork.UserRepository.GetAll();
 			List<UserViewModel> result = new();
             foreach (var user in users)
             {
@@ -64,7 +65,7 @@ namespace RunGroopWebApp.Controllers
         [HttpGet]
         public async Task<IActionResult> Detail(string id)
         {
-            var user = await _userRepository.GetUserById(id);
+            var user = await _UnitOfWork.UserRepository.GetUserById(id);
             if (user == null)
             {
                 return RedirectToAction("Index", "Users");//view all users 

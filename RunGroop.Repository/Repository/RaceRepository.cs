@@ -1,29 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
+using RunGroop.Repository.Repository;
 using RunGroopWebApp.Data;
 using RunGroopWebApp.Data.Enum;
 
 namespace RunGroopWebApp.Repository
 {
-    public class RaceRepository(ApplicationDbContext _context) : IRaceRepository
+    public class RaceRepository(ApplicationDbContext _context) : ProgramRepository<Race>(_context),  IRaceRepository
     {
 
-        public bool Add(Race race)
-        {
-            _context.Add(race);
-            return Save();
-        }
 
-        public bool Delete(Race race)
+        public async Task<Race?> GetByIdAsync(int id)
         {
-            _context.Remove(race);
-            return Save();
-        }
-
-        public async Task<IEnumerable<Race>> GetAll()
-        {
-            return await _context.Races.ToListAsync();
+            return await _context.Races.Include(i => i.Address).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<IEnumerable<Race>> GetAllRacesByCity(string city)
@@ -31,10 +21,7 @@ namespace RunGroopWebApp.Repository
             return await _context.Races.Where(c => c.Address.City.Contains(city)).ToListAsync();
         }
 
-        public async Task<Race?> GetByIdAsync(int id)
-        {
-            return await _context.Races.Include(i => i.Address).FirstOrDefaultAsync(x => x.Id == id);
-        }
+       
 
         public async Task<Race?> GetByIdAsyncNoTracking(int id)
         {
@@ -66,16 +53,5 @@ namespace RunGroopWebApp.Repository
                 .ToListAsync();
         }
 
-        public bool Save()
-        {
-            var saved = _context.SaveChanges();
-            return saved > 0;
-        }
-
-        public bool Update(Race race)
-        {
-            _context.Update(race);
-            return Save();
-        }
     }
 }

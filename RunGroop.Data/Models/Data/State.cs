@@ -1,6 +1,6 @@
 ﻿namespace RunGroop.Data.Models.Data
 {
-    public class State
+    public class State:Entity
     {
         public int Id { get; set; }
         public string StateName { get; set; } = string.Empty;

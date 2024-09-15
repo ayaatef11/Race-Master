@@ -1,6 +1,6 @@
 ﻿using RunGroop.Data.Models.Data;
 
-namespace RunGroopWebApp.Interfaces
+namespace RunGroop.Data.Interfaces.Services
 {
     public interface ILocationService
     {
