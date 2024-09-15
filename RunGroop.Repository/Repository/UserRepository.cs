@@ -5,14 +5,9 @@ using RunGroopWebApp.Data;
 
 namespace RunGroopWebApp.Repository
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository(ApplicationDbContext _context) : IUserRepository
     {
-        private readonly ApplicationDbContext _context;
 
-        public UserRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
 
         public bool Add(AppUser user)
         {

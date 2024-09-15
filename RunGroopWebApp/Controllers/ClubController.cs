@@ -1,48 +1,26 @@
-﻿using RunGroop.Data.Interfaces.Repositories;
+﻿using MediatR;
+using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
+using RunGroopWebApp.Commands;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Helpers;
+using RunGroopWebApp.Queries;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ClubController(IClubRepository _clubRepository, IPhotoService _photoService) : Controller
+    public class ClubController(ISender _sender,IMediator mediator, IPublisher _publisher, IClubRepository _clubRepository, IPhotoService _photoService) : Controller
     {
 
         [Route("RunningClubs")]
-        public async Task<IActionResult> Index(int category = -1, int page = 1, int pageSize = 6)
+        public async Task<IActionResult> Index()
         {
-            if (page < 1 || pageSize < 1)
-            {
-                return NotFound();
-            }
+            var query = new GetAllClubsQuery();
+            var response = mediator.Send(query);
 
-            // if category is -1 (All) dont filter else filter by selected category
-            var clubs = category switch
-            {
-                -1 => await _clubRepository.GetSliceAsync((page - 1) * pageSize, pageSize),
-                _ => await _clubRepository.GetClubsByCategoryAndSliceAsync((ClubCategory)category, (page - 1) * pageSize, pageSize),
-            };
-
-            var count = category switch
-            {
-                -1 => await _clubRepository.GetCountAsync(),
-                _ => await _clubRepository.GetCountByCategoryAsync((ClubCategory)category),
-            };
-
-            var clubViewModel = new IndexClubViewModel
-            {
-                Clubs = clubs,
-                Page = page,
-                PageSize = pageSize,
-                TotalClubs = count,
-                TotalPages = (int)Math.Ceiling(count / (double)pageSize),
-                Category = category,
-            };
-
-            return View(clubViewModel);
+            return View(response);
         }
 
         [HttpGet]
@@ -266,5 +244,13 @@ map.Position = new PointLatLng(lat, longt);
 map.MinZoom = 5; // Minimum Zoom Level
 map.MaxZoom = 100; // Maximum Zoom Level
 map.Zoom = 10; // Current Zoom Level*/
+        public async Task< IActionResult> CreatingClub(CreateClubViewModel newBooking)//we can update it to publish notifications
+        {
+
+            if (!ModelState.IsValid) return BadRequest();
+            _sender.Send(new CreateClubRequest(newBooking));
+            await _publisher.Publish(new CreateClubRequest(newBooking));
+           return Ok();//it is better to return the product to see if it is returned actually or not 
+        }
     }
 }

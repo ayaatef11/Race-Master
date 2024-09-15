@@ -33,5 +33,6 @@ namespace RunGroop.Data.Interfaces.Repositories
         bool Delete(Club club);
 
         bool Save();
+        public Task EventOccured(Club club,string ev);
     }
 }

@@ -6,14 +6,8 @@ using RunGroopWebApp.Data.Enum;
 
 namespace RunGroopWebApp.Repository
 {
-    public class ClubRepository : IClubRepository
+    public class ClubRepository(ApplicationDbContext _context) : IClubRepository
     {
-        private readonly ApplicationDbContext _context;
-
-        public ClubRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
 
         public bool Add(Club club)
         {
@@ -97,6 +91,13 @@ namespace RunGroopWebApp.Repository
         public async Task<List<City>> GetAllCitiesByState(string state)
         {
             return await _context.Cities.Where(c => c.StateCode.Contains(state)).ToListAsync();
+        }
+        public async Task EventOccured(Club club, string ev)
+        {
+
+            _context.Clubs.Single(p => p.Id == club.Id).Title = $"{club.Title} evt: {ev}";
+
+            await Task.CompletedTask;
         }
     }
 }

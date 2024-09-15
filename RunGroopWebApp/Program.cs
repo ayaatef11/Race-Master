@@ -20,6 +20,8 @@ using Microsoft.Extensions.Hosting;
 using Serilog;
 using Serilog.Events; // Optional, for handling log event levels if needed
 using System;
+using MediatR;
+using RunGroopWebApp.Behaviors;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -159,7 +161,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedUICultures = supportedCultures;
 });
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
-
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly));
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 var app = builder.Build();
 
 if (args.Length == 1 && args[0].ToLower() == "seeddata")

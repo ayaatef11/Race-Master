@@ -7,16 +7,9 @@ using RunGroopWebApp.Data;
 using RunGroopWebApp.Extensions;
 namespace RunGroopWebApp.Repository
 {
-    public class DashboardRepository : IDashboardRepository
+    public class DashboardRepository(ApplicationDbContext _context, IHttpContextAccessor _httpContextAccessor) : IDashboardRepository
     {
-        private readonly ApplicationDbContext _context;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-
-        public DashboardRepository(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
-        {
-            _context = context;
-            _httpContextAccessor = httpContextAccessor;
-        }
+       
 
 #pragma warning disable CS8603
         public async Task<List<Club>> GetAllUserClubs()

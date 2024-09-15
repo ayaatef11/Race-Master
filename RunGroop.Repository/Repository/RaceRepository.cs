@@ -6,14 +6,8 @@ using RunGroopWebApp.Data.Enum;
 
 namespace RunGroopWebApp.Repository
 {
-    public class RaceRepository : IRaceRepository
+    public class RaceRepository(ApplicationDbContext _context) : IRaceRepository
     {
-        private readonly ApplicationDbContext _context;
-
-        public RaceRepository(ApplicationDbContext context)
-        {
-            _context = context;
-        }
 
         public bool Add(Race race)
         {
