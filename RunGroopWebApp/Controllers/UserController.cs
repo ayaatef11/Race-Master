@@ -5,6 +5,8 @@ using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
 using RunGroop.Repository.Interfaces;
+using System.Text.Json;
+using System.Net.Http.Headers;
 /*Key Concepts of Sessions in ASP.NET Core MVC
 
 1. Session State:
@@ -36,8 +38,9 @@ _lazyOwnerService = new Lazy<IOwnerService>(()=> new OwnerService(repositoryMana
 public IOwnerService OwnerService => _lazyOwnerService.Value;*/
 namespace RunGroopWebApp.Controllers
 {
-    public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, IPhotoService _photoService) : Controller
+    public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, IPhotoService _photoService,HttpClient _httpClient) : Controller
     {
+        private readonly JsonSerializerOptions _serializerOptions=new JsonSerializerOptions { PropertyNameCaseInsensitive = true }; 
          [HttpGet("users")]
         public async Task<IActionResult> Index()
         {
@@ -154,6 +157,15 @@ namespace RunGroopWebApp.Controllers
             await _userManager.UpdateAsync(user);
 
             return RedirectToAction("Detail", "User", new { user.Id });
+        }
+        public async Task<IEnumerable<UserModel> GetUsersAsync(string token)
+        {
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            var result = await _httpClient.GetAsync("users");
+            result.EnsureSuccessStatusCode();
+            var response=await result.Content.ReadAsStringAsync();
+            return JsonSer ializer.Deserialize<IEnumerable<UserModel>>(response, _serializerOptions);
+        
         }
     }
 }

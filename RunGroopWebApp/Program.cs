@@ -27,6 +27,7 @@ using Microsoft.Extensions.Options;
 using RunGroopWebApp;
 using RunGroop.Infrastructure.Settings;
 using RunGroopWebApp.Services.interfaces;
+using RunGroopWebApp.Clients;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -130,7 +131,13 @@ builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
        .AddCookie();
-
+builder.Services.AddHttpClient("companiesClient", config =>
+{
+    config.BaseAddress = new Uri("https://localhost:5001/api/");
+    config.Timeout = new TimeSpan(0, 0, 30);
+    config.DefaultRequestHeaders.Clear();
+});
+builder.Services.AddHttpClient<CompaniesClient>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLocalization();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
