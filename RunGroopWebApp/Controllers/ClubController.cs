@@ -45,10 +45,10 @@ namespace RunGroopWebApp.Controllers
         }
 
         [Route("RunningClubs/{city}/{state}")]
-        public async Task<IActionResult> ListClubsByCity(string city, string state)
+        public async Task<IActionResult> ListClubsByCity(ListClubByCityViewModel cityList)
         {
-            var clubs = await _UnitOfWork.ClubRepository.GetClubByCity(city);
-            var clubVM = new ListClubByCityViewModel()
+            var clubs = await _UnitOfWork.ClubRepository.GetClubByCity(cityList.City);
+            var clubVM = new ListClubByCityToReturnViewModel()
             {
                 Clubs = clubs
             };
@@ -58,16 +58,16 @@ namespace RunGroopWebApp.Controllers
             }
             else
             {
-                clubVM.State = state;
-                clubVM.City = city;
+                clubVM.State = cityList. State;
+                clubVM.City = cityList .City;
             }
             return View(clubVM);
         }
 
         [Route("club/{runningClub}/{id}")]
-        public async Task<IActionResult> DetailClub(int id, string runningClub)
+        public async Task<IActionResult> DetailClub(ClubDetailsViewModel cl)
         {
-            var club = await _UnitOfWork.ClubRepository.GetByIdAsync(id);
+            var club = await _UnitOfWork.ClubRepository.GetByIdAsync(cl.Id);
 
             return club == null ? NotFound() : View(club);
         }

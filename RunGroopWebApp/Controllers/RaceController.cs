@@ -45,9 +45,9 @@ namespace RunGroopWebApp.Controllers
         }
 
         [Route("event/{runningRace}/{id}")]
-        public async Task<IActionResult> DetailRace(int id, string runningRace)
+        public async Task<IActionResult> DetailRace(RaceDetailViewModel dd)
         {
-            var race = await _UnitOfWork.RaceRepository.GetByIdAsync(id);
+            var race = await _UnitOfWork.RaceRepository.GetByIdAsync(dd.Id);
             return race == null ? NotFound() : View(race);
         }
 
