@@ -25,6 +25,8 @@ using RunGroopWebApp.Behaviors;
 using Microsoft.Identity.Client;
 using Microsoft.Extensions.Options;
 using RunGroopWebApp;
+using RunGroop.Infrastructure.Settings;
+using RunGroopWebApp.Services.interfaces;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -57,7 +59,7 @@ the use of the wildcard *
 
 null , or the wildcard*/
 
-
+//in multi tenancy you host the application one time and the organizations can access it with different databases 
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -149,7 +151,8 @@ builder.Services.AddMvc()//to use the localizer inside the view
 
 //(**configurations
 //accept language tells you the languages that your browser supports 
-
+builder.Services.AddScoped<TenantSettings>();
+builder.Services.AddScoped<ITenantService, TenantService>();
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     var supportedCultures = new[]
@@ -163,7 +166,31 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.SupportedCultures = supportedCultures;
     options.SupportedUICultures = supportedCultures;
 });
-builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
+builder.Services.Configure<TenantSettings>(builder.Configuration.GetSection(nameof(TenantSettings)));
+//you can use this code to read the value for the configuration
+TenantSettings options = new();
+builder.Configuration.GetSection(nameof(TenantSettings)).Bind(options);
+builder.Services.AddDbContext<ApplicationDbContext>(m => m.UseSqlServer());
+var defaultDbProvider = options.Defaults.DBProvider;
+if (defaultDbProvider.ToLower() == "mssql")
+{
+
+    foreach (var tenant in options.Tenants) { 
+
+        var connectionString = tenant.ConnectionString ?? options.Defaults.ConnectionString;
+
+    using var scope = builder.Services.BuildServiceProvider().CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+
+    dbContext.Database.SetConnectionString(connectionString);
+        if (dbContext.Database.GetPendingMigrations().Any())
+
+            dbContext.Database.Migrate();//allows to not use the update-database
+
+    }
+
+}
+    builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly));
 builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 var app = builder.Build();

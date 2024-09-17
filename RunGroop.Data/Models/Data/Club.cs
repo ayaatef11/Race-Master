@@ -1,4 +1,5 @@
-﻿using RunGroop.Data.Models.Identity;
+﻿using RunGroop.Data.Contracts;
+using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.Data.Enum;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -18,5 +19,7 @@ namespace RunGroop.Data.Models.Data
         [ForeignKey("AppUser")]
         public string? AppUserId { get; set; } = string.Empty;
         public AppUser? AppUser { get; set; }
+        public string TenantId { get; set; } = string.Empty;
+
     }
 }

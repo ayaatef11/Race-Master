@@ -1,4 +1,6 @@
-﻿namespace RunGroop.Data.Models.Data
+﻿using RunGroop.Data.Contracts;
+
+namespace RunGroop.Data.Models.Data
 {
     public class City:Entity
     {
@@ -9,5 +11,6 @@
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public string Country { get; set; } = string.Empty;
+        public string TenantId { get ; set ; }=string.Empty;
     }
 }

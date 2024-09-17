@@ -346,6 +346,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj": {
+                "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Infrastructure\\RunGroop.Infrastructure.csproj"
+              },
               "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj": {
                 "projectPath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj"
               }

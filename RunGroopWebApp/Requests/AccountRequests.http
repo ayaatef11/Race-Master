@@ -1,0 +1,9 @@
+﻿@RunGroopWebApp_HostAddress = https://localhost:7195
+
+GET {{RunGroopWebApp_HostAddress}}/account/getlocation/{id}?location=string
+
+###
+
+GET {{RunGroopWebApp_HostAddress}}/account/login/{id}
+
+###

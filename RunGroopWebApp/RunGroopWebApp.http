@@ -1,0 +1,21 @@
+﻿@RunGroopWebApp_HostAddress = https://localhost:7195
+
+POST {{RunGroopWebApp_HostAddress}}/account/login/{id}
+Content-Type: application/json
+
+{
+  //LoginViewModel
+}
+
+###
+
+
+POST {{RunGroopWebApp_HostAddress}}/club/create/{id}
+Content-Type: application/json
+tenant:Google
+{
+  //CreateClubViewModel
+  
+}
+
+###

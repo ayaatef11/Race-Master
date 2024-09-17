@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RunGroop.Infrastructure\RunGroop.Infrastructure.csproj" />
     <ProjectReference Include="..\RunGroop.Repository\RunGroop.Repository.csproj" />
   </ItemGroup>
 

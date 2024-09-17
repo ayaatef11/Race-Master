@@ -24,5 +24,7 @@ namespace RunGroop.Data.Models.Data
         [ForeignKey("AppUser")]
         public string? AppUserId { get; set; } = string.Empty;
         public AppUser? AppUser { get; set; }
+        public string TenantId { get; set; } = string.Empty;
+
     }
 }

@@ -3115,6 +3115,7 @@
         "dependencies": {
           "CloudinaryDotNet": "1.26.2",
           "Microsoft.Extensions.Hosting.Abstractions": "8.0.0",
+          "RunGroop.Infrastructure": "1.0.0",
           "RunGroop.Repository": "1.0.0"
         },
         "compile": {
