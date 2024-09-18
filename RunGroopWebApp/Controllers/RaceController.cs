@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.Caching.Memory;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
@@ -9,7 +10,7 @@ using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class RaceController(IUnitOfWork _UnitOfWork, IPhotoService _photoService, IHttpContextAccessor _httpContextAccessor) : Controller
+    public class RaceController(SemaphoreSlim semaphore,ILogger<RaceController>logger,IMemoryCache memoryCache ,IUnitOfWork _UnitOfWork, IPhotoService _photoService, IHttpContextAccessor _httpContextAccessor) : Controller
     {
         public async Task<IActionResult> Index(int category = -1, int page = 1, int pageSize = 6)
         {
@@ -47,7 +48,20 @@ namespace RunGroopWebApp.Controllers
         [Route("event/{runningRace}/{id}")]
         public async Task<IActionResult> DetailRace(RaceDetailViewModel dd)
         {
-            var race = await _UnitOfWork.RaceRepository.GetByIdAsync(dd.Id);
+            if (memoryCache.TryGetValue(dd.Id, out Race race)) logger.LogInformation("Employees found in cache");
+            else
+            {
+                logger.LogInformation("Employees not found in cache. Fetching  from the database");
+                race = await _UnitOfWork.RaceRepository.GetByIdAsync(dd.Id);
+
+                var cacheEntryOptions=new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromSeconds(60))
+                    .SetAbsoluteExpiration(TimeSpan.FromHours(1))
+                    .SetPriority(CacheItemPriority.Normal).SetSize(1);
+
+               memoryCache.Set(dd.Id, race,cacheEntryOptions);
+            }
+            semaphore.Release();
             return race == null ? NotFound() : View(race);
         }
 

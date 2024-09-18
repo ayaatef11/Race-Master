@@ -137,6 +137,18 @@ builder.Services.AddHttpClient("companiesClient", config =>
     config.Timeout = new TimeSpan(0, 0, 30);
     config.DefaultRequestHeaders.Clear();
 });
+builder.Services.AddMemoryCache(
+    opt=>opt.SizeLimit=1024);
+//note
+/*when we set a size limit for the cache in the options , we must specicfy a size for all the cache entries
+ similarly , if no cache size limit is set , the size set on indvidual cache entries will be ignored
+once the cache reaches its limit , it doesn't remove the oldest entry to make room for new entries  
+the cache items will be removed automatically in certain senarios :
+1- when the application server is running short of memory
+2- once we set the sliding expiration or the absolute expiration 
+if we try to add the cache entry with the same key;
+ it is thread safe it is borne to race conditions 
+ */
 builder.Services.AddHttpClient<CompaniesClient>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLocalization();
