@@ -61,7 +61,127 @@ the use of the wildcard *
 null , or the wildcard*/
 
 //in multi tenancy you host the application one time and the organizations can access it with different databases 
+/*Example: Sending Push Notifications from .NET using FCM
+Install Required Packages: Install the Firebase Admin SDK NuGet package in your .NET project to interact with FCM.
 
+bash
+Copy code
+dotnet add package FirebaseAdmin
+Initialize Firebase in .NET: Use the Firebase Admin SDK to send notifications.
+
+csharp
+Copy code
+using FirebaseAdmin;
+using FirebaseAdmin.Messaging;
+using Google.Apis.Auth.OAuth2;
+
+// Initialize Firebase Admin SDK (use the downloaded credentials file)
+FirebaseApp.Create(new AppOptions()
+{
+    Credential = GoogleCredential.FromFile("path/to/serviceAccountKey.json")
+});
+Send Push Notification:
+
+Create a method to send a push notification using the FCM Admin SDK.
+
+csharp
+Copy code
+public async Task SendPushNotification(string deviceToken, string title, string body)
+{
+    // Construct the message to be sent
+    var message = new Message()
+    {
+        Token = deviceToken,
+        Notification = new Notification()
+        {
+            Title = title,
+            Body = body
+        }
+    };
+
+    // Send the message via Firebase
+    string response = await FirebaseMessaging.DefaultInstance.SendAsync(message);
+    Console.WriteLine("Successfully sent message: " + response);
+}
+deviceToken: This is the FCM token for the device to which you want to send the notification.
+title: Title of the push notification.
+body: Message body of the push notification.
+Trigger Notification from Web API:
+
+You can create an API endpoint that triggers the push notification when certain events occur, such as when a new order is placed.
+
+csharp
+Copy code
+[HttpPost]
+[Route("api/send-notification")]
+public async Task<IActionResult> SendNotification([FromBody] NotificationRequest request)
+{
+    // Replace this with actual logic to retrieve the device token
+    var deviceToken = request.DeviceToken;
+    
+    await SendPushNotification(deviceToken, request.Title, request.Body);
+    
+    return Ok("Notification Sent");
+}
+The NotificationRequest class could look like:
+
+csharp
+Copy code
+public class NotificationRequest
+{
+    public string DeviceToken { get; set; }
+    public string Title { get; set; }
+    public string Body { get; set; }
+}
+Web Push Notifications in .NET
+For browser notifications, you can use Web Push via the Web Push Protocol.
+
+Install Web Push Library: Use the WebPush NuGet package for sending notifications to web browsers.
+
+bash
+Copy code
+dotnet add package Lib.Net.WebPush
+Set Up Public and Private VAPID Keys: Generate VAPID keys that are used for identifying the sender of the push notification.
+
+bash
+Copy code
+npm install -g web-push
+web-push generate-vapid-keys
+You will get a public and private key. Store these keys securely and use them in your server code.
+
+Send Web Push Notification in .NET:
+
+csharp
+Copy code
+using Lib.Net.Http.WebPush;
+
+public async Task SendWebPushNotification(string endpoint, string p256dh, string auth, string payload)
+{
+    var pushSubscription = new PushSubscription(endpoint, p256dh, auth);
+
+    var vapidDetails = new VapidDetails("mailto:example@example.com", "PUBLIC_VAPID_KEY", "PRIVATE_VAPID_KEY");
+
+    var webPushClient = new WebPushClient();
+
+    try
+    {
+        await webPushClient.SendNotificationAsync(pushSubscription, payload, vapidDetails);
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("Error sending web push notification: " + ex.Message);
+    }
+}
+In this method:
+
+endpoint, p256dh, and auth are obtained from the browser's push subscription.
+payload is the message content to be sent.
+Send Notification on Event: Similar to FCM, you can create an API endpoint that triggers Web Push notifications.
+
+Push Notification Flow Summary
+User Device/Browser: Registers and subscribes for notifications (obtains device token or push subscription).
+Server (.NET Web API): Manages notifications and communicates with services like FCM or Web Push to send notifications to the device or browser.
+Push Notification Service (e.g., FCM or Web Push): Delivers notifications to the respective client.*/
 
 var builder = WebApplication.CreateBuilder(args);
 //add backend services
@@ -255,7 +375,7 @@ app.UseWebSockets(new() { KeepAliveInterval=TimeSpan.FromSeconds(30)});
 
 
 app.UseRequestCulture();
-    app.MapHub<SignalServer>("SignalServer");
+    app.MapHub<SignalServer>("Hubs/SignalServer");
 
 app.MapControllerRoute(
     name: "default",
