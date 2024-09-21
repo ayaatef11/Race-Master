@@ -30,6 +30,7 @@ using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Clients;
 using Microsoft.Owin.Builder;
 using FluentValidation;
+using RunGroop.Data;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -205,10 +206,11 @@ builder.Services.AddApplicationServices();
 //builder.Services.AddConfigurationServices(builder.Configuration);
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections"));
-});
+//when you need to separate the migration in the webapplication and the context in the repository then you define the asembly for the migration and this is the name of the project
+builder.Services.AddDbContext<ApplicationDbContext>(opts =>
+opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections"),
+options => options.MigrationsAssembly("RunGroopWebApp")));
+//you can apply commands in the migration like for example in the up method you call migrationbuilder.sql("here you write the command ")
 
 builder.Services.AddDistributedMemoryCache();
 
@@ -219,6 +221,9 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+
+
 
 //builder.Services.AddGraphQL(opt => opt.EnableMetrics = false).AddSystemTextJson();
 /*
@@ -459,4 +464,5 @@ finally {
 
     Log.CloseAndFLush(); 
 }*/
+app.MigrateDatabase();
 app.Run();
