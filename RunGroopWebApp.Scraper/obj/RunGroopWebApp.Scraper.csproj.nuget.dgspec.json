@@ -469,6 +469,10 @@
               "target": "Package",
               "version": "[11.10.0, )"
             },
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.8.14, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[12.4.1, )"
@@ -512,6 +516,10 @@
             "Serilog": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             }
           },
           "imports": [

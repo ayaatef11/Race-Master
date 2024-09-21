@@ -33,6 +33,8 @@ using FluentValidation;
 using RunGroop.Data;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Quartz;
+using Hangfire;
+using RunGroopWebApp.MiddleWares;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -208,6 +210,16 @@ builder.Services.AddApplicationServices();
 //builder.Services.AddConfigurationServices(builder.Configuration);
 builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
+});
+
+builder.Services.AddHangfire(config =>
+
+config.UseSimpleAssemblyNameTypeSerializer()
+.UseRecommendedSerializerSettings()
+.UseSqlServerStorage(builder.Configuration.GetConnectionString("sqlCon"));
+});
+builder.Services.AddHangfireServer();
+
 //when you need to separate the migration in the webapplication and the context in the repository then you define the asembly for the migration and this is the name of the project
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
 opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections"),
@@ -291,7 +303,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>,typeof(ValidationBehavior<,>)))
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddDefaultTokenProviders()//.AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
+builder.Services.AddSingleton<IjobTestService, JobTestService>();
 builder.Services.AddMemoryCache();
 builder.Services.AddSession();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -423,13 +435,13 @@ app.Use(async (context, next) =>
 
     context.Response.Headers.Append(CustomHeaderNames.CustomAddName, "custom header value");
     await next();
-}
 });
+app.UseHangfireDashboard();
 
-app.UseWhen(context => context.Request.Path.Value!.Contains("/middleware"), appBuilder=>
+app.UseWhen(context => context.Request.Path.Value!.Contains("/middleware"), appBuilder =>
 {
     appBuilder.UseMiddleware<ExtractCustomHeaderMiddleware>();
-}
+});
 app.UseRequestCulture();
     app.MapHub<SignalServer>("Hubs/SignalServer");
 
