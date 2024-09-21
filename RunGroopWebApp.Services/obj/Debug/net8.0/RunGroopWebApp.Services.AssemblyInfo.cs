@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroopWebApp.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b198e6bf495a6cfdb60118f9dd3a62663069600e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6ea5a904413301542c18f8961923cc87dd6e5a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroopWebApp.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroopWebApp.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

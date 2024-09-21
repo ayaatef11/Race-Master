@@ -28,6 +28,7 @@ using RunGroopWebApp;
 using RunGroop.Infrastructure.Settings;
 using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Clients;
+using Microsoft.Owin.Builder;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -186,7 +187,17 @@ Push Notification Service (e.g., FCM or Web Push): Delivers notifications to the
 var builder = WebApplication.CreateBuilder(args);
 //add backend services
 //glopalization means the application supports many languages and localization means the application adapts to the change of the language
+var myCorsPolicy = "MyCorsPolicy";
+builder.Services.AddCors(options => { 
 
+options.AddPolicy(myCorsPolicy,
+builder =>
+{
+
+    builder.AllowAnyOrigin()
+    .WithExposedHeaders(CustomHeaderNames.CustomAddName);
+});
+});
 builder.Services.AddHostedService<BackGroundWorkerService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddApplicationServices();
@@ -372,8 +383,18 @@ app.UseRequestLocalization(localizationOptions);
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseWebSockets(new() { KeepAliveInterval=TimeSpan.FromSeconds(30)});
+app.Use(async (context, next) =>
+{
 
+    context.Response.Headers.Append(CustomHeaderNames.CustomAddName, "custom header value");
+    await next();
+}
+});
 
+app.UseWhen(context => context.Request.Path.Value!.Contains("/middleware"), appBuilder=>
+{
+    appBuilder.UseMiddleware<ExtractCustomHeaderMiddleware>();
+}
 app.UseRequestCulture();
     app.MapHub<SignalServer>("Hubs/SignalServer");
 
