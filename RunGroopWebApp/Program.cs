@@ -31,6 +31,8 @@ using RunGroopWebApp.Clients;
 using Microsoft.Owin.Builder;
 using FluentValidation;
 using RunGroop.Data;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Quartz;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -223,8 +225,31 @@ builder.Services.AddSession(options =>
 });
 
 
+builder.Services.AddQuartz(opt =>
+{ 
+opt.UsePersistentStore(s =>
+{
 
+    s.UseSqlServer(builder.Configuration.GetConnectionString("connectin string name here")!);
+    s.UseProperties = true;
+    s.UseSystemTextJsonSerializer(); //a new package must be installed for this one to work ...
 
+});
+
+var jobkey = JobKey.Create("LoggingJob");
+
+opt.AddJob<LogBackgroundJob>(jobkey)
+.AddTrigger(trigger =>{
+trigger
+.ForJob(jobkey)
+.StartAt(DateBuilder.FutureDate(10, IntervalUnit.Second))
+.WithSimpleSchedule(s => s.WithIntervalInSeconds(2).RepeatForever()).
+EndAt(DateBuilder.FutureDate(5, IntervalUnit.Hour)));
+});
+builder.Services.AddQuartzHostedService(Options =>
+{
+    Options.WaitForJobsToComplete = true;
+});
 //builder.Services.AddGraphQL(opt => opt.EnableMetrics = false).AddSystemTextJson();
 /*
 Host.CreateDefaultBuilder(args)

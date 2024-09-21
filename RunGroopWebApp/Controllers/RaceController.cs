@@ -48,9 +48,11 @@ namespace RunGroopWebApp.Controllers
         [Route("event/{runningRace}/{id}")]
         public async Task<IActionResult> DetailRace(RaceDetailViewModel dd)
         {
+            //get it from the cache 
             if (memoryCache.TryGetValue(dd.Id, out Race race)) logger.LogInformation("Employees found in cache");
             else
             {
+                //if it isn't found in the cache get it from the database and then cache it with the duration specified 
                 logger.LogInformation("Employees not found in cache. Fetching  from the database");
                 race = await _UnitOfWork.RaceRepository.GetByIdAsync(dd.Id);
 
@@ -63,6 +65,19 @@ namespace RunGroopWebApp.Controllers
             }
             semaphore.Release();
             return race == null ? NotFound() : View(race);
+        }
+
+        private string GetInstanceId()
+        {
+
+            var instanceId = HttpContext.Session.GetString("InstanceId");
+            if (string.IsNullOrEmpty(instanceId))
+            {
+                instanceId = Guid.NewGuid().ToString();
+
+                HttpContext.Session.SetString("InstanceId", instanceId);
+            }
+            return instanceId;
         }
 
         [HttpGet]
