@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroop.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e04eb288302ef4aaea777a779a35c589001a9e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54590f86e2057c59e162579da448929afd315cba")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroop.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroop.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

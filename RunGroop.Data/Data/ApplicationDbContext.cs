@@ -1,34 +1,45 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using RunGroop.Data;
 using RunGroop.Data.Contracts;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Models.SignalR;
+using System.Reactive;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Channels;
 
 namespace RunGroopWebApp.Data
 {
-    public class ApplicationDbContext: IdentityDbContext<AppUser>(options)
+    public class ApplicationDbContext : IdentityDbContext<AppUser>(options)
     {
         public string TenantId { get; set; }
         private readonly ITenantService _TenantService;
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService cc)
+        IHttpContextAccessor _httpContextAccessor;
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService cc, IHttpContextAccessor httpContextAccessor)
         {
             _TenantService = cc;
             TenantId = cc.getCurrentTenant()?.TId;
+            _httpContextAccessor = httpContextAccessor;
         }
+        public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Club> Clubs { get; set; }
         public DbSet<Address> Addresses { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
-        public DbSet<Notification>Notifications { get; set; }
-		protected override void OnModelCreating(ModelBuilder builder)
-		{
-			base.OnModelCreating(builder);
+        public DbSet<Notification> Notifications { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
             //nameof is faster than the string 
-            builder.Entity<Race>(e=>e.ToTable(nameof(Race)));
+            builder.Entity<Race>(e => e.ToTable(nameof(Race)));
             builder.Entity<Club>().HasQueryFilter(e => e.TenantId == TenantId);
-		}
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -45,13 +56,54 @@ namespace RunGroopWebApp.Data
                     optionsBuilder.UseSqlServer(tenantConnectionString);
             }
         }
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken=default)
+        //automatically capture all cahnges made 
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            foreach(var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
+            foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
             {
                 entry.Entity.TenantId = TenantId;
             }
-            return base.SaveChangesAsync(cancellationToken);
+            // return base.SaveChangesAsync(cancellationToken);
+            var modifiedEntities = ChangeTracker.Entries().
+Where(e => e.State == EntityState.Added
+|| e.State == EntityState.Modified
+|| e.State == EntityState.Deleted).
+ToList();
+
+            foreach (var modifiedEntity in modifiedEntities)
+            {
+
+                var auditLog = new AuditLog
+                {
+
+                    EntityName = modifiedEntity.Entity.GetType().Name,
+                    UserEmail = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name),
+                    Action = modifiedEntity.State.ToString(),
+                    Timestamp = DateTime.UtcNow,
+                    Changes = GetChanges(modifiedEntity)
+                };
+                AuditLogs.Add(auditLog);
+
+                return base.SaveChangesAsync(cancellationToken);
+            }
         }
-	}
+
+        private string GetChanges(EntityEntry modifiedEntity)
+        {
+            var changes = new StringBuilder();
+
+            foreach (var property in modifiedEntity.OriginalValues.Properties)
+            {
+
+                var originalValue = modifiedEntity.OriginalValues[property];
+                var currentValue = modifiedEntity.CurrentValues[property];
+
+                if (!Equals(originalValue, currentValue))
+
+                    changes.AppendLine($"{property.Name}: From '{originalValue}' to '{currentValue}'");
+            }
+                return changes.ToString();
+            
+        }
+    }
 }

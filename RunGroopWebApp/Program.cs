@@ -289,6 +289,7 @@ the cache items will be removed automatically in certain senarios :
 if we try to add the cache entry with the same key;
  it is thread safe it is borne to race conditions 
  */
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient<CompaniesClient>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddLocalization();
