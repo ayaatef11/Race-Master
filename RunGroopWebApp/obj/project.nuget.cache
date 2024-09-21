@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "DRlD0CojnRQ=",
+  "dgSpecHash": "T7Q2aHDaz88=",
   "success": true,
   "projectFilePath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\cloudinarydotnet\\1.26.2\\cloudinarydotnet.1.26.2.nupkg.sha512",
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.10.0\\fluentvalidation.dependencyinjectionextensions.11.10.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql\\5.3.0\\graphql.5.3.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql-parser\\8.0.0\\graphql-parser.8.0.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql.server.transports.subscriptions.abstractions\\6.1.1\\graphql.server.transports.subscriptions.abstractions.6.1.1.nupkg.sha512",

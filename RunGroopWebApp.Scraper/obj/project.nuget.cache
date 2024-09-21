@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "3hHw2U5CPoA=",
+  "dgSpecHash": "bN3ApvMdMtQ=",
   "success": true,
   "projectFilePath": "F:\\full-stack\\Race_competition\\Race-Master\\RunGroopWebApp.Scraper\\RunGroopWebApp.Scraper.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\Aya Atef\\.nuget\\packages\\documentformat.openxml\\3.1.0\\documentformat.openxml.3.1.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\documentformat.openxml.framework\\3.1.0\\documentformat.openxml.framework.3.1.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512",
+    "C:\\Users\\Aya Atef\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.10.0\\fluentvalidation.dependencyinjectionextensions.11.10.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\gmap.net.core\\2.1.7\\gmap.net.core.2.1.7.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql\\5.3.0\\graphql.5.3.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\graphql-parser\\8.0.0\\graphql-parser.8.0.0.nupkg.sha512",

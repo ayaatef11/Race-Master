@@ -29,6 +29,7 @@ using RunGroop.Infrastructure.Settings;
 using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Clients;
 using Microsoft.Owin.Builder;
+using FluentValidation;
 /*The cross-origin resource sharing (CORS) specification prescribes header content exchanged between
 web servers and browsers that restricts origins for web resource requests outside of the origin domain.
 The CORS specification identifies a collection of protocol headers of which Access-Control-
@@ -255,6 +256,9 @@ Validation: Tokens are validated against the user’s data, ensuring they are not 
 
 Custom Token Providers: If the default token providers don't meet your needs, you can also create and configure custom token providers by implementing IUserTwoFactorTokenProvider<TUser>.*/
 
+
+builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+builder.Services.AddTransient(typeof(IPipelineBehavior<,>,typeof(ValidationBehavior<,>)))
 builder.Services.AddIdentity<AppUser, IdentityRole>().AddDefaultTokenProviders()//.AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
