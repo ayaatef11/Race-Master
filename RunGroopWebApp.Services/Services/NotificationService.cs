@@ -1,5 +1,5 @@
-﻿using RunGroop.Data.Models.SignalR;
-using RunGroopWebApp.Data;
+﻿using RunGroop.Data.Data;
+using RunGroop.Data.Models.SignalR;
 using RunGroopWebApp.Services.interfaces;
 
 namespace RunGroopWebApp.Services.Services

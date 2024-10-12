@@ -6,3 +6,4 @@ global using System.Diagnostics;
 global using System.Globalization;
 global using System.Net;
 global using Newtonsoft.Json;
+global using MediatR;

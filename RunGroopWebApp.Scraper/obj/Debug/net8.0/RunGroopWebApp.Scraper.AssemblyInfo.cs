@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroopWebApp.Scraper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d938add938c8ce8b9f6631b36ea2fd3ccacf402c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42837a9bcd9202c538c4045dd9a30d265703101e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroopWebApp.Scraper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroopWebApp.Scraper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
+using RunGroop.Data.Data;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
-using RunGroopWebApp.Data;
 using RunGroopWebApp.Repository;
 using System;
 using System.Collections.Generic;

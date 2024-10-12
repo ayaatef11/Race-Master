@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using Quartz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RunGroop.Data.Data
 {
@@ -13,9 +8,7 @@ namespace RunGroop.Data.Data
 
         private readonly ILogger _logger;
 
-        public LogBackgroundJob(ILogger<LogBackgroundJob> logger)
-
-    => _logger = logger;
+        public LogBackgroundJob(ILogger<LogBackgroundJob> logger)  => _logger = logger;
 
         public Task Execute(IJobExecutionContext context)
         {

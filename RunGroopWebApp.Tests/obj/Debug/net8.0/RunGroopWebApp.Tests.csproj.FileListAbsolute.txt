@@ -307,3 +307,13 @@ F:\full-stack\Race_competition\RunGroopWebApp.Tests\obj\Debug\net8.0\refint\RunG
 F:\full-stack\Race_competition\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.pdb
 F:\full-stack\Race_competition\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.genruntimeconfig.cache
 F:\full-stack\Race_competition\RunGroopWebApp.Tests\obj\Debug\net8.0\ref\RunGroopWebApp.Tests.dll
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.csproj.AssemblyReference.cache
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.GeneratedMSBuildEditorConfig.editorconfig
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.AssemblyInfoInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.AssemblyInfo.cs
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.csproj.CoreCompileInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.sourcelink.json
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.dll
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\refint\RunGroopWebApp.Tests.dll
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.pdb

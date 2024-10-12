@@ -2,9 +2,9 @@
 using AngleSharp.Dom;
 using CloudinaryDotNet.Actions;
 using DocumentFormat.OpenXml.Bibliography;
+using RunGroop.Application.Extensions;
 using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Scraper.Data;
 
 namespace RunGroopWebApp.Scraper.Services

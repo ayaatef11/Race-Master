@@ -7,20 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\DataSeeding\Clubs.json" />
-    <None Remove="Data\DataSeeding\Races.json" />
+    <None Remove="Data\Seeding\DataSeeding\Clubs.json" />
+    <None Remove="Data\Seeding\DataSeeding\Races.json" />
     <None Remove="Data\Resources\ar-EG.json" />
     <None Remove="Data\Resources\de-DE.json" />
     <None Remove="Data\Resources\en-US.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Data\DataSeeding\Clubs.json">
+    <Content Include="Data\Seeding\DataSeeding\Clubs.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="Data\DataSeeding\Races.json">
+    <Content Include="Data\Seeding\DataSeeding\Races.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
@@ -48,6 +48,8 @@
     <PackageReference Include="GraphQL.Server.Ui.Altair" Version="8.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
     <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="8.0.8" />
     <PackageReference Include="Quartz" Version="3.13.0" />
   </ItemGroup>

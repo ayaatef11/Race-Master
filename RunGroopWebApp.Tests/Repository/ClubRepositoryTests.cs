@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
+using RunGroop.Data.Data;
 using RunGroop.Data.Models.Data;
-using RunGroopWebApp.Data;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Repository;
 

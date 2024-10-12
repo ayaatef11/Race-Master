@@ -1,0 +1,13 @@
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.GeneratedMSBuildEditorConfig.editorconfig
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.AssemblyInfoInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.AssemblyInfo.cs
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.csproj.CoreCompileInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.sourcelink.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\bin\Debug\net8.0\RunGroop.ServiceBus.deps.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\bin\Debug\net8.0\RunGroop.ServiceBus.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\bin\Debug\net8.0\RunGroop.ServiceBus.pdb
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.csproj.AssemblyReference.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\refint\RunGroop.ServiceBus.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\RunGroop.ServiceBus.pdb
+F:\full-stack\Race_competition\Race-Master\RunGroop.MessageProducer\obj\Debug\net8.0\ref\RunGroop.ServiceBus.dll

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RunGroop.Data.Data;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Repository.Repository;
-using RunGroopWebApp.Data;
 
 namespace RunGroopWebApp.Repository
 {

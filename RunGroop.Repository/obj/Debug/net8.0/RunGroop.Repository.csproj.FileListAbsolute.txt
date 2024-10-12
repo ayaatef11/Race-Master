@@ -16,8 +16,6 @@ F:\full-stack\Race_competition\RunGroop.Repository\obj\Debug\net8.0\RunGroop.Rep
 F:\full-stack\Race_competition\RunGroop.Repository\obj\Debug\net8.0\refint\RunGroop.Repository.dll
 F:\full-stack\Race_competition\RunGroop.Repository\obj\Debug\net8.0\RunGroop.Repository.pdb
 F:\full-stack\Race_competition\RunGroop.Repository\obj\Debug\net8.0\ref\RunGroop.Repository.dll
-F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\DataSeeding\Clubs.json
-F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\DataSeeding\Races.json
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\RunGroop.Repository.deps.json
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\RunGroop.Repository.dll
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\RunGroop.Repository.pdb
@@ -37,3 +35,5 @@ F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\obj\Debug\net8.0\
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\Resources\ar-EG.json
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\Resources\de-DE.json
 F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\Resources\en-US.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\Seeding\DataSeeding\Clubs.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Repository\bin\Debug\net8.0\Data\Seeding\DataSeeding\Races.json

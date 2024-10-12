@@ -1,0 +1,6 @@
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.csproj.AssemblyReference.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.AssemblyInfoInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.AssemblyInfo.cs
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.csproj.CoreCompileInputs.cache
+F:\full-stack\Race_competition\Race-Master\RunGroop.Application\obj\Debug\net8.0\RunGroop.Application.sourcelink.json

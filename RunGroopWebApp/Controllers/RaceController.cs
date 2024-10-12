@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Extensions.Caching.Memory;
+using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;

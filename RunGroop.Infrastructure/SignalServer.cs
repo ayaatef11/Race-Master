@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.SignalR.Hubs;
-using Microsoft.AspNet.SignalR.Messaging;
+using RunGroop.Data.Models.SignalR;
 using Microsoft.AspNetCore.SignalR;
 using System.Xml.Linq;
-
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using System;
 namespace RunGroop.Infrastructure
 {
     //this is the server and the client is the js file 
@@ -13,15 +15,15 @@ namespace RunGroop.Infrastructure
     {
         public static int TotalViews { get; set; } = 0;
 
-        public async Task NewWindowLoaded()
+        public async Task NewWindowLoaded(string name,string mess)
         {
 
             TotalViews++;
             //send update to all clients that total views have been updated
-            await Clients.All.SendAsync("updateTotalViews|", TotalViews);
-            ChatContext db = new ChatContext();
-            message m = new message() { name = name, messagel = mess, date = DateTime.Now };
-            db.messages.Add(m);
+            await Clients.All.SendAsync("updateTotalViews", TotalViews);
+            ChatContext db = new();
+            Message m = new Message() { Name = name, Messagel = mess, Date = DateTime.Now };
+            db.Messages.Add(m);
             db.SaveChanges();
         }
         public async Task SendMessage(string user, string message)
@@ -42,7 +44,7 @@ namespace RunGroop.Infrastructure
         {
             //send message to specific user how doesn;t initate the request
             await Clients.Client("Connection Id - A").SendAsync("ReceiveMessage", user, message);
-            await Clients.All.newMessage(user, message);//grpc
+            await Clients.All.SendAsync(user, message);//grpc
         }
 
         public async Task SendMessageExcept(string user, string message)
@@ -56,12 +58,12 @@ namespace RunGroop.Infrastructure
             await Clients.User("Aya@gmail").SendAsync("ReceiveMessage", user, message);
         }
 
-        public void joimGroup(string gname, string name)
+        public void JoinGroup(string gname, string name)
         {
 
-            Groups.Add(Context.ConnectionId, gname);
+            Groups.AddToGroupAsync(Context.ConnectionId, gname);
 
-            Clients.OthersInGroup(gname).newMemeber(name, gname);
+            Clients.OthersInGroup(gname).SendAsync(name, gname);
         }
     }
 }

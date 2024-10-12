@@ -1,9 +1,10 @@
 ﻿
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Identity;
-using RunGroopWebApp.Data;
 using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Interfaces.Services;
+using RunGroop.Data.Data.Enum;
+using RunGroop.Data.Data;
 //c#logging
 /*Trace = 0
 

@@ -24,3 +24,11 @@ F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\obj\Debug\net
 F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\obj\Debug\net8.0\refint\RunGroop.Infrastructure.dll
 F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.Infrastructure.pdb
 F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\obj\Debug\net8.0\ref\RunGroop.Infrastructure.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\Data\Seeding\DataSeeding\Clubs.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\Data\Seeding\DataSeeding\Races.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\Data\Resources\ar-EG.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\Data\Resources\de-DE.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\Data\Resources\en-US.json
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\RunGroop.Data.dll
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\bin\Debug\net8.0\RunGroop.Data.pdb
+F:\full-stack\Race_competition\Race-Master\RunGroop.Infrastructure\obj\Debug\net8.0\RunGroop.041F0A25.Up2Date

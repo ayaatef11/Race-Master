@@ -1,7 +1,6 @@
 ﻿using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
-using System.Text;
 
 namespace RunGroop.Data.Models.Localization
 {

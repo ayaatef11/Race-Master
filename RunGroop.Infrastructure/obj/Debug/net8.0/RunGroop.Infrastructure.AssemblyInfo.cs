@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroop.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e04eb288302ef4aaea777a779a35c589001a9e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42837a9bcd9202c538c4045dd9a30d265703101e")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroop.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroop.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

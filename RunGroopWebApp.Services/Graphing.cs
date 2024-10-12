@@ -23,8 +23,8 @@ namespace RunGroop.Data.Models
 
             Field<ListGraphType<ClubType>>(Name = "Clubs", resolve: x => productProvider.GetAll());
             Field<ClubType>(Name = "Clubs",
-     arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
-     resolve: x => productProvider.GetAll());//.FirstOrDefault(p => p.Id == x.GetArgument<int>("id")));
+                      arguments: new QueryArguments(new QueryArgument<IntGraphType> { Name = "id" }),
+                      resolve: x => productProvider.GetAll());//.FirstOrDefault(p => p.Id == x.GetArgument<int>("id")));
         } }
         public class ClubSchema : Schema
         {

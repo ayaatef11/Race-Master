@@ -5,14 +5,14 @@ using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
-using RunGroopWebApp.Data;
-using RunGroopWebApp.Helpers;
 //using RunGroopWebApp.Models;
 using RunGroopWebApp.ViewModels;
 using static Azure.Core.HttpHeader;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Reflection;
 using RunGroop.Repository.Interfaces;
+using RunGroop.Application.Helpers;
+using RunGroop.Data.Data.Enum;
 
 
 namespace RunGroopWebApp.Controllers

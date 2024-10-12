@@ -1,31 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using RunGroop.Data;
+﻿
 using RunGroop.Data.Contracts;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Models.SignalR;
-using System.Reactive;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Channels;
+using RunGroopWebApp.Services.interfaces;
 
-namespace RunGroopWebApp.Data
+namespace RunGroop.Data.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<AppUser>(options)
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService _TenantService, IHttpContextAccessor _httpContextAccessor) : IdentityDbContext<AppUser>
     {
-        public string TenantId { get; set; }
-        private readonly ITenantService _TenantService;
-        IHttpContextAccessor _httpContextAccessor;
+        public string TenantId { get; set; } = _TenantService.GetCurrentTenant()?.TId;
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService cc, IHttpContextAccessor httpContextAccessor)
-        {
-            _TenantService = cc;
-            TenantId = cc.getCurrentTenant()?.TId;
-            _httpContextAccessor = httpContextAccessor;
-        }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<Race> Races { get; set; }
         public DbSet<Club> Clubs { get; set; }
@@ -65,10 +50,10 @@ namespace RunGroopWebApp.Data
             }
             // return base.SaveChangesAsync(cancellationToken);
             var modifiedEntities = ChangeTracker.Entries().
-Where(e => e.State == EntityState.Added
-|| e.State == EntityState.Modified
-|| e.State == EntityState.Deleted).
-ToList();
+                         Where(e => e.State == EntityState.Added
+                         || e.State == EntityState.Modified
+                         || e.State == EntityState.Deleted).
+                             ToList();
 
             foreach (var modifiedEntity in modifiedEntities)
             {
@@ -84,8 +69,8 @@ ToList();
                 };
                 AuditLogs.Add(auditLog);
 
-                return base.SaveChangesAsync(cancellationToken);
             }
+            return base.SaveChangesAsync(cancellationToken);
         }
 
         private string GetChanges(EntityEntry modifiedEntity)
@@ -102,8 +87,8 @@ ToList();
 
                     changes.AppendLine($"{property.Name}: From '{originalValue}' to '{currentValue}'");
             }
-                return changes.ToString();
-            
+            return changes.ToString();
+
         }
     }
 }

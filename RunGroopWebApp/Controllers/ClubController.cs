@@ -1,13 +1,8 @@
-﻿using MediatR;
-using RunGroop.Data.Interfaces.Repositories;
+﻿using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
-using RunGroopWebApp.Commands;
-using RunGroopWebApp.Data.Enum;
-using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Helpers;
-using RunGroopWebApp.Queries;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
