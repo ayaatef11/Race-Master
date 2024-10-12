@@ -209,6 +209,27 @@ try
 
     builder.Services.AddHangfire(config =>
 
+app.MapGet("/set-cookie", (HttpContext httpContext) =>
+{
+    var cookieOptions = new CookieOptions
+    {
+        HttpOnly = true,
+        Secure = true,
+        SameSite = SameSiteMode.Strict,
+        Expires = DateTimeOffset.UtcNow.AddDays(1)
+    };
+
+    httpContext.Response.Cookies.Append("auth-token", "your-token-value", cookieOptions);
+    return Results.Ok("HttpOnly cookie has been set.");
+});
+
+    app.MapGet("/get-cookie", (HttpContext httpContext) =>
+    {
+        var authToken = httpContext.Request.Cookies["auth-token"];
+        return authToken != null
+            ? Results.Ok($"Your auth token is: {authToken}")
+            : Results.Ok("No auth token found.");
+    });
     config.UseSimpleAssemblyNameTypeSerializer()
     .UseRecommendedSerializerSettings()
     .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnections")));
