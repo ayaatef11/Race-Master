@@ -605,6 +605,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BoldReports.Web": {
+              "target": "Package",
+              "version": "[6.3.17, )"
+            },
             "CloudinaryDotNet": {
               "target": "Package",
               "version": "[1.26.2, )"
