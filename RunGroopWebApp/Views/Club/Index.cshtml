@@ -51,7 +51,7 @@
             {
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card">
-                        <a type="button" asp-controller="Club" asp-action="DetailClub" asp-route-runningClub="@club.Title.GenerateSlug()" asp-route-id="@club.Id">
+                       @*  <a type="button" asp-controller="Club" asp-action="DetailClub" asp-route-runningClub="@club.Title.GenerateSlug()" asp-route-id="@club.Id">
                             @if(@club.Image != null)
                             {
                                 <img class="card-img-top" src="@club.Image" alt="Card image cap">   
@@ -61,7 +61,7 @@
                                 <img class="card-img-top" src="/img/rungroopclub.png" alt="Card image cap">   
                             }
                             
-                        </a>
+                        </a> *@
                         <div class="card-body">
                             <h4 class="card-title">@club.Title</h4>
                             <p class="card-text">@club.Description</p>

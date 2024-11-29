@@ -7,35 +7,13 @@ using Microsoft.AspNetCore.Http;
 using RunGroop.Repository.Interfaces;
 using System.Text.Json;
 using System.Net.Http.Headers;
-/*Key Concepts of Sessions in ASP.NET Core MVC
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using GraphQL;
+using BoldReports.Processing.ObjectModels;
+using RunGroop.Application.ViewModels;
 
-1. Session State:
-
-· Session state allows you to store user-specific data on the server side, and it's associated
-with a unique session ID sent to the client via a cookie or other mechanisms.
-
-. It's commonly used to keep track of user activities, preferences, and other temporary data
-throughout the user's visit to the website.
-
-2. Session Storage:
-
-. Data stored in a session is generally held in server memory. However, it can also be
-configured to use other storage providers like distributed caches or databases for
-scalability.
-
-3. Session ID:
-
-. The session ID is a unique identifier for each user's session, which is sent to the client in a
-cookie. The server uses this ID to retripe session data for subsequent requests.*/
-/*private readonly Lazy<IOwnerService> _lazyOwnerService;
-
-public ServiceManager(IRepositoryManager repositoryManager)
-
-_lazyOwnerService = new Lazy<IOwnerService>(()=> new OwnerService(repositoryManager));
-
-}
-
-public IOwnerService OwnerService => _lazyOwnerService.Value;*/
 namespace RunGroopWebApp.Controllers
 {
     public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, IPhotoService _photoService,HttpClient _httpClient) : Controller
@@ -158,14 +136,14 @@ namespace RunGroopWebApp.Controllers
 
             return RedirectToAction("Detail", "User", new { user.Id });
         }
-        public async Task<IEnumerable<UserModel> GetUsersAsync(string token)
+        public async Task<IEnumerable<UserModel>> GetUsersAsync(string token)
         {
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
             var result = await _httpClient.GetAsync("users");
             result.EnsureSuccessStatusCode();
             var response=await result.Content.ReadAsStringAsync();
-            return JsonSer ializer.Deserialize<IEnumerable<UserModel>>(response, _serializerOptions);
-        
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<UserModel>>(response);
+
         }
     }
 }

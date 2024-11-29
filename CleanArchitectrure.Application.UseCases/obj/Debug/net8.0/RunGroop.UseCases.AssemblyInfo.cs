@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroop.UseCases")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f19950839af5767b62d6fbda157419985c95b68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b45ea75201915579e3fb1c92dd1a3d7582fa6254")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroop.UseCases")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroop.UseCases")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

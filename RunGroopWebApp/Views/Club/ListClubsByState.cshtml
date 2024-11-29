@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+
 @inject SignInManager<AppUser> SignInManager
 
 @model ListClubByStateViewModel
@@ -9,7 +10,7 @@
         {
             <h1 class="fw-light">
                 There are no running clubs in your area! <a asp-area="" asp-controller="Account"
-                                                        asp-action="Login">Login</a> and create one!
+                                                            asp-action="Login">Login</a> and create one!
             </h1>
         }
         else
@@ -46,7 +47,7 @@
                         </div>
                     </div>
                 </li>
-            }
+            } <!-- Closing brace for the foreach loop -->
         </ul>
-    </div>
+    </div> <!-- Closing div for the container -->
 </section>

@@ -2,109 +2,29 @@
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.ViewModels;
-using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Data.Enum;
 using RunGroop.Data.Data;
 using RunGroop.Repository.Interfaces;
-//c#logging
-/*Trace = 0
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 
-Debug = 1
 
-Information = 2
-
-Warning =3
-
-Updates
-eRight
-
-Error = 4
-
-Critical = 5
-
-rts
-
-None = 6
-
-Log level for very low severity diagnostic messages.
-
-Log level for low severity diagnostic messages.
-
-Log level for informational diagnostic messages.
-
-Log level for diagnostic messages that indicate a non-
-fatal problem.
-
-Log level for diagnostic messages that indicate a failure
-in the current operation.
-
-Log level for diagnostic messages that indicate a failure
-that will terminate the entire application.
-
-The highest possible log level. Used when configuring
-logging to indicate that no log messages should be
-emitted.*/
-/*UserManager & SignInManager
-
-x
-
-UserManager<IdentityUser>
-CreateAsync
-DeleteAsync
-UpdateAsync
-Etc ...
-
-SignInManager<IdentityUser>
-SignlnAsync
-SignOutAsync
-IsSignedln*/
-
-/*[HttpPost]
-[ServiceFilter(typeof(ValidationFilterAttribute))]
-public async Task<IActionResult> RegisterUser([FromBody] UserForRegistrationDto 
-userForRegistration)
-{
-var result = await
-_service.AuthenticationService.RegisterUser(userForRegistration);
-if (!result.Succeeded)
- 
-285
-{
-foreach (var error in result.Errors)
-{
-ModelState.TryAddModelError(error.Code, error.Description);
-}
-return BadRequest(ModelState);
-}
-return StatusCode(201);
-}
-*/
 namespace RunGroopWebApp.Controllers
 {
     public class AccountController(UserManager<AppUser> _userManager,
             SignInManager<AppUser> _signInManager,
             ApplicationDbContext _context,
-            ILocationService _locationService) : Controller
+            ILocationService _locationService, IUnitOfWork object1/*,IdentityServer4.Services.ITokenService object2*/) : Controller
     {
-        public AccountController(IUnitOfWork object1, global::IdentityServer4.Services.ITokenService object2)
-        {
-            Object1 = object1;
-            Object2 = object2;
-        }
-
-        public IUnitOfWork Object1 { get; }
-        public global::IdentityServer4.Services.ITokenService Object2 { get; }
+        public IUnitOfWork Object1 { get; } = object1;
 
         public IActionResult Login()
         {
             var response = new LoginViewModel();
             if (!ModelState.IsValid)
             {
-                // Model validation failed, show errors to the user
                 return View(response);
             }
-
-            // Proceed with login logic
             return RedirectToAction("Index", "Home");
         }
      
@@ -182,16 +102,12 @@ namespace RunGroopWebApp.Controllers
         }
         public async Task<string> GenerateTwoFactorTokenAsync(AppUser user, string purpose)
         {
-
-            // Generate the token for two-factor authentication
             var token = await _userManager.GenerateUserTokenAsync(user, "Default", purpose);
             return token;
         }
 
         public async Task<string> GenerateEmailConfirmationTokenAsync(AppUser user)
         {
-
-            // Generate the token for email confirmation
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             return token;
 

@@ -1,4 +1,6 @@
 ﻿
+using GraphQL;
+using Microsoft.AspNetCore.Mvc;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Repository.Interfaces;

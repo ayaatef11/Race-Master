@@ -13,6 +13,11 @@ using System.Reflection;
 using RunGroop.Repository.Interfaces;
 using RunGroop.Application.Helpers;
 using RunGroop.Data.Data.Enum;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 
 namespace RunGroopWebApp.Controllers
@@ -20,12 +25,6 @@ namespace RunGroopWebApp.Controllers
     public class HomeController(ILogger<HomeController> _logger, IUnitOfWork _UnitOfWork,
             UserManager<AppUser> _userManager, SignInManager<AppUser> _signInManager, ILocationService _locationService, IConfiguration _config, IStringLocalizer<HomeController> _localizer) : Controller
     {
-
-		//tempData : is designed for short-lived data. The data persists only until it is read once. After the data is read, it is automatically removed,
-		//making it perfect for scenarios where data needs to be carried forward only for a single subsequent request.
-		//is stored in session state, so it shares some of the characteristics of session management, including dependency on session storage settings.
-//Commonly used for passing error messages, success notifications, or any other data that needs to be transferred between requests, especially during a redirect.
-//It stores data in a dictionary-like structure(IDictionary<string, object>) and can hold any type of data.
 		public async Task<IActionResult> Index()
 		{
 			ViewBag.WelcomeMessage = string.Format(_localizer["welcome"], "DevCreed");//support multiple languages and cultures

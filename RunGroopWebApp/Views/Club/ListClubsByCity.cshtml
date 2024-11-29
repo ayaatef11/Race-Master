@@ -1,4 +1,5 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+
 
 @inject SignInManager<AppUser> SignInManager
 
@@ -7,19 +8,9 @@
 
 <section class="space-sm flush-with-above">
     <div class="container">
-        @if (Model.NoClubWarning == true)
-        {
-            <h1 class="fw-light">
-                There are no running clubs in your area! <a asp-area="" asp-controller="Account"
-                                                        asp-action="Login">Login</a> and create one!
-            </h1>
-        }
-        else
-        {
-            <h1>Running Clubs in @Model.City, @Model.State</h1>
-        }
+        
         <ul class="row feature-list feature-list-sm">
-            @foreach (var club in Model.Clubs)
+           @*  @foreach (var club in Model.State.Clubs)
             {
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card">
@@ -48,7 +39,7 @@
                         </div>
                     </div>
                 </li>
-            }
+            } *@
         </ul>
     </div>
 </section>

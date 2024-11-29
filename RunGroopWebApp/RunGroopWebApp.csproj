@@ -7,16 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Glopals.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Controllers\Dockerfile" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\index.html" />
     <_ContentIncludedByDefault Remove="wwwroot\index2.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="Dockerfile" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +44,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CleanArchitectrure.Application.UseCases\RunGroop.UseCases.csproj" />
     <ProjectReference Include="..\RunGroop.Application\RunGroop.Application.csproj" />
     <ProjectReference Include="..\RunGroop.Infrastructure\RunGroop.Infrastructure.csproj" />
     <ProjectReference Include="..\RunGroopWebApp.Services\RunGroopWebApp.Services.csproj" />
@@ -51,6 +52,10 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\lib\microsoft\signalr\dist\browser\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Glopals.cs" />
   </ItemGroup>
 
 </Project>

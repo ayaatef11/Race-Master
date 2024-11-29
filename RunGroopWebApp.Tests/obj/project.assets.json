@@ -3592,6 +3592,24 @@
           "bin/placeholder/RunGroop.Repository.dll": {}
         }
       },
+      "RunGroop.UseCases/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "13.0.1",
+          "FluentValidation": "11.9.0",
+          "FluentValidation.DependencyInjectionExtensions": "11.9.0",
+          "MediatR": "12.2.0",
+          "RunGroop.Application": "1.0.0",
+          "RunGroop.Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RunGroop.UseCases.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RunGroop.UseCases.dll": {}
+        }
+      },
       "RunGroopWebApp/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3608,6 +3626,7 @@
           "RabbitMQ.Client": "6.8.1",
           "RunGroop.Application": "1.0.0",
           "RunGroop.Infrastructure": "1.0.0",
+          "RunGroop.UseCases": "1.0.0",
           "RunGroopWebApp.Services": "1.0.0",
           "Serilog.Sinks.Console": "6.0.0",
           "Serilog.Sinks.File": "6.0.0",
@@ -9746,6 +9765,11 @@
       "type": "project",
       "path": "../RunGroop.Repository/RunGroop.Repository.csproj",
       "msbuildProject": "../RunGroop.Repository/RunGroop.Repository.csproj"
+    },
+    "RunGroop.UseCases/1.0.0": {
+      "type": "project",
+      "path": "../CleanArchitectrure.Application.UseCases/RunGroop.UseCases.csproj",
+      "msbuildProject": "../CleanArchitectrure.Application.UseCases/RunGroop.UseCases.csproj"
     },
     "RunGroopWebApp/1.0.0": {
       "type": "project",

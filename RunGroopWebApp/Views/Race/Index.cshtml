@@ -1,6 +1,6 @@
-﻿@    using RunGroopWebApp.Data.Enum
-@    using RunGroopWebApp.Extensions
-@    using RunGroopWebApp.ViewModels
+﻿@using RunGroopWebApp.Data.Enum
+@using RunGroopWebApp.Extensions
+@using RunGroopWebApp.ViewModels
 @model IndexRaceViewModel
 
 @{
@@ -52,10 +52,10 @@
         </div>
         <ul class="row feature-list feature-list-sm">
             @foreach (var race in Model.Races)
-            {
+            { 
                 <li class="col-12 col-md-6 col-lg-4">
                     <div class="card">
-                        <a type="button" asp-controller="Race" asp-action="DetailRace" asp-route-runningRace="@race.Title.GenerateSlug()" asp-route-id="@race.Id">
+                       @*  <a type="button" asp-controller="Race" asp-action="DetailRace" asp-route-runningRace="@race.Title.GenerateSlug()" asp-route-id="@race.Id">
                             @if(race.Image == null)
                             {
                                 <img class="card-img-top" src="/img/racesEvent.png" alt="Card image cap"> 
@@ -65,7 +65,7 @@
                                <img class="card-img-top" src="@race.Image" alt="Card image cap"> 
                             }
                             
-                        </a>
+                        </a> *@
                         <div class="card-body">
                             <h4 class="card-title">@race.Title</h4>
                             <p class="card-text">@race.Address.City, @race.Address.State</p>

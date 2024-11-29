@@ -1,4 +1,6 @@
-﻿using RunGroop.Application.Helpers;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using RunGroop.Application.Helpers;
 using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
@@ -12,20 +14,14 @@ namespace RunGroopWebApp.Controllers
         private IClubRepository clubRepository;
         private IPhotoService photoService;
 
-        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
-        {
-            this.clubRepository = clubRepository;
-            this.photoService = photoService;
-        }
-
         [Route("RunningClubs")]
-        public async Task<IActionResult> Index()
+        /*public async Task<IActionResult> Index()
         {
             var query = new GetAllClubsQuery();
             var response = mediator.Send(query);
 
             return View(response);
-        }
+        }*/
 
         [HttpGet]
         [Route("RunningClubs/{state}")]
@@ -237,24 +233,13 @@ namespace RunGroopWebApp.Controllers
             _UnitOfWork.ClubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
         }
-
-        /*private void btnLoadIntoMap_Click(object sender,
-
-map.DragButton = MouseButtons. Righth
-map.MapProvider = GMapProviders.GoogleMap;
-double lat = Convert.ToDouble(txtLat.Text);
-double longt = Convert.ToDouble(txtLong.Text)
-map.Position = new PointLatLng(lat, longt);
-map.MinZoom = 5; // Minimum Zoom Level
-map.MaxZoom = 100; // Maximum Zoom Level
-map.Zoom = 10; // Current Zoom Level*/
-        public async Task< IActionResult> CreatingClub(CreateClubViewModel newBooking)//we can update it to publish notifications
+      /*  public async Task< IActionResult> CreatingClub(CreateClubViewModel newBooking)//we can update it to publish notifications
         {
 
             if (!ModelState.IsValid) return BadRequest();
             _sender.Send(new CreateClubRequest(newBooking));
             await _publisher.Publish(new CreateClubRequest(newBooking));
            return Ok();//it is better to return the product to see if it is returned actually or not 
-        }
+        }*/
     }
 }

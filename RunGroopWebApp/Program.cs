@@ -21,6 +21,7 @@ using RunGroop.Data.Data.Seeding;
 using RunGroopWebApp.Services.Localization;
 using System.Globalization;
 using RunGroop.Application.Helpers;
+using Microsoft.AspNetCore.Identity;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RunGroop.Application.Filters;
+using RunGroop.Data.Data.Enum;
 
 namespace RunGroopWebApp.Controllers
 {
@@ -13,13 +15,13 @@ namespace RunGroopWebApp.Controllers
             Request.Headers.TryGetValue(CustomHeaderNames.CustomExtractName, out var headerValue);
 
             return Ok(headerValue);
-        }
+        }/*
         [HttpGet("fromheader")]
         public IActionResult ExtractFromQueryAttribute([FromHeader] HeaderDTO headerDTO)
         {
 
             return Ok(headerDTO);
-        }
+        }*/
         [HttpGet("actionfilter")]
         [ExtractCustomHeader]
         public IActionResult ExtractFromFilter()

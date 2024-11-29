@@ -19,11 +19,11 @@ public class ReportViewerController : Controller
         _hostingEnvironment = hostingEnvironment;
     }
 
-    [HttpPost]
+   /* [HttpPost]
     public object PostReportAction([FromBody] Dictionary<string, object> jsonArray)
     {
         return ReportHelper.ProcessReport(jsonArray, this, cache);
-    }
+    }*/
 
     [NonAction]
     public void OnInitReportOptions(ReportViewerOptions reportOption)
@@ -51,16 +51,16 @@ public class ReportViewerController : Controller
         // Add logic or leave empty
     }
 
-    [ActionName("GetResource")]
+   /* [ActionName("GetResource")]
     [AcceptVerbs("GET")]
     public object GetResource(ReportResource resource)
     {
         return ReportHelper.GetResource(resource, this, cache);
-    }
+    }*/
 
-    [HttpPost]
-    public object PostFormReportAction()
+    //[HttpPost]
+  /*  public object PostFormReportAction()
     {
         return ReportHelper.ProcessReport(null, this, cache);
-    }
+    }*/
 }

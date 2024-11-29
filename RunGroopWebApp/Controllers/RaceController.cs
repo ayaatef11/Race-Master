@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Repositories;

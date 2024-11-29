@@ -1,9 +1,3 @@
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.csproj.AssemblyReference.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.GeneratedMSBuildEditorConfig.editorconfig
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.AssemblyInfoInputs.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.AssemblyInfo.cs
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.csproj.CoreCompileInputs.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.sourcelink.json
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\Data\Seeding\DataSeeding\Clubs.json
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\Data\Seeding\DataSeeding\Races.json
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\Data\Resources\ar-EG.json
@@ -22,6 +16,12 @@ F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCas
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\RunGroop.Data.pdb
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\RunGroop.Infrastructure.pdb
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\bin\Debug\net8.0\RunGroopWebApp.Services.pdb
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.csproj.AssemblyReference.cache
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.GeneratedMSBuildEditorConfig.editorconfig
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.AssemblyInfoInputs.cache
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.AssemblyInfo.cs
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.csproj.CoreCompileInputs.cache
+F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.sourcelink.json
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.DE10F848.Up2Date
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\RunGroop.UseCases.dll
 F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\refint\RunGroop.UseCases.dll
