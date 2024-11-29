@@ -1,5 +1,4 @@
 ﻿using RunGroop.Infrastructure.Settings;
-using RunGroopWebApp.Services.interfaces;
 
 namespace RunGroop.Data.Services
 {

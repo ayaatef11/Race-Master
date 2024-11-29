@@ -1,4 +1,4 @@
-﻿namespace RunGroopWebApp.Helpers
+﻿namespace RunGroop.Application.Helpers
 {
     public static class StateConverter
     {
@@ -54,7 +54,7 @@
                     return State.AS;
 
                 case "ARIZONA":
-                    return State.AZ;           
+                    return State.AZ;
 
                 case "WYOMING":
                     return State.WY;
@@ -65,7 +65,7 @@
 
         public enum State
         {
-            AL,  AK,  AS,  AZ,   AR,  CA,  CO, CT,      WY
+            AL, AK, AS, AZ, AR, CA, CO, CT, WY
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using RunGroopWebApp.MiddleWares;
+using RunGroop.Application.MiddleWares;
 
 namespace RunGroopWebApp.Extensions
 {

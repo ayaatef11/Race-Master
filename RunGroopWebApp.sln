@@ -23,13 +23,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{35CC96DD-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BFB547AF-5631-4A99-AA6B-182B36301C24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanArchitectrure.Application.UseCases", "CleanArchitectrure.Application.UseCases\CleanArchitectrure.Application.UseCases.csproj", "{DCF074D8-3C4C-44B5-A744-83EB407AE4FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.UseCases", "CleanArchitectrure.Application.UseCases\RunGroop.UseCases.csproj", "{DCF074D8-3C4C-44B5-A744-83EB407AE4FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroop.Application", "RunGroop.Application\RunGroop.Application.csproj", "{5376FAD8-7A4C-4EF1-84AF-789CBDC6B2B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.Application", "RunGroop.Application\RunGroop.Application.csproj", "{5376FAD8-7A4C-4EF1-84AF-789CBDC6B2B0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{91ADBA75-4388-413C-B549-3C431A0EDCB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroop.ServiceBus", "RunGroop.MessageProducer\RunGroop.ServiceBus.csproj", "{87CE070A-80C5-46FD-868E-F698A5269360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.ServiceBus", "RunGroop.MessageProducer\RunGroop.ServiceBus.csproj", "{87CE070A-80C5-46FD-868E-F698A5269360}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

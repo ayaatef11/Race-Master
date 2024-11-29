@@ -1,4 +1,4 @@
-﻿namespace RunGroopWebApp.Helpers
+﻿namespace RunGroop.Application.Helpers
 {
     public class Location
     {

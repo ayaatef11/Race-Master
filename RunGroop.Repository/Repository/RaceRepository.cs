@@ -2,12 +2,11 @@
 using RunGroop.Data.Data;
 using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
-using RunGroop.Repository.Repository;
 using RunGroopWebApp.Data.Enum;
 
-namespace RunGroopWebApp.Repository
+namespace RunGroop.Repository.Repository
 {
-    public class RaceRepository(ApplicationDbContext _context) : ProgramRepository<Race>(_context),  IRaceRepository
+    public class RaceRepository(ApplicationDbContext _context) : ProgramRepository<Race>(_context), IRaceRepository
     {
 
 
@@ -21,7 +20,7 @@ namespace RunGroopWebApp.Repository
             return await _context.Races.Where(c => c.Address.City.Contains(city)).ToListAsync();
         }
 
-       
+
 
         public async Task<Race?> GetByIdAsyncNoTracking(int id)
         {

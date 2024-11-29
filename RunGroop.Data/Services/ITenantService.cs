@@ -1,13 +1,11 @@
-﻿
+﻿using RunGroop.Infrastructure.Settings;
 
-using RunGroop.Infrastructure.Settings;
-
-namespace RunGroopWebApp.Services.interfaces
+namespace RunGroop.Data.Services
 {
     public interface ITenantService
     {
         string? GetDatabaseProvider();
-        string ? GetConnectionString();
+        string? GetConnectionString();
         Tenant? GetCurrentTenant();
     }
 }

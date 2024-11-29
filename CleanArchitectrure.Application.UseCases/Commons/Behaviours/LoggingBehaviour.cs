@@ -2,16 +2,11 @@
 using Microsoft.Extensions.Logging;
 using System.Text.Json;
 
-namespace CleanArchitectrure.Application.UseCases.Commons.Behaviours
+namespace RunGroop.UseCases.Commons.Behaviours
 {
-    public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class LoggingBehaviour<TRequest, TResponse>(ILogger<LoggingBehaviour<TRequest, TResponse>> logger) : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
-        private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger;
-
-        public LoggingBehaviour(ILogger<LoggingBehaviour<TRequest, TResponse>> logger)
-        {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        }
+        private readonly ILogger<LoggingBehaviour<TRequest, TResponse>> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {

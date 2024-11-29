@@ -1,7 +1,8 @@
-﻿using CleanArchitectrure.Application.UseCases.Commons.Behaviours;
+﻿
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
+using RunGroop.UseCases.Commons.Behaviours;
 using System.Reflection;
 
 namespace CleanArchitectrure.Application.UseCases

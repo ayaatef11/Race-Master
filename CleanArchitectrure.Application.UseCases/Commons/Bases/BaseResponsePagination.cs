@@ -1,6 +1,6 @@
-﻿namespace CleanArchitectrure.Application.UseCases.Commons.Bases
+﻿namespace RunGroop.UseCases.Commons.Bases
 {
-    public class BaseResponsePagination<T>: BaseReponseGeneric<T>
+    public class BaseResponsePagination<T> : BaseReponseGeneric<T>
     {
         public int PageNumber { get; set; }
         public int TotalPages { get; set; }

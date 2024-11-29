@@ -1,6 +1,6 @@
 ﻿using RunGroop.Data.Models.Data;
 using RunGroopWebApp.Data.Enum;
-namespace RunGroop.Data.Interfaces.Repositories
+namespace RunGroop.Repository.Interfaces
 {
     public interface IClubRepository
     {
@@ -25,6 +25,6 @@ namespace RunGroop.Data.Interfaces.Repositories
 
         Task<int> GetCountByCategoryAsync(ClubCategory category);
 
-        public Task EventOccured(Club club,string ev);
+        public Task EventOccured(Club club, string ev);
     }
 }

@@ -1,6 +1,7 @@
-﻿using CleanArchitectrure.Application.UseCases.Commons.Bases;
+﻿
+using RunGroop.UseCases.Commons.Bases;
 
-namespace CleanArchitectrure.Application.UseCases.Commons.Exceptions
+namespace RunGroop.UseCases.Commons.Exceptions
 {
     public class ValidationExceptionCustom : Exception
     {
@@ -9,7 +10,7 @@ namespace CleanArchitectrure.Application.UseCases.Commons.Exceptions
         public ValidationExceptionCustom()
             : base("One or more validation failures have occured.")
         {
-            Errors = new List<BaseError>();
+            Errors = [];
         }
 
         public ValidationExceptionCustom(IEnumerable<BaseError> errors)

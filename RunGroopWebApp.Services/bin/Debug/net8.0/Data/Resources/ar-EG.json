@@ -1,0 +1,14 @@
+{//we need to apply caching so as not to read from it on each time but to read from the cache 
+  "welcome": "مرحبا {0}, كيف حالك؟",
+  "home": "الرئيسية",//to use in the other sections of the application
+  "privacy": "الخصوصية",
+  "culture": "اللغة",
+  "uiCulture": "لغة واجهة المستخدم",
+  "date": "التاريخ",
+  "currency": "العملة",
+  "numbers": "الأرقام",
+  "create": "إضافة",
+  "save": "حفظ",
+  "name": "الاسم",
+  "required": "حقل مطلوب"
+}

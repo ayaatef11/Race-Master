@@ -1,11 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RunGroop.Repository.Repository
 {
@@ -20,7 +14,7 @@ namespace RunGroop.Repository.Repository
 
         public bool Update(T entity)
         {
-            _context.Update(entity);
+            _context.Update(entity!);
             return Save();
         }
 

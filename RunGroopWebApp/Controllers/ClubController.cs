@@ -1,14 +1,22 @@
-﻿using RunGroop.Application.ViewModels;
+﻿using RunGroop.Application.Helpers;
+using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
-using RunGroopWebApp.Helpers;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
     public class ClubController(ISender _sender,IMediator mediator, IPublisher _publisher, IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
     {
+        private IClubRepository clubRepository;
+        private IPhotoService photoService;
+
+        public ClubController(IClubRepository clubRepository, IPhotoService photoService)
+        {
+            this.clubRepository = clubRepository;
+            this.photoService = photoService;
+        }
 
         [Route("RunningClubs")]
         public async Task<IActionResult> Index()

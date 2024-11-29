@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace RunGroop.Repository.Repository
 {
@@ -41,11 +37,5 @@ namespace RunGroop.Repository.Repository
             return Save();
         }
 
-        /*   public async Task<T?> GetByIdAsync(int id,string? include)
-           {
-               if (include == null)return await _context.Set<T>().FirstOrDefaultAsync(i => i.Id == id);
-
-               return await _context.Set<T>().Include(include).FirstOrDefaultAsync(i => i.Id == id);
-           }*/
     }
 }

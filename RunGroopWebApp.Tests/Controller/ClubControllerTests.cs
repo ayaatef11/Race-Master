@@ -1,6 +1,8 @@
-﻿using RunGroop.Data.Interfaces.Repositories;
+﻿
+using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
+using RunGroop.Repository.Repository;
 using RunGroopWebApp.Controllers;
 
 namespace RunGroopWebApp.Tests.Controller
@@ -8,12 +10,12 @@ namespace RunGroopWebApp.Tests.Controller
     public class ClubControllerTests
     {
         private ClubController _clubController;
-        private IClubRepository _clubRepository;
+        private ClubRepository _clubRepository;
         private IPhotoService _photoService;
         private IHttpContextAccessor _httpContextAccessor;
         public ClubControllerTests()
         {
-            _clubRepository = A.Fake<IClubRepository>();
+            _clubRepository = A.Fake<ClubRepository>();
             _photoService = A.Fake<IPhotoService>();
             _httpContextAccessor = A.Fake<HttpContextAccessor>();
             _clubController = new ClubController(_clubRepository, _photoService);
@@ -23,6 +25,7 @@ namespace RunGroopWebApp.Tests.Controller
         public void ClubController_Index_ReturnsSuccess()
         {
             var clubs = A.Fake<IEnumerable<Club>>();
+            //why
             A.CallTo(() => _clubRepository.GetAll()).Returns(clubs);
             var result = _clubController.Index();
             result.Should().BeOfType<Task<IActionResult>>();
@@ -33,11 +36,15 @@ namespace RunGroopWebApp.Tests.Controller
         {
             //arrange (initialize the variables)-act (call the method )-assert(check if expected equal actual) 
             //take the edge cases 
-            var id = 1;
-            var club = A.Fake<Club>();//create a fake instace 
+            int id = 1;
+            var club = A.Fake<Club>();//create a fake instance 
             A.CallTo(() => _clubRepository.GetByIdAsync(id)).Returns(club);//sets the fake behaviour 
-            
-            var result = _clubController.DetailClub(id, "RunningClub");
+            ClubDetailsViewModel vv = new()
+            {
+                Id = id,
+                RunningClub = "RunningClub"
+            };
+            var result = _clubController.DetailClub(vv);
            
             result.Should().BeOfType<Task<IActionResult>>();//check the result 
         }

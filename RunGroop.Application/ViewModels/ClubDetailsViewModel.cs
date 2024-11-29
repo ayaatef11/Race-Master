@@ -1,11 +1,11 @@
 ﻿using RunGroop.Application.Mapping;
 using RunGroop.Data.Models.Data;
 
-namespace RunGroopWebApp.ViewModels
+namespace RunGroop.Application.ViewModels
 {
-    public class ClubDetailsViewModel:IMapFrom<Club>
+    public class ClubDetailsViewModel : IMapFrom<Club>
     {
-       public int Id { get; set; }
+        public int Id { get; set; }
         public string RunningClub { get; set; } = string.Empty;
     }
 }

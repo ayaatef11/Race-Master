@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace RunGroop.Data.Data.Enum
 {
@@ -10,6 +6,6 @@ namespace RunGroop.Data.Data.Enum
     {
         // Define the custom header name as a constant
         public const string CustomAddName = "X-Custom-Header";
-        public static string CustomExtractName;
+        public static string CustomExtractName=string.Empty;
     }
 }

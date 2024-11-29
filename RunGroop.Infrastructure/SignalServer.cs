@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNet.SignalR.Hubs;
 using RunGroop.Data.Models.SignalR;
 using Microsoft.AspNetCore.SignalR;
-using System.Xml.Linq;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
-using System;
+
 namespace RunGroop.Infrastructure
 {
     //this is the server and the client is the js file 

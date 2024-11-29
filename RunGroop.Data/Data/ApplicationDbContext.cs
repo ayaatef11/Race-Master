@@ -3,13 +3,32 @@ using RunGroop.Data.Contracts;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Models.SignalR;
-using RunGroopWebApp.Services.interfaces;
+using RunGroop.Data.Services;
 
 namespace RunGroop.Data.Data
 {
-    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService _TenantService, IHttpContextAccessor _httpContextAccessor) : IdentityDbContext<AppUser>
+    //public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService _TenantService, IHttpContextAccessor _httpContextAccessor) : IdentityDbContext<AppUser>
+    // {
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
-        public string TenantId { get; set; } = _TenantService.GetCurrentTenant()?.TId;
+        private readonly ITenantService _TenantService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        {
+        }
+        /*A field initializer cannot reference the non-static field, method, or property 'name'.
+
+        Instance fields cannot be used to initialize other instance fields outside a method.*/
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService tenantService, IHttpContextAccessor httpContextAccessor)
+            : this(options)//very important 
+        {
+            _TenantService = tenantService;
+            _httpContextAccessor = httpContextAccessor;
+            TenantId = _TenantService.GetCurrentTenant()?.TId;
+        }
+
+        public string TenantId { get; set; }//;// = _tenantService.GetCurrentTenant()?.TId;
 
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<Race> Races { get; set; }
@@ -41,7 +60,7 @@ namespace RunGroop.Data.Data
                     optionsBuilder.UseSqlServer(tenantConnectionString);
             }
         }
-        //automatically capture all cahnges made 
+        //automatically capture all changes made 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
             foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))

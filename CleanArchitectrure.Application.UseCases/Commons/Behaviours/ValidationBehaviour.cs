@@ -1,18 +1,16 @@
-﻿using CleanArchitectrure.Application.UseCases.Commons.Bases;
-using CleanArchitectrure.Application.UseCases.Commons.Exceptions;
+﻿
 using FluentValidation;
 using MediatR;
+using RunGroop.UseCases.Commons.Bases;
+using RunGroop.UseCases.Commons.Exceptions;
 
-namespace CleanArchitectrure.Application.UseCases.Commons.Behaviours
+namespace RunGroop.UseCases.Commons.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
-        public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators)
-        {
-            _validators = validators ?? throw new ArgumentNullException(nameof(validators));
-        }
+        public ValidationBehaviour(IEnumerable<IValidator<TRequest>> validators) => _validators = validators ?? throw new ArgumentNullException(nameof(validators));
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
@@ -27,7 +25,7 @@ namespace CleanArchitectrure.Application.UseCases.Commons.Behaviours
                     .Select(r => new BaseError() { PropertyMessage = r.PropertyName, ErrorMessage = r.ErrorMessage })
                     .ToList();
 
-                if (failures.Any())
+                if (failures.Count != 0)
                 {
                     throw new ValidationExceptionCustom(failures);
                 }

@@ -1,15 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Data;
-using RunGroop.Data.Interfaces.Repositories;
 using RunGroop.Data.Models.Data;
-using RunGroop.Repository.Repository;
+using RunGroop.Repository.Interfaces;
 using RunGroopWebApp.Data.Enum;
 
-namespace RunGroopWebApp.Repository
+namespace RunGroop.Repository.Repository
 {
-    public class ClubRepository(ApplicationDbContext _context) :ProgramRepository<Club>(_context), IClubRepository
+    public class ClubRepository(ApplicationDbContext _context) : ProgramRepository<Club>(_context), IClubRepository
     {
-       public async Task<Club?> GetByIdAsync(int id)
+        public async Task<Club?> GetByIdAsync(int id)
         {
             return await _context.Clubs.Include(i => i.Address).FirstOrDefaultAsync(i => i.Id == id);
         }
@@ -39,8 +38,6 @@ namespace RunGroopWebApp.Repository
             return await _context.Clubs.CountAsync(c => c.ClubCategory == category);
         }
 
-     
-
         public async Task<Club?> GetByIdAsyncNoTracking(int id)
         {
             return await _context.Clubs.Include(i => i.Address).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
@@ -48,11 +45,8 @@ namespace RunGroopWebApp.Repository
 
         public async Task<IEnumerable<Club>> GetClubByCity(string city)
         {
-            return await _context.Clubs.Where(c => c.Address.City.Contains(city)).Distinct().ToListAsync();
+            return await _context.Clubs.Where(c => c.Address!.City.Contains(city)).Distinct().ToListAsync();
         }
-
-        
-
         public async Task<int> GetCountAsync()
         {
             return await _context.Clubs.CountAsync();
@@ -60,14 +54,14 @@ namespace RunGroopWebApp.Repository
 
         public async Task<IEnumerable<Club>> GetClubsByState(string state)
         {
-            return await _context.Clubs.Where(c => c.Address.State.Contains(state)).ToListAsync();
+            return await _context.Clubs.Where(c => c.Address!.State.Contains(state)).ToListAsync();
         }
 
         public async Task<List<City>> GetAllCitiesByState(string state)
         {
             return await _context.Cities.Where(c => c.StateCode.Contains(state)).ToListAsync();
         }
-        
+
         public async Task EventOccured(Club club, string ev)
         {
 

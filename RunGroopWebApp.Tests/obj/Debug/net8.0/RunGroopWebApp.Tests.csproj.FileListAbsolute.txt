@@ -317,3 +317,5 @@ F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0
 F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.dll
 F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\refint\RunGroopWebApp.Tests.dll
 F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.pdb
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\bin\Debug\net8.0\.msCoverageSourceRootsMapping_RunGroopWebApp.Tests
+F:\full-stack\Race_competition\Race-Master\RunGroopWebApp.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_RunGroopWebApp.Tests

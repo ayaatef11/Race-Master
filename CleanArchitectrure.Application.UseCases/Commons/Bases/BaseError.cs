@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectrure.Application.UseCases.Commons.Bases
+﻿namespace RunGroop.UseCases.Commons.Bases
 {
     public class BaseError
     {

@@ -5,6 +5,7 @@ using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Data.Enum;
 using RunGroop.Data.Data;
+using RunGroop.Repository.Interfaces;
 //c#logging
 /*Trace = 0
 
@@ -85,7 +86,14 @@ namespace RunGroopWebApp.Controllers
             ApplicationDbContext _context,
             ILocationService _locationService) : Controller
     {
+        public AccountController(IUnitOfWork object1, global::IdentityServer4.Services.ITokenService object2)
+        {
+            Object1 = object1;
+            Object2 = object2;
+        }
 
+        public IUnitOfWork Object1 { get; }
+        public global::IdentityServer4.Services.ITokenService Object2 { get; }
 
         public IActionResult Login()
         {

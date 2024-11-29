@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using RunGroop.Data.Data.Enum;
 
-namespace RunGroopWebApp.Filters
+namespace RunGroop.Application.Filters
 {
     public class ExtractCustomHeaderAttribute : ActionFilterAttribute
     {

@@ -7,7 +7,7 @@ namespace RunGroopWebApp.Controllers
     [ApiController]
     public class AddHeadersController : ControllerBase
     {
-        [CustomHeader]
+      //  [CustomHeader]
         public IActionResult CustomHeaderResponse()
         {
 

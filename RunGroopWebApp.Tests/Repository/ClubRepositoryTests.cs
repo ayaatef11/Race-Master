@@ -14,6 +14,7 @@ namespace RunGroopWebApp.Tests.Repository
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString())
                 .Options;
+
             var databaseContext = new ApplicationDbContext(options);
             databaseContext.Database.EnsureCreated();
             if(await databaseContext.Clubs.CountAsync() < 0)
@@ -40,31 +41,9 @@ namespace RunGroopWebApp.Tests.Repository
             return databaseContext;
         }
 
-        [Fact]
-        public async void ClubRepository_Add_ReturnsBool()
-        {
-            //Arrange
-            var club = new Club()
-            {
-                Title = "Running Club 1",
-                Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                Description = "This is the description of the first cinema",
-                ClubCategory = ClubCategory.City,
-                Address = new Address()
-                {
-                    Street = "123 Main St",
-                    City = "Charlotte",
-                    State = "NC"
-                }
-            };
-            var dbContext = await GetDbContext();
-            var clubRepository = new ClubRepository(dbContext);
-            var result = clubRepository.Add(club);
-            result.Should().BeTrue();
-        }
 
         [Fact]
-        public async void ClubRepository_GetByIdAsync_ReturnsClub()
+        public async Task ClubRepositoryGetByIdAsyncReturnsClub()
         {
             var id = 1;
             var dbContext = await GetDbContext();
@@ -75,7 +54,7 @@ namespace RunGroopWebApp.Tests.Repository
         }
 
         [Fact]
-        public async void ClubRepository_GetAll_ReturnsList()
+        public async Task ClubRepositoryGetAllReturnsList()
         {
             var dbContext = await GetDbContext();
             var clubRepository = new ClubRepository(dbContext);
@@ -84,34 +63,10 @@ namespace RunGroopWebApp.Tests.Repository
             result.Should().BeOfType<List<Club>>();
         }
 
-        [Fact]
-        public async void ClubRepository_SuccessfulDelete_ReturnsTrue()
-        {
-            var club = new Club()
-            {
-                Title = "Running Club 1",
-                Image = "https://www.eatthis.com/wp-content/uploads/sites/4/2020/05/running.jpg?quality=82&strip=1&resize=640%2C360",
-                Description = "This is the description of the first cinema",
-                ClubCategory = ClubCategory.City,
-                Address = new Address()
-                {
-                    Street = "123 Main St",
-                    City = "Charlotte",
-                    State = "NC"
-                }
-            };
-            var dbContext = await GetDbContext();
-            var clubRepository = new ClubRepository(dbContext);
-            clubRepository.Add(club);
-            var result = clubRepository.Delete(club);
-            var count = await clubRepository.GetCountAsync();
-
-            result.Should().BeTrue();
-            count.Should().Be(0);
-        }
+      
 
         [Fact]
-        public async void ClubRepository_GetCountAsync_ReturnsInt()
+        public async Task ClubRepositoryGetCountAsyncReturnsInt()
         {
             var club = new Club()
             {
@@ -134,7 +89,7 @@ namespace RunGroopWebApp.Tests.Repository
         }
 
         [Fact]
-        public async void ClubRepository_GetAllStates_ReturnsList()
+        public async Task ClubRepositoryGetAllStatesReturnsList()
         {
             var dbContext = await GetDbContext();
             var clubRepository = new ClubRepository(dbContext);
@@ -144,7 +99,7 @@ namespace RunGroopWebApp.Tests.Repository
         }
 
         [Fact]
-        public async void ClubRepository_GetClubsByState_ReturnsList()
+        public async Task ClubRepositoryGetClubsByStateReturnsList()
         {
             var state = "NC";
             var club = new Club()

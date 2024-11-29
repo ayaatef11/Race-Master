@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RunGroopWebApp.Helpers;
+using RunGroop.Application.Helpers;
 
 namespace RunGroopWebApp.Extensions
 {

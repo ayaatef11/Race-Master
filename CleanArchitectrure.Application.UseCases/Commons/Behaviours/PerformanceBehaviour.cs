@@ -3,18 +3,12 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Text.Json;
 
-namespace CleanArchitectrure.Application.UseCases.Commons.Behaviours
+namespace RunGroop.UseCases.Commons.Behaviours
 {
-    public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class PerformanceBehaviour<TRequest, TResponse>(ILogger<TRequest> logger) : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
-        private readonly Stopwatch _timer;
-        private readonly ILogger<TRequest> _logger;
-
-        public PerformanceBehaviour( ILogger<TRequest> logger)
-        {
-            _timer = new Stopwatch() ?? throw new ArgumentNullException(nameof(Stopwatch));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        }
+        private readonly Stopwatch _timer = new Stopwatch() ?? throw new ArgumentNullException(nameof(Stopwatch));
+        private readonly ILogger<TRequest> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {

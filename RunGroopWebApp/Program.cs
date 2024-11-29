@@ -6,13 +6,11 @@ using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
 using RunGroop.Data.Data;
 using RunGroop.Data.Models.Identity;
-using RunGroop.Data.Models;
 using RunGroop.Infrastructure.Settings;
 using RunGroop.Infrastructure;
 using RunGroopWebApp.Extensions;
 using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Services.Services;
-using RunGroopWebApp;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
 using Quartz;
@@ -25,6 +23,8 @@ using RunGroop.Application.MiddleWares;
 using RunGroop.Data.Data.Seeding;
 using RunGroop.Data.Services;
 using RunGroopWebApp.Services.Localization;
+using RunGroop.Application.OptionsPattern;
+using RunGroopWebApp.Services;
 
 
 Log.Logger=new LoggerConfiguration().WriteTo.Console().CreateLogger();

@@ -5,17 +5,12 @@ using Microsoft.Extensions.Logging;
 
 namespace RunGroop.Infrastructure
 {
-    internal class ServerTimeNotifier : BackgroundService
+    internal class ServerTimeNotifier(ILogger<ServerTimeNotifier> logger, IHubContext<NotificationHub, INotificationClient> context) : BackgroundService
     {
         private static readonly TimeSpan Period = TimeSpan.FromSeconds(5);
-        private readonly ILogger<ServerTimeNotifier> _logger;
-        private readonly IHubContext<NotificationHub, INotificationClient> _context;
+        private readonly ILogger<ServerTimeNotifier> _logger = logger;
+        private readonly IHubContext<NotificationHub, INotificationClient> _context = context;
 
-        public ServerTimeNotifier(ILogger<ServerTimeNotifier> logger, IHubContext<NotificationHub, INotificationClient> context)
-        {
-            _logger = logger;
-            _context = context;
-        }
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             using var timer = new PeriodicTimer(Period);
@@ -25,7 +20,8 @@ namespace RunGroop.Infrastructure
             {
                 var dateTime = DateTime.Now;
 
-                _logger.LogInformation("Executing {Sevice} {Time}", nameof(ServerTimeNotifier), dateTime);
+                _logger.LogInformation("Executing {Sevice} {Time}",
+                    nameof(ServerTimeNotifier), dateTime);
             }
         }
     }
