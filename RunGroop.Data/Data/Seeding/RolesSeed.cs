@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using RunGroop.Data.Data.Enum;
 
-//use signalR
 namespace RunGroop.Data.Data.Seeding
 {
     public class RolesSeed

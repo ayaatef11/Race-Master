@@ -1,4 +1,9 @@
-﻿ namespace EcommerceDDD.Core.Infrastructure.Http;
+﻿
+
+using Newtonsoft.Json;
+using RunGroop.Infrastructure.Http;
+using System.Net.Http.Headers;
+using System.Text;
 
 public class HttpRequester(IHttpClientFactory factory) : IHttpRequester
 {

@@ -9,19 +9,17 @@ using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ClubController(ISender _sender,IMediator mediator, IPublisher _publisher, IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
+    public class ClubController(IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
     {
-        private IClubRepository clubRepository;
-        private IPhotoService photoService;
 
-        [Route("RunningClubs")]
-        /*public async Task<IActionResult> Index()
-        {
-            var query = new GetAllClubsQuery();
-            var response = mediator.Send(query);
+       // [Route("RunningClubs")]
+        //public async Task<IActionResult> Index()
+        //{
+        //    var query = new GetAllClubsQuery();
+        //    var response = mediator.Send(query);
 
-            return View(response);
-        }*/
+        //    return View(response);
+        //}
 
         [HttpGet]
         [Route("RunningClubs/{state}")]

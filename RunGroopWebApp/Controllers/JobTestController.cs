@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RunGroopWebApp.Services.interfaces;
+using RunGroopWebApp.Services.Services;
 
 namespace RunGroopWebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class JobTestController(IjobTestService _jobTestService, IBackgroundJobClient backgroundJobClient, IRecurringJobManager _recurringJobManager) : ControllerBase
+    public class JobTestController(JobTestService _jobTestService, IBackgroundJobClient backgroundJobClient, IRecurringJobManager _recurringJobManager) : ControllerBase
     {
 
         [HttpGet("/FireAndForgetJob")]

@@ -1,4 +1,7 @@
-﻿namespace EcommerceDDD.Core.Infrastructure.Workers;
+﻿using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
+namespace RunGroop.Infrastructure.Workers;
 
 public abstract class BackgroundWorker(
     ILogger<BackgroundWorker> logger,

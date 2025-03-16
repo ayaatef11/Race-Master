@@ -10,7 +10,7 @@ using RunGroopWebApp.ViewModels;
 namespace RunGroopWebApp.Controllers
 {
     [Authorize]
-    public class DashboardController(IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
+    public class DashboardController(IUnitOfWork _UnitOfWork) : Controller
     {
 
         public async Task<IActionResult> Index()

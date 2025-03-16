@@ -36,7 +36,7 @@ public class AccountControllerTests
 
         _controller = new AccountController(
             _userManagerMock.Object, _signInManagerMock.Object,
-            _contextMock.Object, _locationServiceMock.Object, _unitOfWorkMock.Object);
+            _locationServiceMock.Object, _unitOfWorkMock.Object);
     }
 
     // ? Test Login (Valid Credentials)

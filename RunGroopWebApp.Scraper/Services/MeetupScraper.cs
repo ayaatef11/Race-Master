@@ -15,7 +15,7 @@ namespace RunGroopWebApp.Scraper.Services
         public MeetupScraper()
         {
             new DriverManager().SetUpDriver(new ChromeConfig());
-            //create reference for our browser
+
             _driver = new ChromeDriver();//open a new web browser
         }
 

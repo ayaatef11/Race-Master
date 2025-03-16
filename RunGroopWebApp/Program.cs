@@ -2,14 +2,8 @@ using GraphQL.Types;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Razor;
-using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Options;
 using RunGroop.Data.Data;
 using RunGroop.Data.Models.Identity;
-using RunGroop.Infrastructure.Settings;
-using RunGroop.Infrastructure;
-using RunGroopWebApp.Extensions;
-using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Services.Services;
 using Hangfire;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +16,7 @@ using RunGroopWebApp.Services.Localization;
 using System.Globalization;
 using RunGroop.Application.Helpers;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
@@ -42,6 +37,7 @@ try
 
     builder.Services.AddHostedService<BackGroundWorkerService>();
     builder.Services.AddControllersWithViews();
+
     builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
     builder.Host.ConfigureSerilog();
 
@@ -52,6 +48,7 @@ try
     );
 
     builder.Services.AddHangfireServer();
+
     builder.Services.AddDbContext<ApplicationDbContext>(opts =>
         opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections"),
         options => options.MigrationsAssembly("RunGroopWebApp"))
@@ -69,8 +66,11 @@ try
     {
         opt.UsePersistentStore(s =>
         {
-            s.UseSqlServer(builder.Configuration.GetConnectionString("QuartzConnection"));
+            s.UseSqlServer(builder.Configuration.GetSection("Quartz:dataSource:default:QuartzConnection").Value);
             s.UseProperties = true;
+            s.UseClustering(); 
+            s.UseJsonSerializer(); 
+
         });
 
         var jobKey = JobKey.Create("LoggingJob");
@@ -89,6 +89,8 @@ try
     {
         options.WaitForJobsToComplete = true;
     });
+
+
 
     builder.Services.AddIdentity<AppUser, IdentityRole>()
            .AddDefaultTokenProviders()

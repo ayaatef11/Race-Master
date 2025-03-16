@@ -1,6 +1,0 @@
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.csproj.AssemblyReference.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.GeneratedMSBuildEditorConfig.editorconfig
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.AssemblyInfoInputs.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.AssemblyInfo.cs
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.csproj.CoreCompileInputs.cache
-F:\full-stack\Race_competition\Race-Master\CleanArchitectrure.Application.UseCases\obj\Debug\net8.0\CleanArchitectrure.Application.UseCases.sourcelink.json

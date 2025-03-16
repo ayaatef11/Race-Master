@@ -1,4 +1,4 @@
-﻿namespace EcommerceDDD.Core.Infrastructure.Http;
+﻿namespace RunGroop.Infrastructure.Http;
 
 public interface IHttpRequester
 {

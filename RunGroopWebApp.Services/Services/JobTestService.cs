@@ -3,7 +3,7 @@ using RunGroopWebApp.Services.interfaces;
 
 namespace RunGroopWebApp.Services.Services
 {
-    public class JobTestService(ILogger<JobTestService> _logger) : IjobTestService
+    public class JobTestService(ILogger<JobTestService> _logger) 
     {
 
         public void ContinuationJob()

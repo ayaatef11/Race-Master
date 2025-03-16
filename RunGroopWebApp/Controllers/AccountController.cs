@@ -13,7 +13,6 @@ namespace RunGroopWebApp.Controllers
 {
     public class AccountController(UserManager<AppUser> _userManager,
             SignInManager<AppUser> _signInManager,
-            ApplicationDbContext _context,
             ILocationService _locationService, IUnitOfWork object1/*,IdentityServer4.Services.ITokenService object2*/) : Controller
     {
         public IUnitOfWork Object1 { get; } = object1;

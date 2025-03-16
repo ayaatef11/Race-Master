@@ -15,13 +15,8 @@ namespace RunGroopWebApp.Controllers
             Request.Headers.TryGetValue(CustomHeaderNames.CustomExtractName, out var headerValue);
 
             return Ok(headerValue);
-        }/*
-        [HttpGet("fromheader")]
-        public IActionResult ExtractFromQueryAttribute([FromHeader] HeaderDTO headerDTO)
-        {
+        }
 
-            return Ok(headerDTO);
-        }*/
         [HttpGet("actionfilter")]
         [ExtractCustomHeader]
         public IActionResult ExtractFromFilter()

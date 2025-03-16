@@ -4,11 +4,11 @@ using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Models.SignalR;
 using RunGroop.Data.Services;
+using RunGroop.Data.Settings;
 
 namespace RunGroop.Data.Data
 {
-    //public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService _TenantService, IHttpContextAccessor _httpContextAccessor) : IdentityDbContext<AppUser>
-    // {
+    
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         private readonly ITenantService _TenantService;
@@ -17,9 +17,6 @@ namespace RunGroop.Data.Data
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
-        /*A field initializer cannot reference the non-static field, method, or property 'name'.
-
-        Instance fields cannot be used to initialize other instance fields outside a method.*/
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService tenantService, IHttpContextAccessor httpContextAccessor)
             : this(options)//very important 
         {

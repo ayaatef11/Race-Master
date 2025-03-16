@@ -1,0 +1,1028 @@
+2025-03-16 16:23:15.574 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:23:16.540 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:23:27.674 +02:00 [WRN] An exception occurred while trying to perform the migration. Retrying...
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "RunGroopDb2" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 365
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 256
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 243
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 424
+ClientConnectionId:a233d898-cc6c-42d3-a264-1bd7e52b8c1d
+Error Number:4060,State:1,Class:11
+2025-03-16 16:23:27.764 +02:00 [WRN] An exception occurred while trying to perform the migration. Retrying...
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "RunGroopDb2" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 365
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 256
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 243
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 424
+ClientConnectionId:a233d898-cc6c-42d3-a264-1bd7e52b8c1d
+Error Number:4060,State:1,Class:11
+2025-03-16 16:23:27.768 +02:00 [WRN] An exception occurred while trying to perform the migration.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "RunGroopDb2" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 365
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 256
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 243
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 424
+ClientConnectionId:a233d898-cc6c-42d3-a264-1bd7e52b8c1d
+Error Number:4060,State:1,Class:11
+2025-03-16 16:23:27.772 +02:00 [WRN] Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "RunGroopDb2" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 365
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 256
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 243
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 424
+ClientConnectionId:a233d898-cc6c-42d3-a264-1bd7e52b8c1d
+Error Number:4060,State:1,Class:11
+2025-03-16 16:23:27.781 +02:00 [ERR] Was unable to use the TryAutoDetectSchemaDependentOptions option due to an exception.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "RunGroopDb2" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Hangfire.SqlServer.SqlServerStorage.CreateAndOpenConnection() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 365
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection[T](DbConnection dedicatedConnection, Func`2 func) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 256
+   at Hangfire.SqlServer.SqlServerStorage.UseConnection(DbConnection dedicatedConnection, Action`1 action) in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 243
+   at Hangfire.SqlServer.SqlServerStorage.Initialize() in C:\projects\hangfire-525\src\Hangfire.SqlServer\SqlServerStorage.cs:line 455
+ClientConnectionId:a233d898-cc6c-42d3-a264-1bd7e52b8c1d
+Error Number:4060,State:1,Class:11
+2025-03-16 16:23:27.859 +02:00 [INF] Started 
+2025-03-16 16:23:29.067 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:25:43.561 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:25:43.623 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:25:44.337 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:25:44.396 +02:00 [INF] Started 
+2025-03-16 16:25:45.463 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:27:41.764 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:27:41.850 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:27:42.283 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:27:42.326 +02:00 [INF] Started 
+2025-03-16 16:27:43.359 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:28:41.869 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:28:41.911 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:28:42.214 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:28:42.255 +02:00 [INF] Started 
+2025-03-16 16:28:43.284 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:29:02.659 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:29:02.719 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:29:03.043 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:29:03.090 +02:00 [INF] Started 
+2025-03-16 16:29:04.129 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:31:15.292 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:31:15.339 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:31:15.746 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:31:15.820 +02:00 [INF] Started 
+2025-03-16 16:31:16.866 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Connection string not specified for DataSource: default
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:35:34.658 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:35:34.705 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:35:35.054 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:35:35.118 +02:00 [INF] Started 
+2025-03-16 16:35:36.164 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 16:35:36.167 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: You must define object serializer using configuration key 'quartz.serializer.type' when using other than RAMJobStore. Out of the box supported values are 'json' and 'binary'. JSON doesn't suffer from versioning as much as binary serialization but you cannot use it if you already have binary serialized data.
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:37:42.439 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:37:42.492 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:37:42.965 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:37:43.007 +02:00 [INF] Started 
+2025-03-16 16:37:44.055 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 16:37:44.059 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: You must define object serializer using configuration key 'quartz.serializer.type' when using other than RAMJobStore. Out of the box supported values are 'json' and 'binary'. JSON doesn't suffer from versioning as much as binary serialization but you cannot use it if you already have binary serialized data.
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:37:47.392 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:37:47.501 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:37:47.914 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:37:48.018 +02:00 [INF] Started 
+2025-03-16 16:37:49.060 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 16:37:49.065 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: You must define object serializer using configuration key 'quartz.serializer.type' when using other than RAMJobStore. Out of the box supported values are 'json' and 'binary'. JSON doesn't suffer from versioning as much as binary serialization but you cannot use it if you already have binary serialized data.
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-03-16 16:44:16.548 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 16:44:16.594 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 16:44:16.967 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 16:44:17.016 +02:00 [INF] Started 
+2025-03-16 16:44:18.056 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 16:44:18.059 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 16:44:18.073 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 16:44:18.074 +02:00 [INF] Quartz Scheduler created
+2025-03-16 16:44:18.075 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 16:44:18.080 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 16:44:18.082 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 16:44:28.133 +02:00 [INF] ConnectionAndTransactionHolder passed to RollbackConnection was null, ignoring
+2025-03-16 16:44:28.138 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2025-03-16 16:44:28.140 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2025-03-16 16:44:28.145 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2025-03-16 16:44:28.148 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Database schema validation failed. Make sure you have created the database tables that Quartz requires using the database schema scripts. You can disable this check by setting quartz.jobStore.performSchemaValidation to false
+ ---> Quartz.JobPersistenceException: Failed to obtain DB connection from data source 'default': Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreTX.GetNonManagedTXConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11]
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreTX.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation) [See nested exception: Quartz.JobPersistenceException: Failed to obtain DB connection from data source 'default': Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreTX.GetNonManagedTXConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:159a5ab6-bc01-4fd0-ae8a-688e8dde65de
+Error Number:4060,State:1,Class:11]]
+2025-03-16 18:35:14.824 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 18:35:15.186 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 18:35:15.831 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 18:35:15.872 +02:00 [INF] Started 
+2025-03-16 18:35:16.919 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 18:35:16.922 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 18:35:16.930 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 18:35:16.931 +02:00 [INF] Quartz Scheduler created
+2025-03-16 18:35:16.932 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 18:35:16.936 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 18:35:16.938 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 18:35:26.998 +02:00 [INF] ConnectionAndTransactionHolder passed to RollbackConnection was null, ignoring
+2025-03-16 18:35:27.004 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2025-03-16 18:35:27.006 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2025-03-16 18:35:27.011 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2025-03-16 18:35:27.014 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Database schema validation failed. Make sure you have created the database tables that Quartz requires using the database schema scripts. You can disable this check by setting quartz.jobStore.performSchemaValidation to false
+ ---> Quartz.JobPersistenceException: Failed to obtain DB connection from data source 'default': Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreTX.GetNonManagedTXConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11]
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreTX.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation) [See nested exception: Quartz.JobPersistenceException: Failed to obtain DB connection from data source 'default': Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreTX.GetNonManagedTXConnection()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "QuartzDB" requested by the login. The login failed.
+Login failed for user 'AYAATEF1\Aya Atef'.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.GetConnection()
+ClientConnectionId:d9cb934a-1e7a-4ccc-b7c6-59d19d9a4268
+Error Number:4060,State:1,Class:11]]
+2025-03-16 18:56:13.815 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 18:56:13.867 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 18:56:14.241 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 18:56:14.291 +02:00 [INF] Started 
+2025-03-16 18:56:15.337 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 18:56:15.340 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 18:56:15.352 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 18:56:15.354 +02:00 [INF] Quartz Scheduler created
+2025-03-16 18:56:15.355 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 18:56:15.360 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 18:56:15.362 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 18:56:15.412 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2025-03-16 18:56:15.414 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2025-03-16 18:56:15.418 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2025-03-16 18:56:15.421 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Database schema validation failed. Make sure you have created the database tables that Quartz requires using the database schema scripts. You can disable this check by setting quartz.jobStore.performSchemaValidation to false
+ ---> Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:20bf2809-9f5c-4821-bcc6-b7fe722ed18b
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:20bf2809-9f5c-4821-bcc6-b7fe722ed18b
+Error Number:208,State:1,Class:16]
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreTX.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation) [See nested exception: Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:20bf2809-9f5c-4821-bcc6-b7fe722ed18b
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:20bf2809-9f5c-4821-bcc6-b7fe722ed18b
+Error Number:208,State:1,Class:16]]
+2025-03-16 18:58:33.345 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 18:58:33.388 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 18:58:33.799 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 18:58:33.856 +02:00 [INF] Started 
+2025-03-16 18:58:34.929 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 18:58:34.932 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 18:58:34.946 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 18:58:34.947 +02:00 [INF] Quartz Scheduler created
+2025-03-16 18:58:34.949 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 18:58:34.956 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 18:58:34.957 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 18:58:35.003 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2025-03-16 18:58:35.005 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2025-03-16 18:58:35.010 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2025-03-16 18:58:35.013 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Database schema validation failed. Make sure you have created the database tables that Quartz requires using the database schema scripts. You can disable this check by setting quartz.jobStore.performSchemaValidation to false
+ ---> Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:dfd5fd04-6cb8-4741-b351-6ddaa4b428f6
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:dfd5fd04-6cb8-4741-b351-6ddaa4b428f6
+Error Number:208,State:1,Class:16]
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreTX.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation) [See nested exception: Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:dfd5fd04-6cb8-4741-b351-6ddaa4b428f6
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:dfd5fd04-6cb8-4741-b351-6ddaa4b428f6
+Error Number:208,State:1,Class:16]]
+2025-03-16 18:58:50.490 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 18:58:50.533 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 18:58:50.901 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 18:58:50.951 +02:00 [INF] Started 
+2025-03-16 18:58:52.007 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 18:58:52.010 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 18:58:52.018 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 18:58:52.019 +02:00 [INF] Quartz Scheduler created
+2025-03-16 18:58:52.020 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 18:58:52.024 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 18:58:52.025 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 18:58:52.066 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2025-03-16 18:58:52.070 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2025-03-16 18:58:52.074 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2025-03-16 18:58:52.077 +02:00 [ERR] Hosting failed to start
+Quartz.SchedulerException: Database schema validation failed. Make sure you have created the database tables that Quartz requires using the database schema scripts. You can disable this check by setting quartz.jobStore.performSchemaValidation to false
+ ---> Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:18ca9caa-9d78-4a95-94b1-375cb1e212f1
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:18ca9caa-9d78-4a95-94b1-375cb1e212f1
+Error Number:208,State:1,Class:16]
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreTX.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken)
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.Instantiate()
+   at Quartz.Impl.StdSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.ServiceCollectionSchedulerFactory.GetScheduler(CancellationToken cancellationToken)
+   at Quartz.QuartzHostedService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation) [See nested exception: Quartz.JobPersistenceException: Unable to query against table QRTZ_JOB_DETAILS: Invalid object name 'QRTZ_JOB_DETAILS'.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:18ca9caa-9d78-4a95-94b1-375cb1e212f1
+Error Number:208,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.ExecuteInNonManagedTXLock[T](String lockName, Func`2 txCallback, Func`3 txValidator, Nullable`1 requestorId, CancellationToken cancellationToken)
+   at Quartz.Impl.AdoJobStore.JobStoreSupport.Initialize(ITypeLoadHelper loadHelper, ISchedulerSignaler signaler, CancellationToken cancellationToken) [See nested exception: Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid object name 'QRTZ_JOB_DETAILS'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalEndExecuteReader(IAsyncResult asyncResult, Boolean isInternal, String endMethod)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderInternal(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsync(IAsyncResult asyncResult)
+   at Microsoft.Data.SqlClient.SqlCommand.EndExecuteReaderAsyncCallback(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location ---
+   at Quartz.Impl.AdoJobStore.StdAdoDelegate.ValidateSchema(ConnectionAndTransactionHolder conn, CancellationToken cancellationToken)
+ClientConnectionId:18ca9caa-9d78-4a95-94b1-375cb1e212f1
+Error Number:208,State:1,Class:16]]
+2025-03-16 19:01:54.342 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-16 19:01:54.393 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-03-16 19:01:54.919 +02:00 [INF] Hangfire SQL objects installed.
+2025-03-16 19:01:54.970 +02:00 [INF] Started 
+2025-03-16 19:01:56.025 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-03-16 19:01:56.027 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-03-16 19:01:56.036 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-03-16 19:01:56.038 +02:00 [INF] Quartz Scheduler created
+2025-03-16 19:01:56.039 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-03-16 19:01:56.043 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-03-16 19:01:56.044 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-03-16 19:01:56.098 +02:00 [INF] Successfully validated presence of 10 schema objects
+2025-03-16 19:01:56.099 +02:00 [INF] JobStoreTX initialized.
+2025-03-16 19:01:56.100 +02:00 [INF] Quartz Scheduler 3.14.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-03-16 19:01:56.101 +02:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-03-16 19:01:56.102 +02:00 [INF] Using job store 'Quartz.Impl.AdoJobStore.JobStoreTX', supports persistence: True, clustered: True
+2025-03-16 19:01:56.115 +02:00 [INF] Adding 1 jobs, 1 triggers.
+2025-03-16 19:01:56.213 +02:00 [INF] Adding job: DEFAULT.LoggingJob
+2025-03-16 19:01:56.876 +02:00 [INF] Now listening on: https://localhost:7195
+2025-03-16 19:01:56.879 +02:00 [INF] Now listening on: http://localhost:5195
+2025-03-16 19:01:57.561 +02:00 [INF] Starting Hangfire Server using job storage: 'SQL Server: .@RunGroopDb'
+2025-03-16 19:01:57.562 +02:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-03-16 19:01:57.563 +02:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-03-16 19:01:57.597 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-16 19:01:57.598 +02:00 [INF] Hosting environment: Development
+2025-03-16 19:01:57.599 +02:00 [INF] Content root path: F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp
+2025-03-16 19:01:57.611 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-03-16 19:01:57.703 +02:00 [INF] Server ayaatef1:6232:6ff9e884 successfully announced in 105.8658 ms
+2025-03-16 19:01:57.709 +02:00 [INF] Server ayaatef1:6232:6ff9e884 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-03-16 19:01:58.026 +02:00 [INF] Server ayaatef1:6232:6ff9e884 all the dispatchers started
+2025-03-16 19:01:58.395 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7195/ - null null
+2025-03-16 19:01:58.569 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7195/ - 404 0 null 182.8591ms
+2025-03-16 19:01:58.578 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7195/, Response status code: 404
+2025-03-16 19:02:04.383 +02:00 [INF] Logging job executed on 3/16/2025 5:02:04 PM
+2025-03-16 19:02:06.230 +02:00 [INF] Logging job executed on 3/16/2025 5:02:06 PM
+2025-03-16 19:02:06.669 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7195/swagger - null null
+2025-03-16 19:02:06.685 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7195/swagger - 404 0 null 16.6266ms
+2025-03-16 19:02:06.689 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7195/swagger, Response status code: 404
+2025-03-16 19:02:08.233 +02:00 [INF] Logging job executed on 3/16/2025 5:02:08 PM
+2025-03-16 19:02:10.228 +02:00 [INF] Logging job executed on 3/16/2025 5:02:10 PM
+2025-03-16 19:02:12.223 +02:00 [INF] Logging job executed on 3/16/2025 5:02:12 PM
+2025-03-16 19:02:14.234 +02:00 [INF] Logging job executed on 3/16/2025 5:02:14 PM
+2025-03-16 19:02:16.225 +02:00 [INF] Logging job executed on 3/16/2025 5:02:16 PM
+2025-03-16 19:02:18.228 +02:00 [INF] Logging job executed on 3/16/2025 5:02:18 PM
+2025-03-16 19:02:20.231 +02:00 [INF] Logging job executed on 3/16/2025 5:02:20 PM
+2025-03-16 19:02:22.228 +02:00 [INF] Logging job executed on 3/16/2025 5:02:22 PM
+2025-03-16 19:02:24.231 +02:00 [INF] Logging job executed on 3/16/2025 5:02:24 PM
+2025-03-16 19:02:26.231 +02:00 [INF] Logging job executed on 3/16/2025 5:02:26 PM
+2025-03-16 19:02:28.233 +02:00 [INF] Logging job executed on 3/16/2025 5:02:28 PM
+2025-03-16 19:02:30.225 +02:00 [INF] Logging job executed on 3/16/2025 5:02:30 PM
+2025-03-16 19:02:32.233 +02:00 [INF] Logging job executed on 3/16/2025 5:02:32 PM
+2025-03-16 19:02:34.235 +02:00 [INF] Logging job executed on 3/16/2025 5:02:34 PM
+2025-03-16 19:02:36.234 +02:00 [INF] Logging job executed on 3/16/2025 5:02:36 PM
+2025-03-16 19:02:38.235 +02:00 [INF] Logging job executed on 3/16/2025 5:02:38 PM
+2025-03-16 19:02:40.227 +02:00 [INF] Logging job executed on 3/16/2025 5:02:40 PM
+2025-03-16 19:02:42.232 +02:00 [INF] Logging job executed on 3/16/2025 5:02:42 PM
+2025-03-16 19:02:44.223 +02:00 [INF] Logging job executed on 3/16/2025 5:02:44 PM
+2025-03-16 19:02:46.230 +02:00 [INF] Logging job executed on 3/16/2025 5:02:46 PM
+2025-03-16 19:02:48.228 +02:00 [INF] Logging job executed on 3/16/2025 5:02:48 PM
+2025-03-16 19:02:50.235 +02:00 [INF] Logging job executed on 3/16/2025 5:02:50 PM
+2025-03-16 19:02:52.223 +02:00 [INF] Logging job executed on 3/16/2025 5:02:52 PM
+2025-03-16 19:02:54.229 +02:00 [INF] Logging job executed on 3/16/2025 5:02:54 PM
+2025-03-16 19:02:56.236 +02:00 [INF] Logging job executed on 3/16/2025 5:02:56 PM
+2025-03-16 19:02:58.243 +02:00 [INF] Logging job executed on 3/16/2025 5:02:58 PM
+2025-03-16 19:03:00.239 +02:00 [INF] Logging job executed on 3/16/2025 5:03:00 PM
+2025-03-16 19:03:02.251 +02:00 [INF] Logging job executed on 3/16/2025 5:03:02 PM
+2025-03-16 19:03:04.230 +02:00 [INF] Logging job executed on 3/16/2025 5:03:04 PM
+2025-03-16 19:03:06.223 +02:00 [INF] Logging job executed on 3/16/2025 5:03:06 PM
+2025-03-16 19:03:08.224 +02:00 [INF] Logging job executed on 3/16/2025 5:03:08 PM
+2025-03-16 19:03:10.225 +02:00 [INF] Logging job executed on 3/16/2025 5:03:10 PM
+2025-03-16 19:03:12.230 +02:00 [INF] Logging job executed on 3/16/2025 5:03:12 PM
+2025-03-16 19:03:14.234 +02:00 [INF] Logging job executed on 3/16/2025 5:03:14 PM
+2025-03-16 19:03:16.226 +02:00 [INF] Logging job executed on 3/16/2025 5:03:16 PM
+2025-03-16 19:03:18.227 +02:00 [INF] Logging job executed on 3/16/2025 5:03:18 PM
+2025-03-16 19:03:20.230 +02:00 [INF] Logging job executed on 3/16/2025 5:03:20 PM
+2025-03-16 19:03:22.234 +02:00 [INF] Logging job executed on 3/16/2025 5:03:22 PM
+2025-03-16 19:03:24.237 +02:00 [INF] Logging job executed on 3/16/2025 5:03:24 PM
+2025-03-16 19:03:26.234 +02:00 [INF] Logging job executed on 3/16/2025 5:03:26 PM
+2025-03-16 19:03:28.226 +02:00 [INF] Logging job executed on 3/16/2025 5:03:28 PM
+2025-03-16 19:03:30.228 +02:00 [INF] Logging job executed on 3/16/2025 5:03:30 PM
+2025-03-16 19:03:32.225 +02:00 [INF] Logging job executed on 3/16/2025 5:03:32 PM
+2025-03-16 19:03:34.227 +02:00 [INF] Logging job executed on 3/16/2025 5:03:34 PM
+2025-03-16 19:03:36.228 +02:00 [INF] Logging job executed on 3/16/2025 5:03:36 PM
+2025-03-16 19:03:38.226 +02:00 [INF] Logging job executed on 3/16/2025 5:03:38 PM
+2025-03-16 19:03:40.225 +02:00 [INF] Logging job executed on 3/16/2025 5:03:40 PM
+2025-03-16 19:03:42.233 +02:00 [INF] Logging job executed on 3/16/2025 5:03:42 PM
+2025-03-16 19:03:44.236 +02:00 [INF] Logging job executed on 3/16/2025 5:03:44 PM
+2025-03-16 19:03:46.222 +02:00 [INF] Logging job executed on 3/16/2025 5:03:46 PM
+2025-03-16 19:03:48.224 +02:00 [INF] Logging job executed on 3/16/2025 5:03:48 PM
+2025-03-16 19:03:50.232 +02:00 [INF] Logging job executed on 3/16/2025 5:03:50 PM
+2025-03-16 19:03:52.234 +02:00 [INF] Logging job executed on 3/16/2025 5:03:52 PM
+2025-03-16 19:03:54.231 +02:00 [INF] Logging job executed on 3/16/2025 5:03:54 PM
+2025-03-16 19:03:56.236 +02:00 [INF] Logging job executed on 3/16/2025 5:03:56 PM
+2025-03-16 19:03:58.237 +02:00 [INF] Logging job executed on 3/16/2025 5:03:58 PM
+2025-03-16 19:03:58.845 +02:00 [WRN] Stopping the server due to DomainUnload or ProcessExit event...
+2025-03-16 19:03:58.846 +02:00 [INF] Server ayaatef1:6232:6ff9e884 caught stopping signal...
+2025-03-16 19:03:58.858 +02:00 [INF] Server ayaatef1:6232:6ff9e884 caught stopped signal...
+2025-03-16 19:03:58.858 +02:00 [INF] Server ayaatef1:6232:6ff9e884 All dispatchers stopped
+2025-03-16 19:03:58.859 +02:00 [WRN] Server ayaatef1:6232:6ff9e884 caught shutdown signal...
+2025-03-16 19:03:58.867 +02:00 [INF] Server ayaatef1:6232:6ff9e884 successfully reported itself as stopped in 5.8419 ms
+2025-03-16 19:03:58.867 +02:00 [INF] Server ayaatef1:6232:6ff9e884 has been stopped in total 10.1334 ms
+2025-03-16 19:13:07.958 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 122

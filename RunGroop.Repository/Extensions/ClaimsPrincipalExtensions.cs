@@ -6,7 +6,7 @@ namespace RunGroopWebApp.Extensions
     {
         public static string GetUserId(this ClaimsPrincipal user)
         {
-            return user.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return user.FindFirst(ClaimTypes.NameIdentifier).Value??string.Empty;
         }
     }
 }

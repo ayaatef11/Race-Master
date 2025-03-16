@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RunGroop.Data.Data.Enum;
 
 namespace RunGroopWebApp.Controllers
 {
@@ -7,11 +8,11 @@ namespace RunGroopWebApp.Controllers
     [ApiController]
     public class AddHeadersController : ControllerBase
     {
-      //  [CustomHeader]
+       //[CustomHeader]
         public IActionResult CustomHeaderResponse()
         {
 
-            //HttpContext.Response.Headers.Append( CustomHeaderNames.CustomAddName, "custom header value");
+            HttpContext.Response.Headers.Append( CustomHeaderNames.CustomAddName, "custom header value");
 
             return Ok();
         }

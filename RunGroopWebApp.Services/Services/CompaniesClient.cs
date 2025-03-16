@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Http.HttpResults;
 using System.Text.Json;
 
 namespace RunGroopWebApp.Services.Services
@@ -20,7 +21,7 @@ namespace RunGroopWebApp.Services.Services
             response.EnsureSuccessStatusCode();
 
             var stream = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<List<CompanyViewModel>>(stream, _options);
+            return await JsonSerializer.DeserializeAsync<List<CompanyViewModel>>(stream, _options)?? new List<CompanyViewModel>();
         }
      }
 }
