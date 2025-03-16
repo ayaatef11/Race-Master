@@ -1,4 +1,8 @@
-﻿namespace EcommerceDDD.Core.Infrastructure.Tests.Http;
+﻿using System.Net;
+using System.Net.Http;
+using System.Threading;
+
+namespace EcommerceDDD.Core.Infrastructure.Tests.Http;
 
 public class MockHttpMessageHandler(string response, HttpStatusCode statusCode) : HttpMessageHandler
 {
@@ -24,5 +28,3 @@ public class MockHttpMessageHandler(string response, HttpStatusCode statusCode) 
 		};
 	}
 }
-
-//https://dev.to/n_develop/mocking-the-httpclient-in-net-core-with-nsubstitute-k4j

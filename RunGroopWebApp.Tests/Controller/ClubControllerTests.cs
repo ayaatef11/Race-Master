@@ -18,16 +18,16 @@ namespace RunGroopWebApp.Tests.Controller
             _clubRepository = A.Fake<ClubRepository>();
             _photoService = A.Fake<IPhotoService>();
             _httpContextAccessor = A.Fake<HttpContextAccessor>();
-            _clubController = new ClubController(_clubRepository, _photoService);
+            //_clubController = new ClubController(_clubRepository, _photoService);
         }
 
         [Fact]
-        public void ClubController_Index_ReturnsSuccess()
+        public void ClubController_RunningClubsByStateDirectory_ReturnsSuccess()
         {
             var clubs = A.Fake<IEnumerable<Club>>();
             //why
             A.CallTo(() => _clubRepository.GetAll()).Returns(clubs);
-            var result = _clubController.Index();
+            var result = _clubController.RunningClubsByStateDirectory();
             result.Should().BeOfType<Task<IActionResult>>();
         }
 
