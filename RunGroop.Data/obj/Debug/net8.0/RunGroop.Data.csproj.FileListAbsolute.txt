@@ -31,3 +31,12 @@ F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGro
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\refint\RunGroop.Data.dll
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.pdb
 F:\full-stack\Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\ref\RunGroop.Data.dll
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.csproj.AssemblyReference.cache
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.GeneratedMSBuildEditorConfig.editorconfig
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.AssemblyInfoInputs.cache
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.AssemblyInfo.cs
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.csproj.CoreCompileInputs.cache
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.sourcelink.json
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.dll
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\refint\RunGroop.Data.dll
+F:\5-Full-stack\2-Race_competition\Race-Master\RunGroop.Data\obj\Debug\net8.0\RunGroop.Data.pdb

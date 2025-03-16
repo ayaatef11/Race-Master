@@ -2,8 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Data;
 using RunGroop.Data.Models.Data;
+using RunGroop.Repository.Repository;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Repository;
+using Xunit;
 
 namespace RunGroopWebApp.Tests.Repository
 {

@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunGroop.ServiceBus", "RunGroop.MessageProducer\RunGroop.ServiceBus.csproj", "{87CE070A-80C5-46FD-868E-F698A5269360}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunGroop.Infrastructure.Tests", "RunGroop.Infrastructure.Tests\RunGroop.Infrastructure.Tests.csproj", "{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{87CE070A-80C5-46FD-868E-F698A5269360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87CE070A-80C5-46FD-868E-F698A5269360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87CE070A-80C5-46FD-868E-F698A5269360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,6 +97,7 @@ Global
 		{BFB547AF-5631-4A99-AA6B-182B36301C24} = {3FFF8250-B101-4BE9-A7BF-7CA95DBAF9F9}
 		{5376FAD8-7A4C-4EF1-84AF-789CBDC6B2B0} = {BFB547AF-5631-4A99-AA6B-182B36301C24}
 		{87CE070A-80C5-46FD-868E-F698A5269360} = {91ADBA75-4388-413C-B549-3C431A0EDCB4}
+		{B0AE34FC-5E2E-4137-BB79-DA7FFE41EEF9} = {35CC96DD-A354-4893-B7F4-8AEE68310651}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7AA8F1C-EF85-48FB-A90F-4CCF1E395757}
