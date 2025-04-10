@@ -1,7 +1,7 @@
 ![Build](https://github.com/falberthen/ecommerceddd/actions/workflows/ecommerceddd-build.yml/badge.svg)
 [![License](https://img.shields.io/github/license/falberthen/ecommerceddd.svg)](LICENSE)
 
-## Welcome to Ecommerce DDD
+## Welcome to Race Master 
 This project is an experimental full-stack application I use to combine several cutting-edge technologies and architectural patterns. Thanks for getting here! please <b>give a ⭐</b> if you liked the project. It motivates me to keep improving it.
 <br><br>
 ![image](https://github.com/user-attachments/assets/6e9f4cf1-0da5-4743-95e0-37243c4f04bd)
@@ -58,36 +58,7 @@ It defines the building blocks and abstractions used on all underlying projects.
 - **Core.Infrastructure** <br/>
 It holds some abstractions and implementation for infrastructure to be used by all microservices and underlying dependencies.
 
-- **Crosscutting** <br/>
-It contains project implementations that cross-cut all microservices, such as `IdentityServer` and `API gateway`.
 
-- **Services** <br/>
-The microservices composing the backend are built to be as simple as possible, structured as a vertically sliced structure with  `API`, `Application`, `Domain,` and `Infrastructure.`
-
-    ```
-      ├── EcommerceDDD.ProductCatalog
-      │   ├── API
-      │   ├── Application
-      │   ├── Domain
-      │   └── Infrastructure
-    ```
-
-  - **API** <br/>
-  RESTful API for enabling communication between client and server.
-
-  - **Application** <br/> 
-  It orchestrates the interactions between the external world and the domain to perform application tasks through use cases by `handling commands and queries`. 
-
-  - **Domain** <br/>
-  A structured implementation of the domain through aggregates, commands, value objects, domain services, repository definitions, and domain events.
-
-  - **Infrastructure** <br/>
-  It is a supporting library for upper layers, handling infrastructural matters such as data persistence with *implementing repositories*, database mapping, and external integrations.
-
-  - **SPA (Single Page Application)** <br/>
-  A lightweight Angular-based `SPA` providing a functional and user-friendly UI.
-
-<br/>
 
 ## Technologies used
 <ul>
@@ -96,20 +67,14 @@ The microservices composing the backend are built to be as simple as possible, s
     for cross-platform backend with:
     <ul>
       <li>.NET 8</li>
-      <li>Ocelot 22.0.1</li>
-      <li>Marten 6.4.1</li>
       <li>Entity Framework Core 8.0.0</li>
       <li>Postgres for Entity Framework Core 8.0.0</li>
       <li>ASP.NET Core Identity 8.0.0</li>
       <li>ASP.NET Core Authentication JwtBearer 8.0.0</li>
-      <li>Duende IdentityServer 6.3.8</li>
       <li>MediatR 12.2.0</li>
-      <li>Polly 8.2.1</li>
       <li>Fluent Assertions 6.12.0</li>
       <li>XUnit 2.6.5</li>
-      <li>NSubstitute 5.1.0</li>
       <li>Swagger 6.5.0</li>
-      <li>Confluent Kafka 2.3.0</li>
     </ul>
   </li>
   <li>
