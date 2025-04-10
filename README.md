@@ -4,6 +4,7 @@
 ## Welcome to Ecommerce DDD
 This project is an experimental full-stack application I use to combine several cutting-edge technologies and architectural patterns. Thanks for getting here! please <b>give a ⭐</b> if you liked the project. It motivates me to keep improving it.
 <br><br>
+![image](https://github.com/user-attachments/assets/6e9f4cf1-0da5-4743-95e0-37243c4f04bd)
 
 <a href="images/ecommerceddd-1.gif" target="_blank">
 <img src="images/ecommerceddd-1.gif" width="600px"/>
