@@ -91,7 +91,7 @@ It holds some abstractions and implementation for infrastructure to be used by a
 
 ## What do you need to run it 
 
-#### Running the microservices using Docker
+#### Running the Application using Docker
 
 The project was designed to be easily run within docker containers, hence all you need is 1 command line to up everything. Make sure you have `Docker` installed and have fun!
 
@@ -110,11 +110,4 @@ You can also set the `docker-compose.dcproj` as a Startup project on Visual Stud
 
 <br/>
 
-### Running the Angular SPA
-    
-Using a terminal, navigate to `EcommerceDDD.Spa` and run for the following commands the node packages and serving the SPA on `http://localhost:4200` respectively:
 
-```console
- $ npm install #first time only
- $ ng serve
-```
