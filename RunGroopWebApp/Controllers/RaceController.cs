@@ -8,18 +8,21 @@ using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Extensions;
+using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class RaceController(SemaphoreSlim semaphore,ILogger<RaceController>logger,IMemoryCache memoryCache ,IUnitOfWork _UnitOfWork, IPhotoService _photoService, IHttpContextAccessor _httpContextAccessor) : Controller
+    public class RaceController(SemaphoreSlim semaphore,ILogger<RaceController>logger,IMemoryCache memoryCache ,IUnitOfWork _UnitOfWork,  IHttpContextAccessor _httpContextAccessor,INotificationService _notificationService) : Controller
     {
         public async Task<IActionResult> Index(int category = -1, int page = 1, int pageSize = 6)
         {
-            if (page < 1 || pageSize < 1)
-            {
-                return NotFound();
-            }
+            await _notificationService.SendNotificationToUserAsync("user-id", "Welcome to the app!");
+
+            //if (page < 1 || pageSize < 1)
+            //{
+            //    return NotFound();
+            //}
 
             // if category is -1 (All) dont filter else filter by selected category
             var races = category switch
@@ -95,16 +98,16 @@ namespace RunGroopWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(raceVM.Image);
 
                 var race = new Race
                 {
-                    Title = raceVM.Title,
-                    Description = raceVM.Description,
-                    Image = result.Url.ToString(),
-                    AppUserId = raceVM.AppUserId,
+                    Date = raceVM.Date,
+                    Name = raceVM.Name,
+                    AddressId = raceVM.AddressId,
+                    Distance = raceVM.Distance,
+                    //AppUserId = raceVM.AppUserId,
                     RaceCategory = raceVM.RaceCategory,
-                    Address = new Address
+                    Location = new Address
                     {
                         Street = raceVM.Address.Street,
                         City = raceVM.Address.City,
@@ -129,11 +132,11 @@ namespace RunGroopWebApp.Controllers
             if (race == null) return View("Error");
             var raceVM = new EditRaceViewModel
             {
-                Title = race.Title,
-                Description = race.Description,
+                Date = race.Date,
+                Name = race.Name,
                 AddressId = race.AddressId,
-                Address = race.Address,
-                URL = race.Image,
+                Address = race.Location,
+                Distance = race.Distance,
                 RaceCategory = race.RaceCategory
             };
             return View(raceVM);
@@ -155,27 +158,16 @@ namespace RunGroopWebApp.Controllers
                 return View("Error");
             }
 
-            var photoResult = await _photoService.AddPhotoAsync(raceVM.Image);
-
-            if (photoResult.Error != null)
-            {
-                ModelState.AddModelError("Image", "Photo upload failed");
-                return View(raceVM);
-            }
-
-            if (!string.IsNullOrEmpty(userRace.Image))
-            {
-                _ = _photoService.DeletePhotoAsync(userRace.Image);
-            }
 
             var race = new Race
             {
-                Id = id,
-                Title = raceVM.Title,
-                Description = raceVM.Description,
-                Image = photoResult.Url.ToString(),
+                Id=id,
+                Date = raceVM.Date,
+                Name = raceVM.Name,
                 AddressId = raceVM.AddressId,
-                Address = raceVM.Address,
+                Location = raceVM.Address,
+                Distance = raceVM.Distance,
+                RaceCategory = raceVM.RaceCategory
             };
 
             _UnitOfWork.RaceRepository.Update(race);
@@ -196,15 +188,7 @@ namespace RunGroopWebApp.Controllers
         {
             var raceDetails = await _UnitOfWork.RaceRepository.GetByIdAsync(id);
 
-            if (raceDetails == null)
-            {
-                return View("Error");
-            }
 
-            if (!string.IsNullOrEmpty(raceDetails.Image))
-            {
-                _ = _photoService.DeletePhotoAsync(raceDetails.Image);
-            }
 
             _UnitOfWork.RaceRepository.Delete(raceDetails);
             return RedirectToAction("Index");

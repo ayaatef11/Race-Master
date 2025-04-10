@@ -1,9 +1,0 @@
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.csproj.AssemblyReference.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.GeneratedMSBuildEditorConfig.editorconfig
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.AssemblyInfoInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.AssemblyInfo.cs
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.csproj.CoreCompileInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.MvcApplicationPartsAssemblyInfo.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.RazorAssemblyInfo.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.RazorAssemblyInfo.cs
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\obj\Debug\net8.0\RunGroopWebApp.sourcelink.json

@@ -1,9 +1,6 @@
 ﻿
 using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Models.Identity;
-using RunGroop.Data.Interfaces.Services;
-using RunGroop.Data.Interfaces.Repositories;
-using Microsoft.AspNetCore.Http;
 using RunGroop.Repository.Interfaces;
 using System.Text.Json;
 using System.Net.Http.Headers;
@@ -11,12 +8,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using GraphQL;
-using BoldReports.Processing.ObjectModels;
 using RunGroop.Application.ViewModels;
-
+using x=Newtonsoft.Json.JsonConvert;
 namespace RunGroopWebApp.Controllers
 {
-    public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, IPhotoService _photoService,HttpClient _httpClient) : Controller
+    public class UserController(IUnitOfWork _UnitOfWork, UserManager<AppUser> _userManager, HttpClient _httpClient) : Controller
     {
         private readonly JsonSerializerOptions _serializerOptions=new JsonSerializerOptions { PropertyNameCaseInsensitive = true }; 
          [HttpGet("users")]
@@ -73,7 +69,8 @@ namespace RunGroopWebApp.Controllers
 
             if (user == null)
             {
-                return View("Error");
+                //return View("Error");
+                user = new AppUser();
             }
 
             var editMV = new EditProfileViewModel()
@@ -106,20 +103,8 @@ namespace RunGroopWebApp.Controllers
 
             if (editVM.Image != null) 
             {
-                var photoResult = await _photoService.AddPhotoAsync(editVM.Image);
 
-                if (photoResult.Error != null)
-                {
-                    ModelState.AddModelError("Image", "Failed to upload image");
-                    return View("EditProfile", editVM);
-                }
-
-                if (!string.IsNullOrEmpty(user.ProfileImageUrl))
-                {
-                    _ = _photoService.DeletePhotoAsync(user.ProfileImageUrl);
-                }
-
-                user.ProfileImageUrl = photoResult.Url.ToString();
+           
                 editVM.ProfileImageUrl = user.ProfileImageUrl;
 
                 await _userManager.UpdateAsync(user);
@@ -142,7 +127,7 @@ namespace RunGroopWebApp.Controllers
             var result = await _httpClient.GetAsync("users");
             result.EnsureSuccessStatusCode();
             var response=await result.Content.ReadAsStringAsync();
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<UserModel>>(response);
+            return x.DeserializeObject<IEnumerable<UserModel>>(response);
 
         }
     }

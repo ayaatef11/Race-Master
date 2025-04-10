@@ -12,7 +12,7 @@
                 <li class="breadcrumb-item"><a href="pages-app.html">Find</a>
                 </li>
 
-                <li class="breadcrumb-item active" aria-current="page">Runnings Clubs in @Model.Address.City, @Model.Address.State</li>
+                <li class="breadcrumb-item active" aria-current="page">Runnings Clubs in @Model.Location.City, @Model.Location.State</li>
               </ol>
             </div>
             <!--end of col-->
@@ -25,13 +25,13 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-7 mb-4 mb-sm-0">
-              <img alt="Image" src="@Model.Image" class="rounded img-fluid" />
+              <img alt="Image" src="" class="rounded img-fluid" />
             </div>
             <!--end of col-->
             <div class="col-lg-4 d-flex flex-column justify-content-between mr-auto ml-auto">
               <div>
-                <h1 class="mb-2">@Model.Title</h1>
-                <h2 class="lead mb-3">@Model.Address.City, @Model.Address.State</h2>
+                <h1 class="mb-2">@Model.Name</h1>
+                <h2 class="lead mb-3">@Model.Location.City, @Model.Location.State</h2>
                 <div>
                   <span class="badge badge-secondary mr-3">@Model.RaceCategory</span>
                 </div>
@@ -72,7 +72,7 @@
             <div class="col-12 col-md-8 col-lg-7">
               <h5 class="mb-4">Overview</h5>
               <article>
-                @Model.Description
+                @Model.Distance
               </article>
               <hr>
               <h5 class="mb-4">Discussion</h5>

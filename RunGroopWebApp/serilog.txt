@@ -1026,3 +1026,152 @@ Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
    at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
    at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
    at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 122
+2025-03-16 21:18:30.418 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 122
+2025-04-09 10:55:36.947 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-09 10:55:37.431 +02:00 [INF] Start installing Hangfire SQL objects...
+2025-04-09 10:55:38.273 +02:00 [INF] Hangfire SQL objects installed.
+2025-04-09 10:55:38.337 +02:00 [INF] Started 
+2025-04-09 10:55:40.082 +02:00 [INF] Registering datasource 'default' with db provider: 'Quartz.Impl.AdoJobStore.Common.DbProvider'
+2025-04-09 10:55:40.087 +02:00 [INF] Using object serializer: Quartz.Simpl.JsonObjectSerializer, Quartz.Serialization.Json
+2025-04-09 10:55:40.101 +02:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2025-04-09 10:55:40.103 +02:00 [INF] Quartz Scheduler created
+2025-04-09 10:55:40.105 +02:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2025-04-09 10:55:40.111 +02:00 [INF] Detected usage of SqlServerDelegate - defaulting 'selectWithLockSQL' to 'SELECT * FROM QRTZ_LOCKS WITH (UPDLOCK,ROWLOCK) WHERE SCHED_NAME = @schedulerName AND LOCK_NAME = @lockName'.
+2025-04-09 10:55:40.112 +02:00 [INF] Using db table-based data access locking (synchronization).
+2025-04-09 10:55:40.182 +02:00 [INF] Successfully validated presence of 10 schema objects
+2025-04-09 10:55:40.185 +02:00 [INF] JobStoreTX initialized.
+2025-04-09 10:55:40.186 +02:00 [INF] Quartz Scheduler 3.14.0.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2025-04-09 10:55:40.187 +02:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2025-04-09 10:55:40.188 +02:00 [INF] Using job store 'Quartz.Impl.AdoJobStore.JobStoreTX', supports persistence: True, clustered: True
+2025-04-09 10:55:40.195 +02:00 [INF] Adding 1 jobs, 1 triggers.
+2025-04-09 10:55:40.298 +02:00 [INF] Replacing job: DEFAULT.LoggingJob
+2025-04-09 10:55:40.577 +02:00 [INF] Now listening on: https://localhost:7195
+2025-04-09 10:55:40.579 +02:00 [INF] Now listening on: http://localhost:5195
+2025-04-09 10:55:41.495 +02:00 [INF] Starting Hangfire Server using job storage: 'SQL Server: .@RunGroopDb'
+2025-04-09 10:55:41.506 +02:00 [INF] Using the following options for SQL Server job storage: Queue poll interval: 00:00:00.
+2025-04-09 10:55:41.509 +02:00 [INF] Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2025-04-09 10:55:41.558 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-09 10:55:41.560 +02:00 [INF] Hosting environment: Development
+2025-04-09 10:55:41.561 +02:00 [INF] Content root path: F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp
+2025-04-09 10:55:41.799 +02:00 [INF] ClusterManager: detected 1 failed or restarted instances.
+2025-04-09 10:55:41.807 +02:00 [INF] ClusterManager: Scanning for instance "NON_CLUSTERED"'s failed in-progress jobs.
+2025-04-09 10:55:41.830 +02:00 [INF] Server ayaatef1:27604:c9c12779 successfully announced in 271.9973 ms
+2025-04-09 10:55:41.837 +02:00 [INF] Server ayaatef1:27604:c9c12779 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, SqlServerHeartbeatProcess, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2025-04-09 10:55:41.841 +02:00 [INF] ClusterManager: ......Freed 1 acquired trigger(s).
+2025-04-09 10:55:42.584 +02:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2025-04-09 10:55:42.750 +02:00 [INF] Handling 1 trigger(s) that missed their scheduled fire-time.
+2025-04-09 10:55:42.829 +02:00 [INF] Server ayaatef1:27604:c9c12779 all the dispatchers started
+2025-04-09 10:55:43.129 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7195/ - null null
+2025-04-09 10:55:43.380 +02:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-04-09 10:55:43.395 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7195/ - 404 0 null 275.6643ms
+2025-04-09 10:55:43.403 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7195/, Response status code: 404
+2025-04-09 10:55:46.766 +02:00 [INF] Logging job executed on 4/9/2025 8:55:46 AM
+2025-04-09 10:55:48.709 +02:00 [INF] Logging job executed on 4/9/2025 8:55:48 AM
+2025-04-09 10:55:50.718 +02:00 [INF] Logging job executed on 4/9/2025 8:55:50 AM
+2025-04-09 10:55:52.708 +02:00 [INF] Logging job executed on 4/9/2025 8:55:52 AM
+2025-04-09 10:55:54.713 +02:00 [INF] Logging job executed on 4/9/2025 8:55:54 AM
+2025-04-09 10:55:56.725 +02:00 [INF] Logging job executed on 4/9/2025 8:55:56 AM
+2025-04-09 10:55:58.737 +02:00 [INF] Logging job executed on 4/9/2025 8:55:58 AM
+2025-04-09 10:56:00.729 +02:00 [INF] Logging job executed on 4/9/2025 8:56:00 AM
+2025-04-09 10:56:02.719 +02:00 [INF] Logging job executed on 4/9/2025 8:56:02 AM
+2025-04-09 10:56:04.721 +02:00 [INF] Logging job executed on 4/9/2025 8:56:04 AM
+2025-04-09 10:56:06.716 +02:00 [INF] Logging job executed on 4/9/2025 8:56:06 AM
+2025-04-09 10:56:08.718 +02:00 [INF] Logging job executed on 4/9/2025 8:56:08 AM
+2025-04-09 10:56:10.718 +02:00 [INF] Logging job executed on 4/9/2025 8:56:10 AM
+2025-04-09 10:56:12.711 +02:00 [INF] Logging job executed on 4/9/2025 8:56:12 AM
+2025-04-09 10:56:14.714 +02:00 [INF] Logging job executed on 4/9/2025 8:56:14 AM
+2025-04-09 10:56:16.715 +02:00 [INF] Logging job executed on 4/9/2025 8:56:16 AM
+2025-04-09 10:56:18.721 +02:00 [INF] Logging job executed on 4/9/2025 8:56:18 AM
+2025-04-09 10:56:20.721 +02:00 [INF] Logging job executed on 4/9/2025 8:56:20 AM
+2025-04-09 10:56:22.718 +02:00 [INF] Logging job executed on 4/9/2025 8:56:22 AM
+2025-04-09 10:56:24.720 +02:00 [INF] Logging job executed on 4/9/2025 8:56:24 AM
+2025-04-09 10:56:26.722 +02:00 [INF] Logging job executed on 4/9/2025 8:56:26 AM
+2025-04-09 10:56:28.713 +02:00 [INF] Logging job executed on 4/9/2025 8:56:28 AM
+2025-04-09 10:56:30.710 +02:00 [INF] Logging job executed on 4/9/2025 8:56:30 AM
+2025-04-09 10:56:32.706 +02:00 [INF] Logging job executed on 4/9/2025 8:56:32 AM
+2025-04-09 10:56:34.721 +02:00 [INF] Logging job executed on 4/9/2025 8:56:34 AM
+2025-04-09 10:56:36.708 +02:00 [INF] Logging job executed on 4/9/2025 8:56:36 AM
+2025-04-09 10:56:38.713 +02:00 [INF] Logging job executed on 4/9/2025 8:56:38 AM
+2025-04-09 10:56:40.717 +02:00 [INF] Logging job executed on 4/9/2025 8:56:40 AM
+2025-04-09 10:56:42.718 +02:00 [INF] Logging job executed on 4/9/2025 8:56:42 AM
+2025-04-09 10:56:44.717 +02:00 [INF] Logging job executed on 4/9/2025 8:56:44 AM
+2025-04-09 10:56:46.719 +02:00 [INF] Logging job executed on 4/9/2025 8:56:46 AM
+2025-04-09 10:56:48.717 +02:00 [INF] Logging job executed on 4/9/2025 8:56:48 AM
+2025-04-09 10:56:50.717 +02:00 [INF] Logging job executed on 4/9/2025 8:56:50 AM
+2025-04-09 10:56:52.716 +02:00 [INF] Logging job executed on 4/9/2025 8:56:52 AM
+2025-04-09 10:56:54.715 +02:00 [INF] Logging job executed on 4/9/2025 8:56:54 AM
+2025-04-09 10:56:56.721 +02:00 [INF] Logging job executed on 4/9/2025 8:56:56 AM
+2025-04-09 10:56:58.716 +02:00 [INF] Logging job executed on 4/9/2025 8:56:58 AM
+2025-04-09 10:57:00.707 +02:00 [INF] Logging job executed on 4/9/2025 8:57:00 AM
+2025-04-09 10:57:02.723 +02:00 [INF] Logging job executed on 4/9/2025 8:57:02 AM
+2025-04-09 10:57:04.716 +02:00 [INF] Logging job executed on 4/9/2025 8:57:04 AM
+2025-04-09 10:57:06.723 +02:00 [INF] Logging job executed on 4/9/2025 8:57:06 AM
+2025-04-09 10:57:08.718 +02:00 [INF] Logging job executed on 4/9/2025 8:57:08 AM
+2025-04-09 10:57:10.720 +02:00 [INF] Logging job executed on 4/9/2025 8:57:10 AM
+2025-04-09 10:57:12.708 +02:00 [INF] Logging job executed on 4/9/2025 8:57:12 AM
+2025-04-09 10:57:14.707 +02:00 [INF] Logging job executed on 4/9/2025 8:57:14 AM
+2025-04-09 10:57:16.713 +02:00 [INF] Logging job executed on 4/9/2025 8:57:16 AM
+2025-04-09 10:57:18.717 +02:00 [INF] Logging job executed on 4/9/2025 8:57:18 AM
+2025-04-09 10:57:20.709 +02:00 [INF] Logging job executed on 4/9/2025 8:57:20 AM
+2025-04-09 10:57:22.706 +02:00 [INF] Logging job executed on 4/9/2025 8:57:22 AM
+2025-04-09 11:01:34.589 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at System.Diagnostics.DiagnosticSource.Write[T](String name, T value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 122
+2025-04-09 11:31:53.406 +02:00 [INF] User profile is available. Using 'C:\Users\Aya Atef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-04-09 11:31:53.426 +02:00 [INF] Started 
+2025-04-09 11:31:54.734 +02:00 [INF] Now listening on: https://localhost:7195
+2025-04-09 11:31:54.737 +02:00 [INF] Now listening on: http://localhost:5195
+2025-04-09 11:31:55.689 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7195/ - null null
+2025-04-09 11:31:55.729 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-04-09 11:31:55.734 +02:00 [INF] Hosting environment: Development
+2025-04-09 11:31:55.735 +02:00 [INF] Content root path: F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp
+2025-04-09 11:31:55.843 +02:00 [INF] Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+2025-04-09 11:31:55.855 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7195/ - 404 0 null 172.1525ms
+2025-04-09 11:31:55.869 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7195/, Response status code: 404
+2025-04-09 11:36:32.066 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 123
+2025-04-09 11:55:07.683 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 123
+2025-04-09 12:18:49.226 +02:00 [FTL] Application start-up failed
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp\Program.cs:line 123

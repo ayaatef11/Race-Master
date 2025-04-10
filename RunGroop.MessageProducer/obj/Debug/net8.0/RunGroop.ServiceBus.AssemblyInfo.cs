@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RunGroop.ServiceBus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d6af0e80ca8f2c15e618754b989a4490c64a5baa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56011520e832c2fb4b55467ec934f12c384e5297")]
 [assembly: System.Reflection.AssemblyProductAttribute("RunGroop.ServiceBus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RunGroop.ServiceBus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

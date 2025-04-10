@@ -64,8 +64,9 @@
                     <partial name="_SelectLanguage" />
                 </div>
             </nav>
-          
-    <div class="navbar-container">
+          </header>
+   
+          <div class="navbar-container">
         <div class="bg-light navbar-light" data-sticky="top">
             <div class="container">
                 <nav class="navbar navbar-expand-lg">
@@ -81,7 +82,7 @@
                             @if (SignInManager.IsSignedIn(User))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="user" asp-action="Index">Find Runners</a>
+                                    <a class="nav-link" asp-area="" asp-controller="User" asp-action="Index">Find Runners</a>
                                 </li>
                             }
                             <li class="nav-item">
@@ -89,9 +90,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Race" asp-action="Index">Find Races</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/blog" class="nav-link">Blog</a>
                             </li>
                         </ul>
                         @if (SignInManager.IsSignedIn(User))
@@ -145,13 +143,10 @@
                         }
 
                     </div>
-                    <!--end nav collapse-->
                 </nav>
             </div>
-            <!--end of container-->
         </div>
     </div>
-    <!--Content -->
     <div class="main-container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -211,7 +206,7 @@
         </div>
         <!--end of container-->
     </footer>
-    </div>
+   
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.js"></script>
     <script src="~/js/theme.js"></script>

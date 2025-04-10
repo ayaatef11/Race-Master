@@ -15,6 +15,8 @@ namespace RunGroopWebApp.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password do not match")]
         public string ConfirmPassword { get; set; } = string.Empty;
+        public HomeUserCreateViewModel Register { get; set; } = new HomeUserCreateViewModel();
+
 
     }
 }

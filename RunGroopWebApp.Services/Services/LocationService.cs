@@ -8,7 +8,7 @@ namespace RunGroopWebApp.Services
     {
        public async Task<City> GetCityByZipCode(int zipCode)
         {
-            return await _context.Cities.FirstOrDefaultAsync(x => x.Zip == zipCode)??throw new Exception("Not Found");
+            return await _context.Cities.FirstOrDefaultAsync(x => x.Zip == zipCode)??new City();
         }
         public async Task<List<City>> GetLocationSearch(string location)
         {

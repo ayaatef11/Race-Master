@@ -1,6 +1,7 @@
 ﻿
 using RunGroop.Data.Contracts;
 using RunGroop.Data.Models.Data;
+using RunGroop.Data.Models.Entities;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Data.Models.SignalR;
 using RunGroop.Data.Services;
@@ -11,19 +12,19 @@ namespace RunGroop.Data.Data
     
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
-        private readonly ITenantService _TenantService;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+        //private readonly ITenantService _TenantService;
+        //private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, ITenantService tenantService, IHttpContextAccessor httpContextAccessor)
-            : this(options)//very important 
-        {
-            _TenantService = tenantService;
-            _httpContextAccessor = httpContextAccessor;
-            TenantId = _TenantService.GetCurrentTenant()?.TId;
-        }
+        //public ApplicationDbContext(DbContextOptions options, ITenantService tenantService, IHttpContextAccessor httpContextAccessor)
+        //    : base(options)
+        //{
+        //    _TenantService = tenantService;
+        //    _httpContextAccessor = httpContextAccessor;
+        //    TenantId = _TenantService.GetCurrentTenant()?.TId;
+        //}
 
         public string TenantId { get; set; }//;// = _tenantService.GetCurrentTenant()?.TId;
 
@@ -34,58 +35,57 @@ namespace RunGroop.Data.Data
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<NotificationPreferences> NotificationPreferences { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            //nameof is faster than the string 
             builder.Entity<Race>(e => e.ToTable(nameof(Race)));
             builder.Entity<Club>().HasQueryFilter(e => e.TenantId == TenantId);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
 
-            var tenantConnectionString = _TenantService.GetConnectionString();
+        //    var tenantConnectionString = _TenantService.GetConnectionString();
 
-            if (!string.IsNullOrEmpty(tenantConnectionString))
-            {
+        //    if (!string.IsNullOrEmpty(tenantConnectionString))
+        //    {
 
-                var dbProvider = _TenantService.GetDatabaseProvider();
+        //        var dbProvider = _TenantService.GetDatabaseProvider();
 
-                if (dbProvider?.ToLower() == "mssql")
+        //        if (dbProvider?.ToLower() == "mssql")
 
-                    optionsBuilder.UseSqlServer(tenantConnectionString);
-            }
-        }
-        //automatically capture all changes made 
+        //            optionsBuilder.UseSqlServer(tenantConnectionString);
+        //    }
+        //}
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
-            {
-                entry.Entity.TenantId = TenantId;
-            }
-            // return base.SaveChangesAsync(cancellationToken);
-            var modifiedEntities = ChangeTracker.Entries().
-                         Where(e => e.State == EntityState.Added
-                         || e.State == EntityState.Modified
-                         || e.State == EntityState.Deleted).
-                             ToList();
+            //foreach (var entry in ChangeTracker.Entries<IMustHaveTenant>().Where(e => e.State == EntityState.Added))
+            //{
+            //    entry.Entity.TenantId = TenantId;
+            //}
+            //// return base.SaveChangesAsync(cancellationToken);
+            //var modifiedEntities = ChangeTracker.Entries().
+            //             Where(e => e.State == EntityState.Added
+            //             || e.State == EntityState.Modified
+            //             || e.State == EntityState.Deleted).
+            //                 ToList();
 
-            foreach (var modifiedEntity in modifiedEntities)
-            {
+            //foreach (var modifiedEntity in modifiedEntities)
+            //{
 
-                var auditLog = new AuditLog
-                {
+            //    var auditLog = new AuditLog
+            //    {
 
-                    EntityName = modifiedEntity.Entity.GetType().Name,
-                    UserEmail = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name),
-                    Action = modifiedEntity.State.ToString(),
-                    Timestamp = DateTime.UtcNow,
-                    Changes = GetChanges(modifiedEntity)
-                };
-                AuditLogs.Add(auditLog);
+            //        EntityName = modifiedEntity.Entity.GetType().Name,
+            //        UserEmail = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.Name),
+            //        Action = modifiedEntity.State.ToString(),
+            //        Timestamp = DateTime.UtcNow,
+            //        Changes = GetChanges(modifiedEntity)
+            //    };
+            //    AuditLogs.Add(auditLog);
 
-            }
+            //}
             return base.SaveChangesAsync(cancellationToken);
         }
 

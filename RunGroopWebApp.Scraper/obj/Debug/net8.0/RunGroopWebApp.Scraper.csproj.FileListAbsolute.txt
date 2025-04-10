@@ -1,6 +1,0 @@
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.csproj.AssemblyReference.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.GeneratedMSBuildEditorConfig.editorconfig
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.AssemblyInfoInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.AssemblyInfo.cs
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.csproj.CoreCompileInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Scraper\obj\Debug\net8.0\RunGroopWebApp.Scraper.sourcelink.json

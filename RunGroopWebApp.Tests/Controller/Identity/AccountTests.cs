@@ -1,6 +1,5 @@
 using Xunit;
 using Moq;
-using FluentAssertions;
 using RunGroopWebApp.Controllers;
 using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Models.Identity;
@@ -27,19 +26,26 @@ public class AccountControllerTests
             Mock.Of<IUserStore<AppUser>>(), null, null, null, null, null, null, null, null);
 
         _signInManagerMock = new Mock<SignInManager<AppUser>>(
-            _userManagerMock.Object, Mock.Of<IHttpContextAccessor>(),
-            Mock.Of<IUserClaimsPrincipalFactory<AppUser>>(), null, null, null, null);
+            _userManagerMock.Object,
+            Mock.Of<IHttpContextAccessor>(),
+            Mock.Of<IUserClaimsPrincipalFactory<AppUser>>(),
+            null, null, null, null);
 
         _contextMock = new Mock<ApplicationDbContext>();
         _locationServiceMock = new Mock<ILocationService>();
         _unitOfWorkMock = new Mock<IUnitOfWork>();
 
         _controller = new AccountController(
-            _userManagerMock.Object, _signInManagerMock.Object,
-            _locationServiceMock.Object, _unitOfWorkMock.Object);
+            _userManagerMock.Object,
+            _signInManagerMock.Object,
+            _locationServiceMock.Object,
+            _unitOfWorkMock.Object);
+
+        // Required to test TempData
+        var tempData = new Mock<Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary>();
+        _controller.TempData = tempData.Object;
     }
 
-    // ? Test Login (Valid Credentials)
     [Fact]
     public async Task Login_ValidCredentials_ShouldRedirectToRace()
     {
@@ -58,12 +64,11 @@ public class AccountControllerTests
         var result = await _controller.Login(loginViewModel) as RedirectToActionResult;
 
         // Assert
-        result.Should().NotBeNull();
-        result.ActionName.Should().Be("Index");
-        result.ControllerName.Should().Be("Race");
+        Assert.NotNull(result);
+        Assert.Equal("Index", result.ActionName);
+        Assert.Equal("Race", result.ControllerName);
     }
 
-    // ? Test Login (Invalid Credentials)
     [Fact]
     public async Task Login_InvalidCredentials_ShouldReturnViewWithError()
     {
@@ -73,15 +78,17 @@ public class AccountControllerTests
         _userManagerMock.Setup(x => x.FindByEmailAsync(loginViewModel.EmailAddress))
             .ReturnsAsync((AppUser)null);
 
+        var tempDataMock = new Mock<Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary>();
+        _controller.TempData = tempDataMock.Object;
+
         // Act
         var result = await _controller.Login(loginViewModel) as ViewResult;
 
         // Assert
-        result.Should().NotBeNull();
-        _controller.TempData["Error"].Should().Be("Wrong credentials. Please try again");
+        Assert.NotNull(result);
+        tempDataMock.VerifySet(td => td["Error"] = "Wrong credentials. Please try again",Moq.Times.Once);
     }
 
-    // ? Test Register (New User)
     [Fact]
     public async Task Register_NewUser_ShouldRedirectToRace()
     {
@@ -98,12 +105,11 @@ public class AccountControllerTests
         var result = await _controller.Register(registerViewModel) as RedirectToActionResult;
 
         // Assert
-        result.Should().NotBeNull();
-        result.ActionName.Should().Be("Index");
-        result.ControllerName.Should().Be("Race");
+        Assert.NotNull(result);
+        Assert.Equal("Index", result.ActionName);
+        Assert.Equal("Race", result.ControllerName);
     }
 
-    // ? Test Register (Existing Email)
     [Fact]
     public async Task Register_ExistingEmail_ShouldReturnViewWithError()
     {
@@ -114,15 +120,17 @@ public class AccountControllerTests
         _userManagerMock.Setup(x => x.FindByEmailAsync(registerViewModel.EmailAddress))
             .ReturnsAsync(existingUser);
 
+        var tempDataMock = new Mock<Microsoft.AspNetCore.Mvc.ViewFeatures.ITempDataDictionary>();
+        _controller.TempData = tempDataMock.Object;
+
         // Act
         var result = await _controller.Register(registerViewModel) as ViewResult;
 
         // Assert
-        result.Should().NotBeNull();
-        _controller.TempData["Error"].Should().Be("This email address is already in use");
+        Assert.NotNull(result);
+        tempDataMock.VerifySet(td => td["Error"] = "This email address is already in use", Moq.Times.Once);
     }
 
-    // ? Test Logout
     [Fact]
     public async Task Logout_ShouldRedirectToRace()
     {
@@ -130,9 +138,20 @@ public class AccountControllerTests
         var result = await _controller.Logout() as RedirectToActionResult;
 
         // Assert
-        result.Should().NotBeNull();
-        result.ActionName.Should().Be("Index");
-        result.ControllerName.Should().Be("Race");
+        Assert.NotNull(result);
+        Assert.Equal("Index", result.ActionName);
+        Assert.Equal("Race", result.ControllerName);
+    }
+
+    [Fact]
+    public async Task GetLocation_NullLocation_ShouldReturnNotFound()
+    {
+        // Act
+        var result = await _controller.GetLocation(null) as JsonResult;
+
+        // Assert
+        Assert.NotNull(result);
+        Assert.Equal("Not found", result.Value);
     }
 
     //[Fact]
@@ -149,18 +168,7 @@ public class AccountControllerTests
     //    var result = await _controller.GetLocation(location) as JsonResult;
 
     //    // Assert
-    //    result.Should().NotBeNull();
-    //    result.Value.Should().Be(expectedLocation);
+    //    Assert.NotNull(result);
+    //    Assert.Equal(expectedLocation, result.Value);
     //}
-
-    [Fact]
-    public async Task GetLocation_NullLocation_ShouldReturnNotFound()
-    {
-        // Act
-        var result = await _controller.GetLocation(null) as JsonResult;
-
-        // Assert
-        result.Should().NotBeNull();
-        result.Value.Should().Be("Not found");
-    }
 }

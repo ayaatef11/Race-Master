@@ -1,27 +1,33 @@
-﻿<script>
-    function readNotification(id, target) {
+﻿
+<script>
+         function readNotification(id, target) {
         $.ajax({
             url: "/Notification/ReadNotification",
-            method: "GETE,
-    data: { notificationId: id },
+            method: "GET",
+            data: { notificationId: id },
             success: function (result) {
                 getNotification();
-                $(target).fade0ut('slow');
+                $(target).fadeOut('slow');
+            },
+            error: function(error) {
+                console.log(error);
+                getNotification();
+            }
+        });
+    }
 
-                error: function(error) {
-                    console.log(error);
+    // SignalR connection should be set up separately, outside the function
+    let connection = new signalR.HubConnectionBuilder()
+        .withUrl("/signalServer")
+        .build();
 
-                    getNotification();
+    connection.on('displayNotification', () => {
+        getNotification();
+    });
 
-                    let connection = new signalR.HubConnection("/signalServer");
-
-                    connection.on('displayNotification', () => {
-                        getNotification();
-
-                    });
-
-                    connection.start();
-</script>
+    connection.start()
+        .catch(err => console.error("Error establishing SignalR connection:", err));
+        </script>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -29,7 +35,7 @@
         $.ajax({
             type: "GET",
             dataType: "json",
-            url: "/Notifications/GetNotifications",
+            url: "/Notification/GetNotifications",
             traditional: true,
             contentType: "application/json;charset=utf-8",
             success: function (data) {
@@ -41,10 +47,95 @@
                     ListBodyPropName: "NotiBody",
                     ControllerName: "Notifications",
                     ActionName: "AllNotifications"
-
                 });
-
             },
-            error: function (xhr, status, error) { }
-            </script>
+            error: function (xhr, status, error) {
+            }
+        });
+    });
+</script>
             <script src="~/js/signalr.js"></script>
+
+            function readNotification(id, target) {
+    $.ajax({
+        url: "/Notification/ReadNotification",
+        method: "GET",
+        data: { notificationId: id },
+        success: function (result) {
+            getNotification(); // Refresh the notifications list
+            $(target).fadeOut('slow');
+        },
+        error: function(error) {
+            console.log("Error marking notification as read:", error);
+            // Still attempt to refresh notifications even if there was an error
+            getNotification();
+        }
+    });
+}
+
+
+function getNotification() {
+    $.ajax({
+        url: "/Notification/GetNotifications",
+        method: "GET",
+        success: function (data) {
+            let count = data.unreadCount || 0;
+            $("#notificationCount").text(count);
+            if (count > 0) {
+                $("#notificationCount").show();
+            } else {
+                $("#notificationCount").hide();
+            }
+            let $notificationList = $("#notificationList");
+            $notificationList.empty(); 
+            if (data.notifications && data.notifications.length > 0) {
+                data.notifications.forEach(function(notification) {
+                    let notificationClass = notification.isRead ? "notification-read" : "notification-unread";
+                    let notificationTime = new Date(notification.createdAt).toLocaleTimeString();
+
+                    let $notificationItem = $(`
+                           <div class="notification-item ${notificationClass}" id="notification-${notification.id}">
+                               <div class="notification-content">
+                                   <p>${notification.message}</p>
+                                   <small>${notificationTime}</small>
+                               </div>
+                               <button class="mark-read-btn" onclick="readNotification(${notification.id}, '#notification-${notification.id}')">
+                                   <i class="fa fa-check"></i>
+                               </button>
+                           </div>
+                    `);
+
+                    $notificationList.append($notificationItem);
+                });
+            } else {
+                $notificationList.append('<div class="no-notifications">No notifications</div>');
+            }
+        },
+        error: function(error) {
+            console.log("Error fetching notifications:", error);
+            let $notificationList = $("#notificationList");
+            $notificationList.empty();
+            $notificationList.append('<div class="notification-error">Failed to load notifications</div>');
+        }
+    });
+}
+
+
+$(document).ready(function() {
+    // Initialize notifications on page load
+    getNotification();
+
+    // Set up SignalR
+    let connection = new signalR.HubConnectionBuilder()
+        .withUrl("/signalServer")
+        .build();
+
+    connection.on('displayNotification', () => {
+        // Refresh notifications when a new one is pushed from the server
+        getNotification();
+    });
+
+    connection.start()
+        .then(() => console.log("SignalR connection established"))
+        .catch(err => console.error("Error establishing SignalR connection:", err));
+});

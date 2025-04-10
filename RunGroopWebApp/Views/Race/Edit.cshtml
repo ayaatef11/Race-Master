@@ -6,14 +6,14 @@
 <form method="post" asp-action="Edit" enctype="multipart/form-data">
     <input type="hidden" value="AddressId" id="AddressId" />
     <div class="form-group">
-        <label asp-for="Title">Title</label>
-        <input asp-for="Title" class="form-control" placeholder="Title">
-        <span asp-validation-for="Title" class="text-danger"></span>
+        <label asp-for="Name">Title</label>
+        <input asp-for="Name" class="form-control" placeholder="Title">
+        <span asp-validation-for="Name" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Description">Description</label>
-        <input asp-for="Description" class="form-control" placeholder="Description">
-        <span asp-validation-for="Description" class="text-danger"></span>
+        <label asp-for="Distance">Distance</label>
+        <input asp-for="Distance" class="form-control" placeholder="Distance">
+        <span asp-validation-for="Distance" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="RaceCategory">Club Category</label>
@@ -37,11 +37,10 @@
         <input asp-for="Address.State" class="form-control" placeholder="Street">
         <span asp-validation-for="Address.State" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="Image">Image</label>
-        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
-        <span asp-validation-for="Image" class="text-danger"></span>
-
-    </div>
+    @* <div class="form-group"> *@
+    @*     <label asp-for="Image">Image</label> *@
+    @*     <input asp-for="Image" type="file" class="form-control" placeholder="Image"> *@
+    @*     <span asp-validation-for="Image" class="text-danger"></span> *@
+    @* </div> *@
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

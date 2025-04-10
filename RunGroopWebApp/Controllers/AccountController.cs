@@ -15,16 +15,15 @@ namespace RunGroopWebApp.Controllers
             SignInManager<AppUser> _signInManager,
             ILocationService _locationService, IUnitOfWork object1/*,IdentityServer4.Services.ITokenService object2*/) : Controller
     {
-        public IUnitOfWork Object1 { get; } = object1;
-
+        [HttpGet]
         public IActionResult Login()
         {
             var response = new LoginViewModel();
-            if (!ModelState.IsValid)
-            {
+            //if (!ModelState.IsValid)
+            //{
                 return View(response);
-            }
-            return RedirectToAction("Index", "Home");
+            //}
+            //return RedirectToAction("Index", "Home");
         }
      
 
@@ -52,38 +51,50 @@ namespace RunGroopWebApp.Controllers
             TempData["Error"] = "Wrong credentials. Please try again";
             return View(loginViewModel);
         }
-
+        [HttpGet]
         public IActionResult Register()
         {
-            var response = new RegisterViewModel();
+            var response = new HomeUserCreateViewModel();
             return View(response);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel registerViewModel)
-        {
-            if (!ModelState.IsValid) return View(registerViewModel);
 
-            var user = await _userManager.FindByEmailAsync(registerViewModel.EmailAddress);
+        [HttpPost]
+        public async Task<IActionResult> Register(HomeUserCreateViewModel createVM)
+        {
+
+            if (!ModelState.IsValid) return View(createVM);
+
+            var user = await _userManager.FindByEmailAsync(createVM.Email);
             if (user != null)
             {
-                TempData["Error"] = "This email address is already in use";
-                return View(registerViewModel);
+                ModelState.AddModelError("Register.Email", "This email address is already in use");
+                return View(createVM);
             }
 
-            var newUser = new AppUser()
+            var userLocation = await _locationService.GetCityByZipCode(createVM.ZipCode ?? 0);
+
+            //if (userLocation == null)
+            //{
+            //    ModelState.AddModelError("Register.ZipCode", "Could not find zip code!");
+            //    return View(homeVM);
+            //}
+
+            var newUser = new AppUser
             {
-                Email = registerViewModel.EmailAddress,
-                UserName = registerViewModel.EmailAddress
+                UserName = createVM.UserName,
+                Email = createVM.Email
             };
-            var newUserResponse = await _userManager.CreateAsync(newUser, registerViewModel.Password);
+
+            var newUserResponse = await _userManager.CreateAsync(newUser, createVM.Password);
 
             if (newUserResponse.Succeeded)
+            {
+                await _signInManager.SignInAsync(newUser, isPersistent: false);
                 await _userManager.AddToRoleAsync(newUser, UserRoles.User);
-
-            return RedirectToAction("Index", "Race");
+            }
+            return RedirectToAction("Index", "Club");
         }
-
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
@@ -112,5 +123,36 @@ namespace RunGroopWebApp.Controllers
 
         }
 
+        [HttpPost]
+        public async Task<IActionResult> EditProfile(WelcomeViewModel model)
+        {
+            if (model.Image == null || model.Image.Length == 0)
+            {
+                ModelState.AddModelError("Image", "Please select a valid image.");
+                return View(model);
+            }
+            string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+            if (!Directory.Exists(uploadsFolder))
+            {
+                Directory.CreateDirectory(uploadsFolder);
+            }
+
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(model.Image.FileName);
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await model.Image.CopyToAsync(fileStream);
+            }
+            TempData["Success"] = "Image uploaded successfully!";
+            return RedirectToAction("Welcome"); 
+        }
+        [HttpGet]
+        public IActionResult Welcome()
+        {
+            var model = new WelcomeViewModel();
+            return View(model);
+        }
+
     }
+
 }

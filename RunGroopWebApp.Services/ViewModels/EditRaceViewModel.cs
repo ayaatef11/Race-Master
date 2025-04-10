@@ -5,11 +5,10 @@ namespace RunGroopWebApp.ViewModels
 {
     public class EditRaceViewModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; }=string.Empty;
-        public IFormFile Image { get; set; }
-        public string? URL { get; set; }
+        public string Date { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Distance { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
         public int AddressId { get; set; }
         public Address? Address { get; set; }
         public RaceCategory RaceCategory { get; set; }

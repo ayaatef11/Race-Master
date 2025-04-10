@@ -9,7 +9,7 @@ namespace RunGroop.Repository.Repository
     {
         public async Task<AppUser> GetUserById(string id)
         {
-            return await _context.Users.FindAsync(id);
+            return await _context.Users.FindAsync(id)??new AppUser();
         }
     }
 }

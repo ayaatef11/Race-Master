@@ -15,14 +15,14 @@ namespace RunGroopWebApp.Repository
 #pragma warning disable CS8603
         public async Task<List<Club>> GetAllUserClubs()
         {
-            var curUser = _httpContextAccessor.HttpContext?.User.GetUserId();
-            if (curUser == null)
-            {
-                return new List<Club>(); // or throw an exception
-            }
+            //var curUser = _httpContextAccessor.HttpContext?.User.GetUserId();
+            //if (curUser == null)
+            //{
+            //    return new List<Club>(); // or throw an exception
+            //}
 
             var userClubs = await _context.Clubs
-                .Where(r => r.AppUser != null && r.AppUser.Id == curUser)
+                //.Where(r => r.AppUser != null && r.AppUser.Id == curUser)
                 .ToListAsync();
 
             return userClubs;
@@ -30,14 +30,14 @@ namespace RunGroopWebApp.Repository
 
         public async Task<List<Race>> GetAllUserRaces()
         {
-            var curUser = _httpContextAccessor.HttpContext?.User.GetUserId();
-            if (curUser == null)
-            {
-                return new List<Race>(); // or throw an exception
-            }
+            //var curUser = _httpContextAccessor.HttpContext?.User.GetUserId();
+            //if (curUser == null)
+            //{
+            //    return new List<Race>(); // or throw an exception
+            //}
 
             var userRaces = await _context.Races
-                .Where(r => r.AppUser != null && r.AppUser.Id == curUser)
+                //.Where(r => r.AppUser != null && r.AppUser.Id == curUser)
                 .ToListAsync();
 
             return userRaces;

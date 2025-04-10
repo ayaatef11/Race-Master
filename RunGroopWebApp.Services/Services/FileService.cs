@@ -1,7 +1,9 @@
 ﻿
+using RunGroopWebApp.Services.interfaces;
+
 namespace RunGroopWebApp.Services.Services
 {
-   public  class FileService
+   public  class FileService:IFileService
     {
         private byte[] ConvertImageToByteArray()
         {

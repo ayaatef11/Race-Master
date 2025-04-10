@@ -1,5 +1,7 @@
 ﻿
 using RunGroopWebApp.Scraper.Services;
-MeetupScraper scraper = new MeetupScraper();
+Console.WriteLine(AppDomain.CurrentDomain.BaseDirectory);
 
+MeetupScraper scraper = new MeetupScraper();
+//AtraScraper scraper1 = new AtraScraper();
 scraper.Run();

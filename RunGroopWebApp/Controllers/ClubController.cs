@@ -1,25 +1,53 @@
-﻿using MediatR;
+﻿using GraphQL;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RunGroop.Application.Helpers;
 using RunGroop.Application.ViewModels;
 using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
+using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ClubController(IUnitOfWork _UnitOfWork, IPhotoService _photoService) : Controller
+    public class ClubController(IUnitOfWork _UnitOfWork ) : Controller
     {
 
-       // [Route("RunningClubs")]
-        //public async Task<IActionResult> Index()
-        //{
-        //    var query = new GetAllClubsQuery();
-        //    var response = mediator.Send(query);
+        [Route("RunningClubs")]
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 10, int category = 0)
+        {
+            var clubs = await _UnitOfWork.ClubRepository.GetAll();
 
-        //    return View(response);
-        //}
+            //if (clubs == null || !clubs.Any())
+            //    return NotFound();
+
+            var filteredClubs = clubs.Where(c => c.ClubCategory == (ClubCategory)category || category == 0);
+
+            var totalClubs = filteredClubs.Count();
+            var totalPages = (int)Math.Ceiling(totalClubs / (double)pageSize);
+            var clubsForPage = filteredClubs.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            var viewModel = new IndexClubViewModel
+            {
+                Clubs = clubsForPage,
+                PageSize = pageSize,
+                Page = page,
+                TotalPages = totalPages,
+                TotalClubs = totalClubs,
+                Category = category
+            };
+
+            return View(viewModel); 
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Detail(int id)
+        {
+            var club= await _UnitOfWork.ClubRepository.GetByIdAsync(id);
+            if (club == null) return NotFound();
+            return View(club);
+        }
 
         [HttpGet]
         [Route("RunningClubs/{state}")]
@@ -119,13 +147,12 @@ namespace RunGroopWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _photoService.AddPhotoAsync(clubVM.Image);
 
                 var club = new Club
                 {
                     Title = clubVM.Title,
                     Description = clubVM.Description,
-                    Image = result.Url.ToString(),
+                    Image = clubVM.Image.ToString(),
                     ClubCategory = clubVM.ClubCategory,
                     AppUserId = clubVM.AppUserId,
                     Address = new Address
@@ -178,25 +205,12 @@ namespace RunGroopWebApp.Controllers
                 return View("Error");
             }
 
-            var photoResult = await _photoService.AddPhotoAsync(clubVM.Image);
-
-            if (photoResult.Error != null)
-            {
-                ModelState.AddModelError("Image", "Photo upload failed");
-                return View(clubVM);
-            }
-
-            if (!string.IsNullOrEmpty(userClub.Image))
-            {
-                _ = _photoService.DeletePhotoAsync(userClub.Image);
-            }
-
             var club = new Club
             {
                 Id = id,
                 Title = clubVM.Title,
                 Description = clubVM.Description,
-                Image = photoResult.Url.ToString(),
+                Image = clubVM.Image.ToString(),
                 AddressId = clubVM.AddressId,
                 Address = clubVM.Address,
             };
@@ -223,21 +237,9 @@ namespace RunGroopWebApp.Controllers
                 return View("Error");
             }
 
-            if (!string.IsNullOrEmpty(clubDetails.Image))
-            {
-                _ = _photoService.DeletePhotoAsync(clubDetails.Image);
-            }
-
             _UnitOfWork.ClubRepository.Delete(clubDetails);
             return RedirectToAction("Index");
         }
-      /*  public async Task< IActionResult> CreatingClub(CreateClubViewModel newBooking)//we can update it to publish notifications
-        {
-
-            if (!ModelState.IsValid) return BadRequest();
-            _sender.Send(new CreateClubRequest(newBooking));
-            await _publisher.Publish(new CreateClubRequest(newBooking));
-           return Ok();//it is better to return the product to see if it is returned actually or not 
-        }*/
+     
     }
 }

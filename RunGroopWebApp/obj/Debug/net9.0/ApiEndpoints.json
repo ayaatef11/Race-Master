@@ -1,0 +1,113 @@
+[
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.AddHeadersController",
+    "Method": "CustomHeaderResponse",
+    "RelativePath": "api/AddHeaders",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.ExtractHeaderController",
+    "Method": "Extract",
+    "RelativePath": "api/ExtractHeader",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.ExtractHeaderController",
+    "Method": "ExtractFromFilter",
+    "RelativePath": "api/ExtractHeader/actionfilter",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.ExtractHeaderController",
+    "Method": "ExtractFromMiddleware",
+    "RelativePath": "api/ExtractHeader/middleware",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.StateManagementController",
+    "Method": "SetSession",
+    "RelativePath": "api/StateManagement",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "age",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.StateManagementController",
+    "Method": "GetSessionData",
+    "RelativePath": "api/StateManagement",
+    "HttpMethod": "",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.JobTestController",
+    "Method": "CreateContinuationJob",
+    "RelativePath": "ContinuationJob",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.JobTestController",
+    "Method": "CreateDelayedJob",
+    "RelativePath": "DelayedJob",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.JobTestController",
+    "Method": "CreateFireAndForgetJob",
+    "RelativePath": "FireAndForgetJob",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "RunGroopWebApp.Controllers.JobTestController",
+    "Method": "CreateReccuringJob",
+    "RelativePath": "ReccuringJob",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

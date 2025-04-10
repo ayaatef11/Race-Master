@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNet.SignalR.Hubs;
-using RunGroop.Data.Models.SignalR;
+﻿using RunGroop.Data.Models.SignalR;
 using Microsoft.AspNetCore.SignalR;
 
 namespace RunGroop.Infrastructure
 {
-    //this is the server and the client is the js file 
     //you can have more than a hub
-    //default proxy is created for all the classes 
-    [HubName("chat")]
     public class SignalServer : Hub
     {
         public static int TotalViews { get; set; } = 0;
@@ -16,7 +12,6 @@ namespace RunGroop.Infrastructure
         {
 
             TotalViews++;
-            //send update to all clients that total views have been updated
             await Clients.All.SendAsync("updateTotalViews", TotalViews);
             ChatContext db = new();
             Message m = new Message() { Name = name, Messagel = mess, Date = DateTime.Now };
@@ -25,8 +20,6 @@ namespace RunGroop.Infrastructure
         }
         public async Task SendMessage(string user, string message)
         {
-            //the protocol is new procedural protocol
-            // Broadcast the message to all connected clients
             await Clients.All.SendAsync("ReceiveMessage", user, message);// the text receive message is the notification received 
 
         }

@@ -7,7 +7,6 @@ using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 //using RunGroopWebApp.Models;
 using RunGroopWebApp.ViewModels;
-using static Azure.Core.HttpHeader;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Reflection;
 using RunGroop.Repository.Interfaces;
@@ -27,7 +26,7 @@ namespace RunGroopWebApp.Controllers
     {
 		public async Task<IActionResult> Index()
 		{
-			ViewBag.WelcomeMessage = string.Format(_localizer["welcome"], "DevCreed");//support multiple languages and cultures
+			ViewBag.WelcomeMessage = string.Format(_localizer["welcome"], "Customer");//support multiple languages and cultures
 			var ipInfo = new IPInfo();//ip information like city,country and region
             var homeViewModel = new HomeViewModel();
             try
@@ -66,49 +65,43 @@ namespace RunGroopWebApp.Controllers
             return View(response);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Index(HomeViewModel homeVM)
-        {
-            var createVM = homeVM.Register;
+        //[HttpPost]
+        //public async Task<IActionResult> Index(HomeViewModel homeVM)
+        //{
+        //    var createVM = homeVM.Register;
 
-            if (!ModelState.IsValid) return View(homeVM);
+        //    if (!ModelState.IsValid) return View(homeVM);
 
-            var user = await _userManager.FindByEmailAsync(createVM.Email);
-            if (user != null)
-            {
-                ModelState.AddModelError("Register.Email", "This email address is already in use");
-                return View(homeVM);
-            }
+        //    var user = await _userManager.FindByEmailAsync(createVM.Email);
+        //    if (user != null)
+        //    {
+        //        ModelState.AddModelError("Register.Email", "This email address is already in use");
+        //        return View(homeVM);
+        //    }
 
-            var userLocation = await _locationService.GetCityByZipCode(createVM.ZipCode ?? 0);
+        //    var userLocation = await _locationService.GetCityByZipCode(createVM.ZipCode ?? 0);
 
-            if (userLocation == null)
-            {
-                ModelState.AddModelError("Register.ZipCode", "Could not find zip code!");
-                return View(homeVM);
-            }
+        //    //if (userLocation == null)
+        //    //{
+        //    //    ModelState.AddModelError("Register.ZipCode", "Could not find zip code!");
+        //    //    return View(homeVM);
+        //    //}
 
-            var newUser = new AppUser
-            {
-                UserName = createVM.UserName,
-                Email = createVM.Email,
-                Address = new Address()
-                {
-                    State = userLocation.StateCode,
-                    City = userLocation.CityName,
-                    ZipCode = createVM.ZipCode ?? 0,
-                }
-            };
+        //    var newUser = new AppUser
+        //    {
+        //        UserName = createVM.UserName,
+        //        Email = createVM.Email
+        //    };
 
-            var newUserResponse = await _userManager.CreateAsync(newUser, createVM.Password);
+        //    var newUserResponse = await _userManager.CreateAsync(newUser, createVM.Password);
 
-            if (newUserResponse.Succeeded)
-            {
-                await _signInManager.SignInAsync(newUser, isPersistent: false);
-                await _userManager.AddToRoleAsync(newUser, UserRoles.User);
-            }
-            return RedirectToAction("Index", "Club");
-        }
+        //    if (newUserResponse.Succeeded)
+        //    {
+        //        await _signInManager.SignInAsync(newUser, isPersistent: false);
+        //        await _userManager.AddToRoleAsync(newUser, UserRoles.User);
+        //    }
+        //    return RedirectToAction("Index", "Club");
+        //}
 
         public IActionResult Privacy()
         {
@@ -116,11 +109,10 @@ namespace RunGroopWebApp.Controllers
         }
 
         [HttpPost]
-        //to give me the culture and the return url to reload you in the same page when you change the language and not turn you to another page 
         public IActionResult SetLanguage(string culture, string returnUrl)
         {
             Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,//This method is used to add or update a cookie in the HTTP response.
+                CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),//This method generates the value to be stored in the cookie. It takes a RequestCulture object, which contains the culture information.
 
                 new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }

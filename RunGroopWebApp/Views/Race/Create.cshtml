@@ -23,14 +23,14 @@
                    <input type="hidden" id="AppUserId" name="AppUserId" asp-for="AppUserId" />
                     <div class="form-row form-group">
                       <div class="col">                       
-                        <input asp-for="Title" class="form-control form-control-lg" placeholder="Title" />
-                        <span asp-validation-for="Title" class="text-danger"></span>
+                        <input asp-for="Name" class="form-control form-control-lg" placeholder="Name" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
                       </div>
                     </div>
                     <div class="form-row form-group">
-                      <div class="col">                        
-                        <input asp-for="Description" class="form-control form-control-lg" placeholder="Description" />
-                        <span asp-validation-for="Description" class="text-danger"></span>
+                      <div class="col">
+                                        <input asp-for="Type" class="form-control form-control-lg" placeholder="Type" />
+                                        <span asp-validation-for="Type" class="text-danger"></span>
                       </div>
                     </div> 
 
@@ -68,12 +68,14 @@
                         <span asp-validation-for="Address.State" class="text-danger"></span>
                       </div>
                     </div>
-                    <div class="form-row form-group">
-                      <div class="col">                        
-                        <input asp-for="Image" type="file" class="form-control form-control-lg" placeholder="Image" />
-                        <span asp-validation-for="Image" class="text-danger"></span>
-                      </div>
-                    </div>
+
+                    @* <div class="form-row form-group"> *@
+                    @*   <div class="col">                         *@
+                    @*     <input asp-for="Image" type="file" class="form-control form-control-lg" placeholder="Image" /> *@
+                    @*     <span asp-validation-for="Image" class="text-danger"></span> *@
+                    @*   </div> *@
+                    @* </div> *@
+                    
                     <div class="form-row form-group">
                       <div class="col">
                         <button class="btn btn-block btn-success btn-lg" type="submit">Create Account</button>

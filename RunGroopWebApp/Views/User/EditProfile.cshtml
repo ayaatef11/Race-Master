@@ -8,14 +8,10 @@
                 <div class="col-auto">
                     <h1 class="h2">Account Settings</h1>
                 </div>
-                <!--end of col-->
-                <!--end of col-->
             </div>
-            <!--end of row-->
         </div>
-        <!--end of container-->
     </section>
-    <!--end of section-->
+
     <section class="flush-with-above space-0">
         <div class="bg-white">
             <div class="container">
@@ -32,14 +28,6 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link"
-                                   id="security-tab"
-                                   data-toggle="tab"
-                                   href="#security"
-                                   role="tab"
-                                   aria-selected="false">Security</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link"
                                    id="notifications-tab"
                                    data-toggle="tab"
                                    href="#notifications"
@@ -48,11 +36,8 @@
                             </li>
                         </ul>
                     </div>
-                    <!--end of col-->
                 </div>
-                <!--end of row-->
             </div>
-            <!--end of container-->
         </div>
     </section>
     <section class="flush-with-above height-80 d-block">
@@ -89,19 +74,14 @@
                                 </div>
                             </div>
                         </div>
-                        <!--end of col-->
                     </div>
-                    <!--end of row-->
                     <hr />
                     <div class="row mb-4">
                         <div class="col">
                             <h5>Profile Information</h5>
                         </div>
-                        <!--end of col-->
                     </div>
-                    <!--end of row-->
                     <div class="row">
-                        <!--end of col-->
                         <div class="col-12 col-md-8 order-md-1">
                             <form asp-action="EditProfile" method="post" class="row">
                                 <div class="col-6">
@@ -148,18 +128,9 @@
                                 </div>
                             </form>
                         </div>
-                        <!--end of col-->
                     </div>
-                    <!--end of row-->
                 </div>
-                <!--end of container-->
             </div>
-            <!--end of tab pane-->
-            <div class="tab-pane fade" id="security" role="tabpanel">
-                <div class="container"></div>
-                <!--end of container-->
-            </div>
-            <!--end of tab pane-->
             <div class="tab-pane fade" id="notifications" role="tabpanel">
                 <div class="container">
                     <div class="row">
@@ -173,12 +144,11 @@
                                 <a href="#">View privacy policy &rsaquo;</a>
                             </div>
                         </div>
-                        <!--end of col-->
                     </div>
                     <hr />
                     <div class="row">
                         <div class="col-12">
-                            <form>
+                            <form asp-controller="Notification" asp-action="UpdatePreferences">
                                 <h5 class="mb-4">Notification Preferences</h5>
                                 <div>
                                     <div class="custom-control custom-checkbox">
@@ -236,12 +206,11 @@
                                         <label class="custom-control-label" for="notify-sales">Sales and promotions</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-secondary mt-4" disabled>Update preferences</button>
+                                <button type="submit" class="btn btn-secondary mt-4" >Update preferences</button>
                             </form>
+                        
                         </div>
-                        <!--end of col-->
                     </div>
-                    <!--end of row-->
                     <hr />
                     <div class="row">
                         <div class="col-12">
@@ -291,21 +260,16 @@
                                 <button type="submit" class="btn btn-secondary mt-4" disabled>Update frequency</button>
                             </form>
                         </div>
-                        <!--end of col-->
                     </div>
-                    <!--end of row-->
                 </div>
-                <!--end of container-->
             </div>
         </div>
-        <!--end of tabs content-->
     </section>
-    <!--end of section-->
 </div>
 
 
-<script type="text/javascript">
-    function submitProfileImage() {
-        document.getElementById("submit-image-button").click();
-    }
-</script>
+@* <script type="text/javascript"> *@
+@*     function submitProfileImage() { *@
+@*         document.getElementById("submit-image-button").click(); *@
+@*     } *@
+@* </script> *@

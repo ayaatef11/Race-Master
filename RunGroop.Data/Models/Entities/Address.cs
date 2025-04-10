@@ -1,6 +1,4 @@
-﻿using RunGroop.Data.Contracts;
-using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace RunGroop.Data.Models.Data
 {
     public class Address: Entity

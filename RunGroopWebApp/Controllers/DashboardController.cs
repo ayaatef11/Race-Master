@@ -9,7 +9,7 @@ using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class DashboardController(IUnitOfWork _UnitOfWork) : Controller
     {
 

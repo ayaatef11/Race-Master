@@ -1,4 +1,4 @@
-using GraphQL.Types;
+﻿using GraphQL.Types;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -17,8 +17,15 @@ using System.Globalization;
 using RunGroop.Application.Helpers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.DependencyInjection;
+using RunGroop.Data.Services;
+using RunGroop.Infrastructure.Settings;
+using RunGroopWebApp.Extensions;
+using RunGroop.Repository.Interfaces;
+using RunGroop.Repository.Repository;
+using RunGroop.Infrastructure;
 
-Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+//Log.Logger= new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
 try
 {
@@ -34,27 +41,44 @@ try
             builder.AllowAnyOrigin().WithExposedHeaders("Custom-Header");
         });
     });
+    builder.Services.AddApplicationServices();
+    builder.Services.AddConfigurationServices(builder.Configuration);
 
     builder.Services.AddHostedService<BackGroundWorkerService>();
     builder.Services.AddControllersWithViews();
 
-    builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
     builder.Host.ConfigureSerilog();
+    builder.Services.AddSingleton(new SemaphoreSlim(1, 1));
+    builder.Services.AddHttpClient();
 
-    builder.Services.AddHangfire(config =>
-        config.UseSimpleAssemblyNameTypeSerializer()
-              .UseRecommendedSerializerSettings()
-              .UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnections"))
-    );
+    //builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); // IHttpContextAccessor
 
-    builder.Services.AddHangfireServer();
+    builder.Services.AddHttpContextAccessor();
 
-    builder.Services.AddDbContext<ApplicationDbContext>(opts =>
-        opts.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections"),
-        options => options.MigrationsAssembly("RunGroopWebApp"))
-    );
+    // Register ITenantService
+    //builder.Services.AddScoped<ITenantService, TenantService>();
+
+
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnections")));
+
+
+    builder.Services.AddIdentity<AppUser, IdentityRole>()
+           .AddDefaultTokenProviders()
+           .AddEntityFrameworkStores<ApplicationDbContext>();
+
+    builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+           .AddCookie();
+
+    builder.Services.AddHttpContextAccessor();
+    builder.Services.AddMemoryCache(opt => opt.SizeLimit = 1024);
+    builder.Services.AddLocalization();
+    builder.Services.AddMvc()
+           .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+           .AddDataAnnotationsLocalization();
 
     builder.Services.AddDistributedMemoryCache();
+
     builder.Services.AddSession(options =>
     {
         options.IdleTimeout = TimeSpan.FromSeconds(10);
@@ -62,14 +86,16 @@ try
         options.Cookie.IsEssential = true;
     });
 
+
+
     builder.Services.AddQuartz(opt =>
     {
         opt.UsePersistentStore(s =>
         {
             s.UseSqlServer(builder.Configuration.GetSection("Quartz:dataSource:default:QuartzConnection").Value);
             s.UseProperties = true;
-            s.UseClustering(); 
-            s.UseJsonSerializer(); 
+            s.UseClustering();
+            s.UseJsonSerializer();
 
         });
 
@@ -90,21 +116,7 @@ try
         options.WaitForJobsToComplete = true;
     });
 
-
-
-    builder.Services.AddIdentity<AppUser, IdentityRole>()
-           .AddDefaultTokenProviders()
-           .AddEntityFrameworkStores<ApplicationDbContext>();
-
-    builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-           .AddCookie();
-
-    builder.Services.AddHttpContextAccessor();
-    builder.Services.AddMemoryCache(opt => opt.SizeLimit = 1024);
-    builder.Services.AddLocalization();
-    builder.Services.AddMvc()
-           .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-           .AddDataAnnotationsLocalization();
+  
 
     builder.Services.Configure<RequestLocalizationOptions>(options =>
     {
@@ -119,7 +131,10 @@ try
         options.SupportedUICultures = supportedCultures;
     });
 
+    builder.Services.AddSignalR();
     var app = builder.Build();
+    await RolesSeed.SeedRolesAsync(app); 
+
 
     app.UseCors(myCorsPolicy);
     app.UseStaticFiles();
@@ -127,28 +142,36 @@ try
     app.UseAuthentication();
     app.UseAuthorization();
 
-    app.MapGet("/set-cookie", (HttpContext httpContext) =>
+    //app.MapGet("/set-cookie", (HttpContext httpContext) =>
+    //{
+    //    var cookieOptions = new CookieOptions
+    //    {
+    //        HttpOnly = true,
+    //        Secure = true,
+    //        SameSite = SameSiteMode.Strict,
+    //        Expires = DateTimeOffset.UtcNow.AddDays(1)
+    //    };
+
+    //    httpContext.Response.Cookies.Append("auth-token", "your-token-value", cookieOptions);
+    //    return Results.Ok("HttpOnly cookie has been set.");
+    //});
+
+    //app.MapGet("/get-cookie", (HttpContext httpContext) =>
+    //{
+    //    var authToken = httpContext.Request.Cookies["auth-token"];
+    //    return authToken != null
+    //        ? Results.Ok($"Your auth token is: {authToken}")
+    //        : Results.Ok("No auth token found.");
+    //});
+    app.UseRouting();
+    app.UseEndpoints(endpoints =>
     {
-        var cookieOptions = new CookieOptions
-        {
-            HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.Strict,
-            Expires = DateTimeOffset.UtcNow.AddDays(1)
-        };
+        endpoints.MapHub<SignalServer>("/signalServer");
 
-        httpContext.Response.Cookies.Append("auth-token", "your-token-value", cookieOptions);
-        return Results.Ok("HttpOnly cookie has been set.");
+        endpoints.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
     });
-
-    app.MapGet("/get-cookie", (HttpContext httpContext) =>
-    {
-        var authToken = httpContext.Request.Cookies["auth-token"];
-        return authToken != null
-            ? Results.Ok($"Your auth token is: {authToken}")
-            : Results.Ok("No auth token found.");
-    });
-
     app.Run();
 }
 catch (Exception ex)

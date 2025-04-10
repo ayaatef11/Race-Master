@@ -1,13 +1,22 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RunGroopWebApp.Services.interfaces;
 using System.IO;
 
 namespace RunGroopWebApp.Controllers
 {
-    [Route("api/[controller]")]
-    public class DownloadController : Controller
+    public class DownloadController(IFileService fileService) : Controller
     {
-        [HttpPost("FileUpload")]
+
+        private const string MimeType = "img/png";
+        private const string FileName = "image.png";
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task< IActionResult> Get(List<IFormFile> files)
         {
             var size = files.Sum(f => f.Length);
@@ -31,10 +40,20 @@ namespace RunGroopWebApp.Controllers
                 return Ok(new { files.Count, size, filePaths });
             
         }
-        public IActionResult Get()
+        [HttpGet("byte")]
+        public IActionResult GetImageASByteArray()
         {
-            return View();
+            var image = fileService.GetImageByteArray();
+            return File(image, MimeType, FileName);
         }
+        [HttpGet("stream")]
+        public IActionResult GetImageASStream()
+        {
+            var image = fileService.GetImageAsStream();
+            return File(image, MimeType, FileName);
+        }
+       
+     
     }
    
 }

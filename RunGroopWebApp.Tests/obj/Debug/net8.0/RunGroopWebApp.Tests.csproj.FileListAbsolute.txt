@@ -1,8 +1,0 @@
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\bin\Debug\net8.0\.msCoverageSourceRootsMapping_RunGroopWebApp.Tests
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_RunGroopWebApp.Tests
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.csproj.AssemblyReference.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.GeneratedMSBuildEditorConfig.editorconfig
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.AssemblyInfoInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.AssemblyInfo.cs
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.csproj.CoreCompileInputs.cache
-F:\5-Full-stack\2-Race_competition\Race-Master\RunGroopWebApp.Tests\obj\Debug\net8.0\RunGroopWebApp.Tests.sourcelink.json
