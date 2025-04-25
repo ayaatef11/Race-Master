@@ -5041,11 +5041,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\RunGroop.Infrastructure.Tests.csproj",
+      "projectUniqueName": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\RunGroop.Infrastructure.Tests.csproj",
       "projectName": "RunGroop.Infrastructure.Tests",
-      "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\RunGroop.Infrastructure.Tests.csproj",
+      "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\RunGroop.Infrastructure.Tests.csproj",
       "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-      "outputPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\obj\\",
+      "outputPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Infrastructure.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5066,17 +5066,17 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
-              "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj"
+            "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
+              "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj"
             },
-            "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj": {
-              "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj"
+            "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj": {
+              "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj"
             },
-            "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
-              "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj"
+            "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj": {
+              "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroopWebApp.Services\\RunGroopWebApp.Services.csproj"
             },
-            "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj": {
-              "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj"
+            "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj": {
+              "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroopWebApp\\RunGroopWebApp.csproj"
             }
           }
         }

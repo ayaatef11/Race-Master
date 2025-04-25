@@ -1,5 +1,4 @@
-﻿
-namespace RunGroopWebApp.Services.interfaces
+﻿namespace RunGroopWebApp.Services.Services.interfaces
 {
     public interface IFileService
     {

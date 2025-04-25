@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Data;
 using RunGroop.Infrastructure;
-using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Services.Services;
+using RunGroopWebApp.Services.Services.interfaces;
 using RunGroopWebApp.Services.ViewModels;
 
 namespace RunGroopWebApp.Controllers

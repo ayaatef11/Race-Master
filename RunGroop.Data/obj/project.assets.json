@@ -5292,11 +5292,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
+      "projectUniqueName": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
       "projectName": "RunGroop.Data",
-      "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
+      "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
       "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-      "outputPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\obj\\",
+      "outputPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

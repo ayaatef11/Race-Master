@@ -1,0 +1,7 @@
+{
+ {
+
+  "Welcome": "welcome{0}every one"//0 here is an argument and we will have its value in the controller home
+
+ }
+}

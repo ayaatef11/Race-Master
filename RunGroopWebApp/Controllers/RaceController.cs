@@ -8,7 +8,7 @@ using RunGroop.Data.Models.Data;
 using RunGroop.Repository.Interfaces;
 using RunGroopWebApp.Data.Enum;
 using RunGroopWebApp.Extensions;
-using RunGroopWebApp.Services.interfaces;
+using RunGroopWebApp.Services.Services.interfaces;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers

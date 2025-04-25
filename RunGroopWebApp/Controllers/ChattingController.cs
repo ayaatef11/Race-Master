@@ -2,11 +2,18 @@
 
 namespace RunGroopWebApp.Controllers
 {
-    public class ConnectionController : Controller
+    public class ChattingController : Controller
     {
         public IActionResult Index()
         {
             return View();
         }
+
+        public IActionResult Notification()
+        {
+            return View();
+        }
+
+
     }
 }

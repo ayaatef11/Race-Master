@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RunGroopWebApp.Services.interfaces;
+using RunGroopWebApp.Services.Services.interfaces;
 using System.IO;
 
 namespace RunGroopWebApp.Controllers

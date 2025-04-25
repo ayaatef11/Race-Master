@@ -3347,11 +3347,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
+      "projectUniqueName": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
       "projectName": "RunGroop.Repository",
-      "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
+      "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Repository\\RunGroop.Repository.csproj",
       "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-      "outputPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Repository\\obj\\",
+      "outputPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3372,8 +3372,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
-              "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj"
+            "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj": {
+              "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj"
             }
           }
         }

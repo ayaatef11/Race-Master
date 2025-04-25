@@ -1,10 +1,5 @@
-﻿
-using GraphQL;
-using Microsoft.AspNetCore.Mvc;
-using RunGroop.Data.Interfaces.Repositories;
-using RunGroop.Data.Interfaces.Services;
+﻿using Microsoft.AspNetCore.Mvc;
 using RunGroop.Repository.Interfaces;
-using RunGroop.Repository.Repository;
 using RunGroopWebApp.ViewModels;
 
 namespace RunGroopWebApp.Controllers

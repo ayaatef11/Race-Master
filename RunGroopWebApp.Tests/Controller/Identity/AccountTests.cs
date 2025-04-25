@@ -4,12 +4,12 @@ using RunGroopWebApp.Controllers;
 using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Models.Identity;
 using RunGroop.Repository.Interfaces;
-using RunGroop.Data.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using RunGroop.Data.Data;
+using RunGroopWebApp.Services.Services.interfaces;
 
 public class AccountControllerTests
 {

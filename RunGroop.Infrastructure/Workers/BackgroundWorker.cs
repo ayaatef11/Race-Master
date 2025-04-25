@@ -4,11 +4,9 @@ using Microsoft.Extensions.Logging;
 namespace RunGroop.Infrastructure.Workers;
 
 public abstract class BackgroundWorker(
-    ILogger<BackgroundWorker> logger,
-    Func<CancellationToken, Task> perform) : BackgroundService
-{
-    private readonly ILogger<BackgroundWorker> _logger = logger;
-    private readonly Func<CancellationToken, Task> _perform = perform;
+    ILogger<BackgroundWorker> _logger,
+    Func<CancellationToken, Task> _perform) : BackgroundService
+{ 
 
     protected override Task ExecuteAsync(CancellationToken stoppingToken) =>
         Task.Run(async () =>

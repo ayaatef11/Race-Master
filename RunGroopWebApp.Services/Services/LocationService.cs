@@ -1,6 +1,6 @@
 ﻿using RunGroop.Data.Data;
-using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
+using RunGroopWebApp.Services.Services.interfaces;
 
 namespace RunGroopWebApp.Services
 {

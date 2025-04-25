@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System;
 
 namespace RunGroopWebApp.Controllers
 {
@@ -15,9 +13,7 @@ namespace RunGroopWebApp.Controllers
                 SameSite = SameSiteMode.Strict, 
                 Expires = DateTime.Now.AddDays(1) 
             };
-
             Response.Cookies.Append("auth-token", "your-token-value", cookieOptions);
-
             return Ok("HttpOnly cookie has been set.");
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HOr7MxWqpfA=",
+  "dgSpecHash": "Eh0drOJ5V/o=",
   "success": true,
-  "projectFilePath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
+  "projectFilePath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.Data\\RunGroop.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

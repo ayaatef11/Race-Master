@@ -1,18 +1,17 @@
 ﻿
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RunGroop.Data.Interfaces.Services;
 using RunGroop.Infrastructure;
 using RunGroop.Repository.Interfaces;
 using RunGroop.Repository.Repository;
 using RunGroopWebApp.Services;
-using RunGroopWebApp.Services.interfaces;
 using RunGroopWebApp.Services.Services;
+using RunGroopWebApp.Services.Services.interfaces;
 using Serilog;
 using Serilog.Formatting.Json;
 using Serilog.Sinks.File;
 
-   namespace RunGroop.Application.Extensions
+namespace RunGroop.Application.Extensions
 {
     public static class ApplicationExtensions
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BMGLuXVvgxw=",
+  "dgSpecHash": "epFTKgyj/PA=",
   "success": true,
-  "projectFilePath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\CleanArchitectrure.Application.UseCases\\RunGroop.UseCases.csproj",
+  "projectFilePath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\CleanArchitectrure.Application.UseCases\\RunGroop.UseCases.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Aya Atef\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Aya Atef\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",

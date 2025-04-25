@@ -1,12 +1,11 @@
-﻿
-using RunGroop.Data.Interfaces.Services;
-using RunGroop.Data.Models.Identity;
+﻿using RunGroop.Data.Models.Identity;
 using RunGroopWebApp.ViewModels;
 using RunGroop.Data.Data.Enum;
 using RunGroop.Data.Data;
 using RunGroop.Repository.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using RunGroopWebApp.Services.Services.interfaces;
 
 
 namespace RunGroopWebApp.Controllers

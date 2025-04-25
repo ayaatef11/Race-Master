@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿ using Microsoft.EntityFrameworkCore;
 using RunGroop.Data.Models.SignalR;
 
 namespace RunGroop.Infrastructure

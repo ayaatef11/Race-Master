@@ -3,7 +3,7 @@ using RunGroop.Data.Data;
 using RunGroop.Data.Models.Entities;
 using RunGroop.Data.Models.SignalR;
 using RunGroop.Infrastructure;
-using RunGroopWebApp.Services.interfaces;
+using RunGroopWebApp.Services.Services.interfaces;
 using RunGroopWebApp.Services.ViewModels;
 
 namespace RunGroopWebApp.Services.Services

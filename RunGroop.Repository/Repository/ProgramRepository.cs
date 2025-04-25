@@ -6,8 +6,7 @@ using RunGroop.Repository.Interfaces;
 namespace RunGroop.Repository.Repository
 {
     public class ProgramRepository<T> (DbContext _context) : IBaseRepository<T>, IProgramRepository<T> where T : class //, Entity
-        //entity should be interface to accept it, not a class
-        //you must specifiy the type of t to make the set works or it will give you error 
+       
     {
         public void Add(T entity) 
         {

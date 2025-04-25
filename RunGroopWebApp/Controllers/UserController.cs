@@ -45,7 +45,7 @@ namespace RunGroopWebApp.Controllers
             var user = await _UnitOfWork.UserRepository.GetUserById(id);
             if (user == null)
             {
-                return RedirectToAction("Index", "Users");//view all users 
+                return RedirectToAction("Index", "Users");
             }
 
             var userDetailViewModel = new UserDetailViewModel()
@@ -69,7 +69,6 @@ namespace RunGroopWebApp.Controllers
 
             if (user == null)
             {
-                //return View("Error");
                 user = new AppUser();
             }
 
@@ -128,7 +127,6 @@ namespace RunGroopWebApp.Controllers
             result.EnsureSuccessStatusCode();
             var response=await result.Content.ReadAsStringAsync();
             return x.DeserializeObject<IEnumerable<UserModel>>(response);
-
         }
     }
 }

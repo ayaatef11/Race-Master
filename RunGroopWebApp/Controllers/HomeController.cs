@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Localization;
 using RunGroop.Data.Interfaces.Repositories;
-using RunGroop.Data.Interfaces.Services;
 using RunGroop.Data.Models.Data;
 using RunGroop.Data.Models.Identity;
 //using RunGroopWebApp.Models;
@@ -17,6 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using RunGroopWebApp.Services.Services.interfaces;
 
 
 namespace RunGroopWebApp.Controllers
@@ -105,6 +105,7 @@ namespace RunGroopWebApp.Controllers
 
         public IActionResult Privacy()
         {
+            ViewBag.WelcomeMessage = string.Format(_localizer["welcome"], "aya atef");//here you pass the arguemnt 0 with aya atef
             return View();
         }
 

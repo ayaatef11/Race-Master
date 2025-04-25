@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj": {}
+    "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj": {}
   },
   "projects": {
-    "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj": {
+    "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj",
+        "projectUniqueName": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj",
         "projectName": "RunGroop.ServiceBus",
-        "projectPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj",
+        "projectPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.MessageProducer\\RunGroop.ServiceBus.csproj",
         "packagesPath": "C:\\Users\\Aya Atef\\.nuget\\packages\\",
-        "outputPath": "F:\\5-Full-stack\\2-Race_competition\\Race-Master\\RunGroop.MessageProducer\\obj\\",
+        "outputPath": "F:\\5-Full-stack\\4-Race_competition\\Race-Master\\RunGroop.MessageProducer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
